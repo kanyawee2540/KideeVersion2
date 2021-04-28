@@ -31,7 +31,9 @@ public class KeepInorder : MonoBehaviour
     public GameObject winText1;
     public GameObject winText2;
     public GameObject winText3;
-
+    public GameObject room;
+    public GameObject BeforePlay;
+    public GameObject BeforePlay1;
 
     // Start is called before the first frame update
     void Start()
@@ -56,8 +58,7 @@ public class KeepInorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if(GreenDrag.locked && GreenDrag2.locked&& RedDrag.locked
-                && RedDrag2.locked&& YellowDrag2.locked&& YellowDrag.locked){
+        //scene1
             GreenDrag.locked = false;
             GreenDrag2.locked = false;
             RedDrag.locked = false; 
@@ -65,8 +66,10 @@ public class KeepInorder : MonoBehaviour
             YellowDrag2.locked = false;
             YellowDrag.locked = false;
             winText1.SetActive(true);
+            BeforePlay.SetActive(false);
             correct();
         }
+        //scene2
         if(book1.locked&&book2.locked&&toy1.locked&&toy2.locked&&toy3.locked&&toy4.locked)
         {
             book1.locked = false;
@@ -76,43 +79,11 @@ public class KeepInorder : MonoBehaviour
             toy3.locked = false;
             toy4.locked = false;
             winText2.SetActive(true);
+            BeforePlay1.SetActive(false);
             correct();
+            saveinTheEnd();
 
         }
-        /*if(DragCarrot1.locked&&DragCarrot2.locked && DragCarrot3.locked && DragCarrot4.locked && DragCarrot5.locked){
-            /*ถ้าไม่ทำการจับมา false เลขคะแนนจะรันไปเรื่อยๆ
-            DragCarrot1.locked = false;
-            DragCarrot2.locked = false;
-            DragCarrot3.locked = false;
-            DragCarrot4.locked = false;
-            DragCarrot5.locked = false;
-            correct();
-            m_MyText.text =" "+score;
-            winText2.SetActive(true);
-
-        }
-        if(hamburger.locked && watermalon.locked && unicon.locked && tomato.locked){
-            hamburger.locked = false;
-            watermalon.locked = false;
-            unicon.locked = false;
-            tomato.locked = false;
-            winText1.SetActive(true);
-            correct();
-            m_MyText.text =" "+score;
-
-        }
-        if(trash.locked && trash2.locked && trash3.locked && trash4.locked && trash5.locked&& trash6.locked){
-            trash.locked = false;
-            trash2.locked = false;
-            trash3.locked = false;
-            trash4.locked = false;
-            trash5.locked = false;
-            trash6.locked = false;
-            winText3.SetActive(true);
-            correct();
-            saveinEnd();
-            m_MyText.text =" "+score;
-        }*/
         
     }
     public void correct(){

@@ -7,11 +7,16 @@ public class Gamecontrol2 : MonoBehaviour
     // Start is called before the first frame update
    [SerializeField]
     public GameObject winText1;
+    public GameObject room;
+    public GameObject questionUI;
+    public GameObject correctUI;
    
 
     // Start is called before the first frame update
     void Start()
     {
+        questionUI.SetActive(true);
+        correctUI.SetActive(false);
          winText1.SetActive(false);
         
     }
@@ -23,7 +28,8 @@ public class Gamecontrol2 : MonoBehaviour
        
         if(book1.locked && book2.locked && GreenDrag.locked && GreenDrag2.locked&& RedDrag.locked
         && RedDrag2.locked&& YellowDrag2.locked&& YellowDrag.locked){
-            winText1.SetActive(true);
+            questionUI.SetActive(false);
+            correctUI.SetActive(true);
         }
       
         
