@@ -59,6 +59,7 @@ public class KeepInorder : MonoBehaviour
     void Update()
     {
         //scene1
+        if(GreenDrag.locked&& GreenDrag2.locked&& RedDrag.locked&& RedDrag2.locked&& YellowDrag2.locked&& YellowDrag.locked){
             GreenDrag.locked = false;
             GreenDrag2.locked = false;
             RedDrag.locked = false; 
