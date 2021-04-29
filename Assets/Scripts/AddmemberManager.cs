@@ -144,17 +144,22 @@ public class AddmemberManager : MonoBehaviour
         GetCount();
         //print(count+"Start");
         Invoke("AddButtons", 3); 
+        nameList.Clear();
+        picList.Clear();
 
          // AddButtons();
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId) 
        // หากข้อมูลมีการเปลี่ยนแหลงให้ทำการอ่านและแสดง
        .ValueChanged += HandleValueChanged;
 
+         for(int i = 0 ; i < nameList.Count; i++){
+         print("nameList "+i+" "+nameList[i]);
 
+    }
     }
  void Update()
     {
-        GetCount();
+        //GetCount();
        // mainInputField2.Select();
     }
     
@@ -220,6 +225,10 @@ public class AddmemberManager : MonoBehaviour
 
     public void AddButtons(){
         nameText.text ="";
+    //     for(int i = 0 ; i < nameList.Count; i++){
+    //      print("nameList "+i+" "+nameList[i]);
+
+    // }
         //display="";
        
      //StartCoroutine("Wait");
@@ -688,15 +697,16 @@ public class AddmemberManager : MonoBehaviour
     // ใช้สำหรับ แสดงข้อมูลที่โหลดครับ
     void DisplayData(DataSnapshot snapshot, string key)
     {
+
         string j = snapshot.Child(key).GetRawJsonValue();
         Member u = JsonUtility.FromJson<Member>(j);
          // Debug.Log(u.pic+" "+u.m_name+" "+u.m_password);
         //Debug.Log("key "+key);
-       getNameMember(u.m_name);
-        getpassswordMember(u.m_password);
-        getPicMember(u.pic);
+            getNameMember(u.m_name);
+            getpassswordMember(u.m_password);
+            getPicMember(u.pic);
        if(!keyList.Contains(key)&&!key.Contains("User")){
-        getKeyMember(key);
+            getKeyMember(key);
         
        
        }

@@ -195,8 +195,13 @@ public class CilckProfile : MonoBehaviour
     public void ConfirmButton()
     {
         nameField=Field.text;
-        reference.Child(LoginManager.localId).Child(KeyClick).Child("pic").SetValueAsync(Count);
+        if(!nameField.Equals(""))
+        {
         reference.Child(LoginManager.localId).Child(KeyClick).Child("m_name").SetValueAsync(nameField);
+        nameText.text = nameField;
+        Field.text="";
+        }
+        reference.Child(LoginManager.localId).Child(KeyClick).Child("pic").SetValueAsync(Count);
 
     }
 }

@@ -5120,7 +5120,7 @@ MonoBehaviour:
   delayBeforestory10: 99
   delayBeforestory11: 109
   delayBeforestory12: 119
-  delayBeforestory13: 129
+  delayBeforestory13: 135
   story1: {fileID: 742856070}
   story2: {fileID: 421294502}
   story3: {fileID: 332798531}
