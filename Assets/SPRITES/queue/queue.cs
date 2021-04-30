@@ -1,6 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Proyecto26;
+using UnityEngine.SceneManagement;
+using System;
+using System.Linq;
+using Firebase;
+using Firebase.Database;
+using Firebase.Extensions;
+using Object = UnityEngine.Object;
+using UnityEngine.EventSystems;
 
 public class queue : MonoBehaviour
 {
@@ -62,4 +72,5 @@ public class queue : MonoBehaviour
 
         }
     }
+
 }

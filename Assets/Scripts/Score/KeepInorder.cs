@@ -15,17 +15,14 @@ using UnityEngine.EventSystems;
 
 public class KeepInorder : MonoBehaviour
 { 
-    /*กันลอง*/
     public string databaseURL = "https://project-75a5c-default-rtdb.firebaseio.com/"; 
     private DatabaseReference reference;
      public static int countHis;
      public int score,scoreIncorrect;
-     public int showscore;
      public static int history;
      public static string s;
      public static string member;
      public static string day,time;
-     public Text m_MyText;
     
     [SerializeField]
     public GameObject winText1;
