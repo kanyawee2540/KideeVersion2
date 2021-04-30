@@ -159,7 +159,7 @@ public class AddmemberManager : MonoBehaviour
     }
  void Update()
     {
-        //GetCount();
+        GetCount();
        // mainInputField2.Select();
     }
     
@@ -208,7 +208,7 @@ public class AddmemberManager : MonoBehaviour
    
     public void OnSubmit()
     { 
-        
+    nameOnTable.Clear();
     nameMember = nameField.text;
     passwordMember = passwordField1.text+""+passwordField2.text+""+passwordField3.text+""+passwordField4.text;
     WriteAllData();
@@ -291,8 +291,8 @@ public class AddmemberManager : MonoBehaviour
        nameText.text ="";
        //nameOnTable.Add(nameList2[nameList2.Count-1]);
         for(int i=0;i<nameOnTable.Count;i++){
-     //  print("nameOnTable   : "+i+nameOnTable[i]);
-       reportBtn[i].gameObject.SetActive(true); 
+        print("nameOnTable AddButtons2  : "+i+nameOnTable[i]);
+        reportBtn[i].gameObject.SetActive(true); 
         starBtn[i].gameObject.SetActive(true); 
         }
         //display="";
@@ -361,7 +361,7 @@ public class AddmemberManager : MonoBehaviour
     // StartCoroutine("Wait");
        
         for(int i=0;i<nameOnTable.Count;i++){
-      // print("nameOnTable   : "+i+nameOnTable[i]);
+             print("nameOnTable ChangeButtons  : "+i+nameOnTable[i]);
         // reportBtn[i].gameObject.SetActive(true); 
         // starBtn[i].gameObject.SetActive(true); 
 
@@ -375,8 +375,8 @@ public class AddmemberManager : MonoBehaviour
         }
 
          for(int i=0;i<GetCount();i++){
-            buttons[i].gameObject.SetActive(true); 
-          buttons[i].GetComponentInChildren<Text>().text = ""+nameList3[i]; //****** i member name ?
+        buttons[i].gameObject.SetActive(true); 
+        buttons[i].GetComponentInChildren<Text>().text = ""+nameList3[i]; //****** i member name ?
           
        int c=Int32.Parse(""+picList[i]);
         if(c==1)
@@ -738,7 +738,7 @@ public class AddmemberManager : MonoBehaviour
 //         print("name ="+name);
 //      }
 //     }
-if(!name.Equals("")){
+        if(!name.Equals("")){
         nameIncheckList.Add(name);
         //nameIncheckList.RemoveAt(nameIncheckList.Count);
  //print("name ="+name);
