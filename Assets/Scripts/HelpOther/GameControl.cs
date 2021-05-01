@@ -64,7 +64,7 @@ public class GameControl : MonoBehaviour
             DragCarrot4.locked = false;
             DragCarrot5.locked = false;
             correct();
-            m_MyText.text =" "+score;
+            saveinEnd();
             winText2.SetActive(true);
 
         }
@@ -75,7 +75,7 @@ public class GameControl : MonoBehaviour
             tomato.locked = false;
             winText1.SetActive(true);
             correct();
-            m_MyText.text =" "+score;
+            saveinEnd();
 
         }
         if(trash.locked && trash2.locked && trash3.locked && trash4.locked && trash5.locked&& trash6.locked){
@@ -88,7 +88,6 @@ public class GameControl : MonoBehaviour
             winText3.SetActive(true);
             correct();
             saveinEnd();
-            m_MyText.text =" "+score;
         }
         
     }

@@ -1079,8 +1079,6 @@ GameObject:
   - component: {fileID: 232582516}
   - component: {fileID: 232582515}
   - component: {fileID: 232582517}
-  - component: {fileID: 232582518}
-  - component: {fileID: 232582519}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1142,36 +1140,6 @@ MonoBehaviour:
   howto1UI: {fileID: 0}
   howto2UI: {fileID: 0}
   howto3UI: {fileID: 0}
---- !u!114 &232582518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232582514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe036212d4465ff40a6e50e5d7ffd073, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  databaseURL: https://project-75a5c-default-rtdb.firebaseio.com/
-  score: 0
-  scoreIncorrect: 0
---- !u!114 &232582519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232582514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfae601b2a48b5544b98f47a98ed13af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  databaseURL: https://project-75a5c-default-rtdb.firebaseio.com/
-  score: 0
-  scoreIncorrect: 0
 --- !u!1 &233912961
 GameObject:
   m_ObjectHideFlags: 0
