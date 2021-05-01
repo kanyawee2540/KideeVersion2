@@ -11,6 +11,7 @@ using Firebase.Database;
 using Firebase.Extensions;
 using Object = UnityEngine.Object;
 using UnityEngine.EventSystems;
+using Firebase.Auth;
 
 
 // using UnityEngine.object;
@@ -121,6 +122,9 @@ public class AddmemberManager : MonoBehaviour
          [SerializeField]
         private Button[] starBtn;
         public string buttonStarName;
+
+        public static string userEmail;
+        private FirebaseAuth auth;
     private void Awake()
     {
 
@@ -128,6 +132,7 @@ public class AddmemberManager : MonoBehaviour
     }
     void Start()
     {
+        auth = FirebaseAuth.DefaultInstance;
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
         
@@ -138,6 +143,7 @@ public class AddmemberManager : MonoBehaviour
         string s = snapshot.Child("User").Child("gender").Value.ToString();
         gender=Int32.Parse(s);
         string s2 = snapshot.Child("User").Child("userName").Value.ToString();
+        userEmail = snapshot.Child("User").Child("userEmail").Value.ToString();
         name=s2;
     });  
         
@@ -587,6 +593,30 @@ public class AddmemberManager : MonoBehaviour
     }
        public void CheckPasswordAddmember()
     {
+        //ลอง-------------------------------------------------------------------------------
+        string password =passwordAddField.text;
+        
+        auth.SignInWithEmailAndPasswordAsync(userEmail, password).ContinueWith(task => {
+            if (task.IsCanceled) {
+                print("not pass1");
+                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted) {
+                print("not pass2");
+                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+            return;
+            }
+        Firebase.Auth.FirebaseUser newUser = task.Result;
+        print("pass");
+        passwordAddmemberbox.SetActive(false);
+        Addmemberbox.SetActive(false);
+        OnSubmit();
+        AddSuccessUI.SetActive(true);
+        Invoke("AddSuccess", 3); 
+        });
+        //ลอง-------------------------------------------------------------------------------
+/*
            
          //string p =""+passwordList[buttonName];
          string pf =passwordAddField.text;
@@ -602,7 +632,7 @@ public class AddmemberManager : MonoBehaviour
             
          }else{
               print("not pass");
-         } 
+         } */
     }
 
        public void CheckPasswordRemovemember()
