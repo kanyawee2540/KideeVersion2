@@ -90,11 +90,11 @@ public class StarCollection : MonoBehaviour
     {       sumSpeaking=0;
             sumQueue=0; 
             sumHelpOther=0; 
-            sumHelpOther=0;  
+            sumKeepInOrder=0;  
             sumSpeaking=Speakingtoggle1.countScore1+Speakingtoggle2.countScore2+Speakingtoggle3.countScore3+Speakingtoggle4.countScore;
             sumQueue=Queuetoggle1.countScore1+Queuetoggle2.countScore1;
             sumHelpOther=HelpOthertoggle1.countScore1+HelpOthertoggle2.countScore1;
-            sumHelpOther=KeepInOrdertoggle1.countScore1+KeepInOrdertoggle2.countScore1; 
+            sumKeepInOrder=KeepInOrdertoggle1.countScore1+KeepInOrdertoggle2.countScore1; 
             
             // print("reference :"+RemoveMember.keyList[buttonStarCount]);
             // print("LoginManager.localId :"+LoginManager.localId);
@@ -112,7 +112,11 @@ public class StarCollection : MonoBehaviour
         history +=1;
         inToHis = "History"+history;
         print("inToHis:"+inToHis);
-        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Speaking").SetValueAsync(c2);
+        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Speaking").SetValueAsync(sumSpeaking);
+        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Queue").SetValueAsync(sumQueue);
+        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("HelpOther").SetValueAsync(sumHelpOther);
+        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("KeepInOrder").SetValueAsync(sumKeepInOrder);
+
         reference.Child(LoginManager.localId).Child(s).Child("ObservationHistory").SetValueAsync(history);
 
 
@@ -126,7 +130,7 @@ public class StarCollection : MonoBehaviour
  public void OnClickedStar(Button button) //ดูว่ากดปุ่มดาวคนไหน 
     {
         
-        if(button.name=="StarBTN0"||button.name=="reportBTN0"){
+        if(button.name=="StarBTN0"){
             buttonStarName=""+AddmemberManager.nameOnTable[0];
             buttonStarCount=0;
             print("buttonStarName "+buttonStarName);
@@ -135,13 +139,12 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[0];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[0];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[0];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[0];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[0];
+            
 
 
            
         }
-        else if(button.name=="StarBTN1"||button.name=="reportBTN1"){
+        else if(button.name=="StarBTN1"){
             buttonStarName=""+AddmemberManager.nameOnTable[1];
             buttonStarCount=1;
             print("buttonStarName "+buttonStarName);
@@ -150,12 +153,11 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[1];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[1];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[1];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[1];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[1];
+           
            
 
         }
-        else if(button.name=="StarBTN2"||button.name=="reportBTN2"){
+        else if(button.name=="StarBTN2"){
             buttonStarName=""+AddmemberManager.nameOnTable[2];
             buttonStarCount=2;
             print("buttonStarName "+buttonStarName);
@@ -164,11 +166,9 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[2];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[2];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[2];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[2];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[2];
-
+            
         }
-        else if(button.name=="StarBTN3"||button.name=="reportBTN3"){
+        else if(button.name=="StarBTN3"){
             buttonStarName=""+AddmemberManager.nameOnTable[3];
             buttonStarCount=3;
             print("buttonStarName "+buttonStarName);
@@ -177,11 +177,10 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[3];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[3];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[3];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[3];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[3];
+            
            
         
-        }else if(button.name=="StarBTN4"||button.name=="reportBTN4"){
+        }else if(button.name=="StarBTN4"){
             buttonStarName=""+AddmemberManager.nameOnTable[4];
             buttonStarCount=4;
             print("buttonStarName "+buttonStarName);
@@ -190,11 +189,9 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[4];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[4];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[4];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[4];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[4];
-
+            
         }
-        else if(button.name=="StarBTN5"||button.name=="reportBTN5"){
+        else if(button.name=="StarBTN5"){
             buttonStarName=""+AddmemberManager.nameOnTable[5];
             buttonStarCount=5;
             print("buttonStarName "+buttonStarName);
@@ -203,11 +200,10 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[5];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[5];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[5];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[5];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[5];
+            
         
         }
-        else if(button.name=="StarBTN6"||button.name=="reportBTN6"){
+        else if(button.name=="StarBTN6"){
             buttonStarName=""+AddmemberManager.nameOnTable[6];
             buttonStarCount=6;
             print("buttonStarName "+buttonStarName);
@@ -216,10 +212,9 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[6];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[6];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[6];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[6];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[6];
+           
         }
-        else if(button.name=="StarBTN7"||button.name=="reportBTN7"){
+        else if(button.name=="StarBTN7"){
             buttonStarName=""+AddmemberManager.nameOnTable[7];
             buttonStarCount=7;
             print("buttonStarName "+buttonStarName);
@@ -228,10 +223,9 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[7];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[7];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[7];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[7];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[7];
+            
         }
-        else if(button.name=="StarBTN8"||button.name=="reportBTN8"){
+        else if(button.name=="StarBTN8"){
             buttonStarName=""+AddmemberManager.nameOnTable[8];
             buttonStarCount=8;
             print("buttonStarName "+buttonStarName);
@@ -240,11 +234,9 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[8];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[8];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[8];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[8];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[8];
             
         }
-        else if(button.name=="StarBTN9"||button.name=="reportBTN9"){
+        else if(button.name=="StarBTN9"){
             buttonStarName=""+AddmemberManager.nameOnTable[9];
             buttonStarCount=9;
             print("buttonStarName "+buttonStarName);
@@ -253,8 +245,7 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[9];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[9];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[9];
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[9];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[9];
+           
         }
 
        Invoke("CheckImage",1);
@@ -360,6 +351,8 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite1;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite1;
             ImagesQueue.GetComponent<Image>().sprite=sprite1;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite1;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite1;
             ImagesObservation1.GetComponent<Image>().sprite=sprite1;
             ImagesObservation2.GetComponent<Image>().sprite=sprite1;
 
@@ -370,6 +363,8 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite2;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite2;
             ImagesQueue.GetComponent<Image>().sprite=sprite2;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite2;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite2;
             ImagesObservation1.GetComponent<Image>().sprite=sprite2;
             ImagesObservation2.GetComponent<Image>().sprite=sprite2;
 
@@ -380,6 +375,8 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite3;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite3;
             ImagesQueue.GetComponent<Image>().sprite=sprite3;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite3;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite3;
             ImagesObservation1.GetComponent<Image>().sprite=sprite3;
             ImagesObservation2.GetComponent<Image>().sprite=sprite3;
 
@@ -390,6 +387,8 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite4;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite4;
             ImagesQueue.GetComponent<Image>().sprite=sprite4;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite4;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite4;
             ImagesObservation1.GetComponent<Image>().sprite=sprite4;
             ImagesObservation2.GetComponent<Image>().sprite=sprite4;
 
@@ -399,6 +398,8 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite5;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite5;
             ImagesQueue.GetComponent<Image>().sprite=sprite5;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite5;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite5;
             ImagesObservation1.GetComponent<Image>().sprite=sprite5;
             ImagesObservation2.GetComponent<Image>().sprite=sprite5;
 
@@ -409,6 +410,8 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite6;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite6;
             ImagesQueue.GetComponent<Image>().sprite=sprite6;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite6;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite6;
             ImagesObservation1.GetComponent<Image>().sprite=sprite6;
             ImagesObservation2.GetComponent<Image>().sprite=sprite6;
 
@@ -418,8 +421,10 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite7;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite7;
             ImagesQueue.GetComponent<Image>().sprite=sprite7;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite7;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite7;
             ImagesObservation1.GetComponent<Image>().sprite=sprite7;
-            ImagesObservation2.GetComponent<Image>().sprite=sprite6;
+            ImagesObservation2.GetComponent<Image>().sprite=sprite7;
 
         }
         else  if(c==8)
@@ -427,8 +432,10 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite8;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite8;
             ImagesQueue.GetComponent<Image>().sprite=sprite8;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite8;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite8;
             ImagesObservation1.GetComponent<Image>().sprite=sprite8;
-            ImagesObservation2.GetComponent<Image>().sprite=sprite6;
+            ImagesObservation2.GetComponent<Image>().sprite=sprite8;
 
         }
         else  if(c==9)
@@ -436,8 +443,10 @@ public class StarCollection : MonoBehaviour
             Images.GetComponent<Image>().sprite=sprite9;
             ImagesSpeaking.GetComponent<Image>().sprite=sprite9;
             ImagesQueue.GetComponent<Image>().sprite=sprite9;
+            ImagesHelpOther.GetComponent<Image>().sprite=sprite9;
+            ImagesKeepInOrder.GetComponent<Image>().sprite=sprite9;
             ImagesObservation1.GetComponent<Image>().sprite=sprite9;
-            ImagesObservation2.GetComponent<Image>().sprite=sprite6;
+            ImagesObservation2.GetComponent<Image>().sprite=sprite9;
 
         }
         
