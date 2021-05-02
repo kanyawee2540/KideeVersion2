@@ -22,7 +22,9 @@ public class HelpOthertoggle2 : MonoBehaviour
         
     }
     public void Submit()
+    
     {
+        countScore1=0;
         Toggle helpOthertoggle1 = HelpOtherGroup.ActiveToggles().FirstOrDefault();
         Debug.Log(helpOthertoggle1.name);
         string helpOthername1=""+helpOthertoggle1.name;

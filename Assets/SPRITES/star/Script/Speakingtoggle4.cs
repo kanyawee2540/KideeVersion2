@@ -25,6 +25,7 @@ public class Speakingtoggle4 : MonoBehaviour
     }
  public void Submit()
     {
+        countScore=0;
         Toggle speakingtoggle1 = SpeakingGroup.ActiveToggles().FirstOrDefault();
         Debug.Log(speakingtoggle1.name);
         string Speakingname1=""+speakingtoggle1.name;

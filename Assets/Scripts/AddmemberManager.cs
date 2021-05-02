@@ -221,6 +221,7 @@ public class AddmemberManager : MonoBehaviour
    // test.text = "Post Data ";
     count++;
     reference.Child(LoginManager.localId).Child("m_count").SetValueAsync(count);
+    
       //StartCoroutine("Wait");
       //AddButtons2();
      Invoke("AddButtons2", 2); 
@@ -698,7 +699,9 @@ public class AddmemberManager : MonoBehaviour
         print("json "+json);
         string s = LoginManager.localId;
         // เขียนข้อมูลลง Firebase
-        reference.Child(LoginManager.localId).Child(memberURL).SetRawJsonValueAsync(json);    
+        reference.Child(LoginManager.localId).Child(memberURL).SetRawJsonValueAsync(json);
+        reference.Child(LoginManager.localId).Child(memberURL).Child("ObservationHistory").SetValueAsync(0);    
+    
 }
   
 

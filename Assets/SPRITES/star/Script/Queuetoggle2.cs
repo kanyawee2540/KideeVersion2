@@ -22,6 +22,7 @@ public class Queuetoggle2 : MonoBehaviour
     }
     public void Submit()
     {
+        countScore1=0;
         Toggle queuetoggle1 =QueueGroup.ActiveToggles().FirstOrDefault();
         Debug.Log(queuetoggle1.name);
         string queuename1=""+queuetoggle1.name;

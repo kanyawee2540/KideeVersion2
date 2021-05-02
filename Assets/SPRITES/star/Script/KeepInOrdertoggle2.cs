@@ -22,6 +22,7 @@ public class KeepInOrdertoggle2 : MonoBehaviour
     }
     public void Submit()
     {
+        countScore1=0;
         Toggle keepInOrdertoggle1 =KeepInOrderGroup.ActiveToggles().FirstOrDefault();
         Debug.Log(keepInOrdertoggle1.name);
         string keepInOrdername1=""+keepInOrdertoggle1.name;
