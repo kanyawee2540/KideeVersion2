@@ -68,7 +68,7 @@ void Start()
             return;
         }
         
-        
+
         /*Debug.Log("Password reset email sent successfully.");*/
   });    
             

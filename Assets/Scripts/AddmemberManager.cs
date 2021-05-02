@@ -220,7 +220,7 @@ public class AddmemberManager : MonoBehaviour
     WriteAllData();
    // test.text = "Post Data ";
     count++;
-      reference.Child(LoginManager.localId).Child("m_count").SetValueAsync(count);
+    reference.Child(LoginManager.localId).Child("m_count").SetValueAsync(count);
       //StartCoroutine("Wait");
       //AddButtons2();
      Invoke("AddButtons2", 2); 
@@ -594,29 +594,26 @@ public class AddmemberManager : MonoBehaviour
        public void CheckPasswordAddmember()
     {
         //ลอง-------------------------------------------------------------------------------
-        string password =passwordAddField.text;
+        // string password =passwordAddField.text;
         
-        auth.SignInWithEmailAndPasswordAsync(userEmail, password).ContinueWith(task => {
-            if (task.IsCanceled) {
-                print("not pass1");
-                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted) {
-                print("not pass2");
-                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-            return;
-            }
-        Firebase.Auth.FirebaseUser newUser = task.Result;
-        print("pass");
-        passwordAddmemberbox.SetActive(false);
-        Addmemberbox.SetActive(false);
-        OnSubmit();
-        AddSuccessUI.SetActive(true);
-        Invoke("AddSuccess", 3); 
-        });
+        // auth.SignInWithEmailAndPasswordAsync(userEmail, password).ContinueWith(task => {
+        //     if (task.IsCanceled) {
+        //         print("not pass1");
+        //         Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+        //         return;
+        //     }
+        //     if (task.IsFaulted) {
+        //         print("not pass2");
+        //         Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+        //     return;
+        //     }else{
+        //           AddmemberNew();
+        //     }
+        //Firebase.Auth.FirebaseUser newUser = task.Result;
+       
+       // });
         //ลอง-------------------------------------------------------------------------------
-/*
+
            
          //string p =""+passwordList[buttonName];
          string pf =passwordAddField.text;
@@ -632,8 +629,10 @@ public class AddmemberManager : MonoBehaviour
             
          }else{
               print("not pass");
-         } */
+         } 
     }
+
+     
 
        public void CheckPasswordRemovemember()
     {

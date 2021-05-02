@@ -132,6 +132,8 @@ void Start()
                            // uusername=RegisterManager.u_username ;
                             GetUsername();
                             testLogin.text ="Login Success";
+                            reference.Child(LoginManager.localId).Child("User").Child("password").SetValueAsync(password);
+
                             Login();
                         }
                         else
