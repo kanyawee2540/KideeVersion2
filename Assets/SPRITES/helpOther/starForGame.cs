@@ -19,6 +19,86 @@ public class starForGame : MonoBehaviour
     public static int countHis;
      public int score,scoreIncorrect,fullScore;
      public double realScore;
+     public int history;
+     public static string s,correctInHis,fullScoreInHis;
+     public string inToHis;
+
+
+    public GameObject star1;
+    public GameObject star2;
+    public GameObject star3;
+    public GameObject nostar1;
+    public GameObject nostar2;
+    public GameObject nostar3;
+    public Text m_score,m_fullScore,m_realScore,m_history;
+    //public GameObject inCorrectUI;
+    // Start is called before the first frame update
+    void Start()
+    {
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+        FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
+        
+        FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
+    {  
+        DataSnapshot snapshot = task.Result;
+      
+        fullScoreInHis = snapshot.Child(AddmemberManager.buttonKey).Child("helpOtherFullScore").Value.ToString();
+        fullScore = Int32.Parse(fullScoreInHis);
+        s = snapshot.Child(AddmemberManager.buttonKey).Child("helpOtherHistory").Value.ToString();
+        history = Int32.Parse(s);
+        history +=1;
+        inToHis = "History"+history;  
+        //ตัวปัญหาาาาาาาาาาาาาาาาาาาาาาาาาาาา
+        correctInHis = snapshot.Child(AddmemberManager.buttonKey).Child("HelpOther").Child(inToHis).Child("Date").Value.ToString();
+        //---------------------
+    });  
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+            
+
+        
+
+    }
+    public void showStar(){
+        print("in history "+history);
+        /*print("score "+score);*/
+        print("helpother fullscore "+fullScore);
+        print("test date "+correctInHis);
+    }
+}
+
+
+
+
+
+
+
+
+
+/*using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using Proyecto26;
+using UnityEngine.SceneManagement;
+using System;
+using System.Linq;
+using Firebase;
+using Firebase.Database;
+using Firebase.Extensions;
+using Object = UnityEngine.Object;
+using UnityEngine.EventSystems;
+
+public class starForGame : MonoBehaviour
+{
+    public string databaseURL = "https://project-75a5c-default-rtdb.firebaseio.com/"; 
+    private DatabaseReference reference;
+    public static int countHis;
+     public int score,scoreIncorrect,fullScore;
+     public double realScore;
      public static int history;
      public static string s,inToHis,correctInHis,fullScoreInHis;
 
@@ -52,14 +132,17 @@ public class starForGame : MonoBehaviour
         inToHis = "History"+history;
         correctInHis = snapshot.Child(AddmemberManager.buttonKey).Child("HelpOther").Child(inToHis).Child("Correct").Value.ToString();
         fullScoreInHis = snapshot.Child(AddmemberManager.buttonKey).Child("helpOtherFullScore").Value.ToString();
-        /*incorrectInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();*/
+        /*incorrectInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();
+
+
+
         score = Int32.Parse(correctInHis);
         fullScore = Int32.Parse(fullScoreInHis);
-        /*scoreIncorrect = Int32.Parse(incorrectInHis);*/
+        scoreIncorrect = Int32.Parse(incorrectInHis);
         
         
         /*m_MyText2.text = "scoreincorrect is "+scoreIncorrect;
-        m_MyText3.text = "inhistory "+history;*/
+        m_MyText3.text = "inhistory "+history;
 
     });  
     }
@@ -212,5 +295,5 @@ public class starForGame : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-    }*/
-}
+    }
+}*/

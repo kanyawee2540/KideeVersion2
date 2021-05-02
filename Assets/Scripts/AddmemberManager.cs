@@ -112,7 +112,7 @@ public class AddmemberManager : MonoBehaviour
     public GameObject RemoveSuccessUI; 
         public string databaseURL = "https://project-75a5c-default-rtdb.firebaseio.com/"; 
         public static string memberURL;
-        public string memberName;
+        public static string memberName;
 
         [Header("Star")]
         public Text nameText;
@@ -699,6 +699,7 @@ public class AddmemberManager : MonoBehaviour
         print("json "+json);
         string s = LoginManager.localId;
         // เขียนข้อมูลลง Firebase
+        reference.Child(LoginManager.localId).Child(memberName).SetValueAsync(memberURL);    
         reference.Child(LoginManager.localId).Child(memberURL).SetRawJsonValueAsync(json);
         reference.Child(LoginManager.localId).Child(memberURL).Child("ObservationHistory").SetValueAsync(0);    
     
