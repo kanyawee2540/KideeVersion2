@@ -60,6 +60,8 @@ public class StarCollection : MonoBehaviour
     public Text scoreSpeakingAfter;
     public Text scoreSQueueBefore;
     public Text scoreQueueAfter;
+    
+
 
     [Header("ObservationUI2")]
     public GameObject ImagesObservation2;
@@ -107,32 +109,59 @@ public class StarCollection : MonoBehaviour
         DataSnapshot snapshot = task.Result;
         string No = snapshot.Child(s).Child("ObservationHistory").Value.ToString();
         print("No:"+No);
-        int history = Int32.Parse(No);
-        history +=1;
-        inToHis = "History"+history;
-        print("inToHis:"+inToHis);
-        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Speaking").SetValueAsync(0);
-        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Queue").SetValueAsync(0);
-        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("HelpOther").SetValueAsync(0);
-        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("KeepInOrder").SetValueAsync(0);
+        // int history = Int32.Parse(No);
+        // history +=1;
+        // inToHis = "History"+history;
+        // print("inToHis:"+inToHis);
+        Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
+        print("Before play:"+Before);
+        scoreSpeakingBefore.text = Before;
 
-        if(history>1)
-        {
-            Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
-            print("Before play:"+Before);
-            Invoke("ObservationText",4);
+        After = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("Speaking").Value.ToString();
+        print("After play:"+After);
+        scoreSpeakingAfter.text = After;
+
+        // if(history>1)
+        // {
+        //     
+        //     reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Speaking").SetValueAsync(0);
+        //     reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Queue").SetValueAsync(0);
+        //     reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("HelpOther").SetValueAsync(0);
+        //     reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("KeepInOrder").SetValueAsync(0);
+
+        //     
             
-        }
-        /*incorrectInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();*/
+            
+        // }
+        // else
+        // {
+        //     scoreSpeakingBefore.text = "";
+        //     scoreSpeakingAfter.text = "";
+        // }
 
+        // if(history>2)
+        // {
+           
+       
+
+            
+            
+        // }
+        // else
+        // {
+        //     scoreSpeakingAfter.text = "";
+        // }
+        
+
+        
     });
 
     }
-    public void ObservationText()
-    { 
-        scoreSpeakingBefore.text = Before;
-        print("Before:"+Before);
-    }
+    // public void ObservationText()
+    // { 
+    //     scoreSpeakingBefore.text = Before;
+    //     scoreSpeakingAfter.text = After;
+
     public void ObservationScore()
     {       sumSpeaking=0;
             sumQueue=0; 
@@ -160,13 +189,13 @@ public class StarCollection : MonoBehaviour
         inToHis = "History"+history;
         print("inToHis:"+inToHis);
 
-        if(history>=1)
-        {
-            Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
-            print("Before play:"+Before);
-            scoreSpeakingBefore.text = Before;
+        // if(history>=1)
+        // {
+            // Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
+            // print("Before play:"+Before);
+            // scoreSpeakingBefore.text = Before;
 
-        }
+        // }
 
         reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Speaking").SetValueAsync(sumSpeaking);
         reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Queue").SetValueAsync(sumQueue);
@@ -174,14 +203,14 @@ public class StarCollection : MonoBehaviour
         reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("KeepInOrder").SetValueAsync(sumKeepInOrder);
         reference.Child(LoginManager.localId).Child(s).Child("ObservationHistory").SetValueAsync(history);
 
-        After = snapshot.Child(s).Child("ObservationScore").Child("inToHis").Child("Speaking").Value.ToString();
-        print("After play:"+After);
-        scoreSpeakingAfter.text = After;
+
+        // After = snapshot.Child(s).Child("ObservationScore").Child("inToHis").Child("Speaking").Value.ToString();
+        // print("After play:"+After);
+        // scoreSpeakingAfter.text = After;
 
         /*incorrectInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();*/
 
     });
-
     }
 
   
@@ -402,6 +431,10 @@ public class StarCollection : MonoBehaviour
     {
         
         c=Int32.Parse(""+AddmemberManager.picList[buttonStarCount]);
+        for(int i=0;i<AddmemberManager.picList.Count;i++){
+        print("picList "+i+" "+AddmemberManager.picList[i]);
+        
+        }
         print("c:"+c);
         if(c==1)
 

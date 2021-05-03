@@ -231,6 +231,8 @@ public class AddmemberManager : MonoBehaviour
 
 
     public void AddButtons(){
+        
+
         nameText.text ="";
     //     for(int i = 0 ; i < nameList.Count; i++){
     //      print("nameList "+i+" "+nameList[i]);
