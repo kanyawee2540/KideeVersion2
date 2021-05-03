@@ -22,6 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
      public int fullScore,score,his;
      public static double realScore;
      public static string s,memberurl,fullScoreInHis,correctInHis;
+     public static int getControlHis;
      public static string member,inToHis,inToHis2;
      public static string day,time;
     
@@ -42,6 +43,7 @@ public class NewBehaviourScript : MonoBehaviour
         nostar1.SetActive(false);
         nostar2.SetActive(false);
         nostar3.SetActive(false);
+
         memberurl = AddmemberManager.memberURL1;
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
@@ -54,7 +56,7 @@ public class NewBehaviourScript : MonoBehaviour
         inToHis = "History"+history;
         fullScoreInHis = snapshot.Child(memberurl).Child("keepInorderFullScore").Value.ToString();
         fullScore = Int32.Parse(fullScoreInHis);
-        correctInHis = snapshot.Child(memberurl).Child("KeepInorder").Child(inToHis).Child("Time").Value.ToString();
+        correctInHis = snapshot.Child(memberurl).Child("KeepInorder").Child(inToHis).Child("Correct").Value.ToString();
         score = Int32.Parse(correctInHis); 
 
     });  

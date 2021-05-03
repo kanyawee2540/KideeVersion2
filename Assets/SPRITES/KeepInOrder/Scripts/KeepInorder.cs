@@ -31,10 +31,18 @@ public class KeepInorder : MonoBehaviour
     public GameObject BeforePlay;
     public GameObject BeforePlay1;
 
+
+     public int fullScore,sscore,his;
+     public static double realScore;
+     public static string memberurl,fullScoreInHis,correctInHis;
+     public static int controlHis;
+     public static string inToHis,inToHis2;
+         public Text m_score,m_fullScore,m_realScore,m_history;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        memberurl = AddmemberManager.memberURL1;
         winText1.SetActive(false);
         winText2.SetActive(false);
         reference = FirebaseDatabase.DefaultInstance.RootReference;
@@ -43,9 +51,10 @@ public class KeepInorder : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
         DataSnapshot snapshot = task.Result;
-        s = snapshot.Child(AddmemberManager.buttonKey).Child("keepInorderHistory").Value.ToString();
+        s = snapshot.Child(memberurl).Child("keepInorderHistory").Value.ToString();
         history = Int32.Parse(s);
         history +=1;
+
 
     });  
     }
@@ -117,5 +126,8 @@ public class KeepInorder : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+
+    
+    
     }
 }
