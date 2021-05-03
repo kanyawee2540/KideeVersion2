@@ -125,6 +125,10 @@ public class AddmemberManager : MonoBehaviour
 
         public static string userEmail;
         private FirebaseAuth auth;
+
+
+        public static string memberURL1;
+        public static string memberURL2;
     private void Awake()
     {
 
@@ -520,6 +524,8 @@ public class AddmemberManager : MonoBehaviour
             // print("buttonNameMember "+button.name)  ;
            
         }
+                  memberURL1= ""+RemoveMember.keyList[buttonNameMember];
+            print("sssssssssssssssssssssss on click member"+memberURL1);
        
         for(int i=0;i<passwordList.Count;i++){
              print("passwordList " +passwordList[i]); 
@@ -701,7 +707,6 @@ public class AddmemberManager : MonoBehaviour
         print("json "+json);
         string s = LoginManager.localId;
         // เขียนข้อมูลลง Firebase
-        reference.Child(LoginManager.localId).Child(memberName).SetValueAsync(memberURL);    
         reference.Child(LoginManager.localId).Child(memberURL).SetRawJsonValueAsync(json);
         reference.Child(LoginManager.localId).Child(memberURL).Child("ObservationHistory").SetValueAsync(0);    
     
@@ -851,6 +856,8 @@ public class AddmemberManager : MonoBehaviour
              buttonKey =""+keyList[10];
            
         }
+            memberURL2= ""+RemoveMember.keyList[buttonName];
+            print("sssssssssssssssssssssss on click member"+memberURL2);
         
    
     }
@@ -863,6 +870,8 @@ public class AddmemberManager : MonoBehaviour
     {
         RemoveSuccessUI.SetActive(false);
     }
+
+    
 
    
      

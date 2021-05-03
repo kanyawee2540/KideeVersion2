@@ -81,6 +81,15 @@ public class StarCollection : MonoBehaviour
     public static string Before;
     public static string After;
 
+
+
+
+    //กัน//
+    public int score,scoreIncorrect,fullScore;
+     public double realScore;
+     public static int history;
+     public static string inHis,inToHiss,correctInHis,fullScoreInHis;
+
     void Start()
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;

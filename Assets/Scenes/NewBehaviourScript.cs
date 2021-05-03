@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,18 +12,19 @@ using Firebase.Extensions;
 using Object = UnityEngine.Object;
 using UnityEngine.EventSystems;
 
-public class starForKeepInOrder : MonoBehaviour
-{
+
+public class NewBehaviourScript : MonoBehaviour
+{ 
     public string databaseURL = "https://project-75a5c-default-rtdb.firebaseio.com/"; 
     private DatabaseReference reference;
-    public static int countHis;
-     public int score,scoreIncorrect,fullScore;
-     public double realScore;
-     public static int history;
-     public static string s,inToHis,correctInHis,fullScoreInHis;
-
-
-
+     public static int countHis;
+          public static int history,testHis;
+     public int fullScore,score,his;
+     public static double realScore;
+     public static string s,memberurl,fullScoreInHis,correctInHis;
+     public static string member,inToHis,inToHis2;
+     public static string day,time;
+    
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
@@ -31,6 +32,8 @@ public class starForKeepInOrder : MonoBehaviour
     public GameObject nostar2;
     public GameObject nostar3;
     public Text m_score,m_fullScore,m_realScore,m_history;
+
+    // Start is called before the first frame update
     void Start()
     {
         star1.SetActive(false);
@@ -39,38 +42,37 @@ public class starForKeepInOrder : MonoBehaviour
         nostar1.SetActive(false);
         nostar2.SetActive(false);
         nostar3.SetActive(false);
+        memberurl = AddmemberManager.memberURL1;
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
         
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
         DataSnapshot snapshot = task.Result;
-        s = snapshot.Child(AddmemberManager.buttonKey).Child("keepInorderHistory").Value.ToString();
+        s = snapshot.Child(memberurl).Child("keepInorderHistory").Value.ToString();
         history = Int32.Parse(s);
-        history +=1;
         inToHis = "History"+history;
-        //ก้อน full score//
-        fullScoreInHis = snapshot.Child(AddmemberManager.buttonKey).Child("keepInorderFullScore").Value.ToString();
+        fullScoreInHis = snapshot.Child(memberurl).Child("keepInorderFullScore").Value.ToString();
         fullScore = Int32.Parse(fullScoreInHis);
-
-        //ก้อน score //
-        correctInHis = snapshot.Child(AddmemberManager.buttonKey).Child("KeepInorder").Child("ScoreForShowStarInTheEnd").Child("Correct").Value.ToString();
-        score = Int32.Parse(correctInHis);
-
-
-        
+        correctInHis = snapshot.Child(memberurl).Child("KeepInorder").Child(inToHis).Child("Time").Value.ToString();
+        score = Int32.Parse(correctInHis); 
 
     });  
-
-
-
     }
-    public void showStar(){
+    
+
+    // Update is called once per frame
+    void Update()
+    {
+    
+    }
+        public void showStar(){
+        print("intiHissss "+inToHis);
         print("----------------Score is "+correctInHis);
         print("full score is "+fullScore);
         realScore = ((double)score/(double)fullScore)*100;
         print("real score is "+realScore);
-        m_score.text = "score is "+correctInHis;
+        m_score.text = "score is "+score;
         m_fullScore.text = "full score is "+fullScore;
         m_realScore.text = "realScore score is "+realScore;
         m_history.text = "in history "+history;
@@ -94,8 +96,5 @@ public class starForKeepInOrder : MonoBehaviour
         
 
 
-    }
-        public void goToMenu(){
-        SceneManager.LoadScene("ChooseManu");
     }
 }
