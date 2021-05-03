@@ -2039,7 +2039,7 @@ GameObject:
   - component: {fileID: 100910436}
   - component: {fileID: 100910435}
   m_Layer: 5
-  m_Name: StarBTN4
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4257,7 +4257,7 @@ GameObject:
   - component: {fileID: 227824507}
   - component: {fileID: 227824506}
   m_Layer: 5
-  m_Name: StarBTN2
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8431,7 +8431,7 @@ GameObject:
   - component: {fileID: 376609623}
   - component: {fileID: 376609622}
   m_Layer: 5
-  m_Name: StarBTN6
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10540,7 +10540,7 @@ GameObject:
   - component: {fileID: 475845597}
   - component: {fileID: 475845596}
   m_Layer: 5
-  m_Name: StarBTN3
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15558,7 +15558,7 @@ GameObject:
   - component: {fileID: 694913362}
   - component: {fileID: 694913361}
   m_Layer: 5
-  m_Name: StarBTN7
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16308,7 +16308,7 @@ GameObject:
   - component: {fileID: 747549425}
   - component: {fileID: 747549424}
   m_Layer: 5
-  m_Name: StarBTN5
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25777,7 +25777,7 @@ GameObject:
   - component: {fileID: 1226221896}
   - component: {fileID: 1226221895}
   m_Layer: 5
-  m_Name: StarBTN0
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40872,7 +40872,7 @@ GameObject:
   - component: {fileID: 1909188084}
   - component: {fileID: 1909188083}
   m_Layer: 5
-  m_Name: StarBTN8
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41012,7 +41012,7 @@ GameObject:
   - component: {fileID: 1912064688}
   - component: {fileID: 1912064687}
   m_Layer: 5
-  m_Name: StarBTN1
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

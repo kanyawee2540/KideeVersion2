@@ -216,124 +216,137 @@ public class StarCollection : MonoBehaviour
   
  public void OnClickedStar(Button button) //ดูว่ากดปุ่มดาวคนไหน 
     {
-        
-        if(button.name=="StarBTN0"){
-            buttonStarName=""+AddmemberManager.nameOnTable[0];
-            buttonStarCount=0;
+            string name = button.name;
+            int i= Int32.Parse(name);
+            buttonStarName=""+AddmemberManager.nameOnTable[i];
+            buttonStarCount=i;
             print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[0];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[0];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[0];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[0];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[0];
+            nameText.text="น้อง"+AddmemberManager.nameOnTable[i];
+            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[i];
+            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[i];
+            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[i];
+            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[i];
+            
+
+
+
+        // if(button.name=="StarBTN0"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[0];
+        //     buttonStarCount=0;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[0];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[0];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[0];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[0];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[0];
             
 
 
            
-        }
-        else if(button.name=="StarBTN1"){
-            buttonStarName=""+AddmemberManager.nameOnTable[1];
-            buttonStarCount=1;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[1];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[1];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[1];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[1];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[1];
+        // }
+        // else if(button.name=="StarBTN1"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[1];
+        //     buttonStarCount=1;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[1];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[1];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[1];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[1];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[1];
            
            
 
-        }
-        else if(button.name=="StarBTN2"){
-            buttonStarName=""+AddmemberManager.nameOnTable[2];
-            buttonStarCount=2;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[2];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[2];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[2];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[2];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[2];
+        // }
+        // else if(button.name=="StarBTN2"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[2];
+        //     buttonStarCount=2;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[2];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[2];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[2];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[2];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[2];
             
-        }
-        else if(button.name=="StarBTN3"){
-            buttonStarName=""+AddmemberManager.nameOnTable[3];
-            buttonStarCount=3;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[3];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[3];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[3];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[3];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[3];
+        // }
+        // else if(button.name=="StarBTN3"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[3];
+        //     buttonStarCount=3;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[3];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[3];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[3];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[3];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[3];
             
            
         
-        }else if(button.name=="StarBTN4"){
-            buttonStarName=""+AddmemberManager.nameOnTable[4];
-            buttonStarCount=4;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[4];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[4];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[4];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[4];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[4];
+        // }else if(button.name=="StarBTN4"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[4];
+        //     buttonStarCount=4;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[4];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[4];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[4];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[4];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[4];
             
-        }
-        else if(button.name=="StarBTN5"){
-            buttonStarName=""+AddmemberManager.nameOnTable[5];
-            buttonStarCount=5;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[5];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[5];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[5];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[5];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[5];
+        // }
+        // else if(button.name=="StarBTN5"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[5];
+        //     buttonStarCount=5;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[5];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[5];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[5];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[5];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[5];
             
         
-        }
-        else if(button.name=="StarBTN6"){
-            buttonStarName=""+AddmemberManager.nameOnTable[6];
-            buttonStarCount=6;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[6];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[6];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[6];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[6];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[6];
+        // }
+        // else if(button.name=="StarBTN6"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[6];
+        //     buttonStarCount=6;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[6];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[6];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[6];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[6];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[6];
            
-        }
-        else if(button.name=="StarBTN7"){
-            buttonStarName=""+AddmemberManager.nameOnTable[7];
-            buttonStarCount=7;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[7];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[7];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[7];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[7];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[7];
+        // }
+        // else if(button.name=="StarBTN7"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[7];
+        //     buttonStarCount=7;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[7];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[7];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[7];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[7];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[7];
             
-        }
-        else if(button.name=="StarBTN8"){
-            buttonStarName=""+AddmemberManager.nameOnTable[8];
-            buttonStarCount=8;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[8];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[8];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[8];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[8];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[8];
+        // }
+        // else if(button.name=="StarBTN8"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[8];
+        //     buttonStarCount=8;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[8];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[8];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[8];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[8];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[8];
             
-        }
-        else if(button.name=="StarBTN9"){
-            buttonStarName=""+AddmemberManager.nameOnTable[9];
-            buttonStarCount=9;
-            print("buttonStarName "+buttonStarName);
-            nameText.text="น้อง"+AddmemberManager.nameOnTable[9];
-            nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[9];
-            nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[9];
-            nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[9];
-            nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[9];
+        // }
+        // else if(button.name=="StarBTN9"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[9];
+        //     buttonStarCount=9;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameText.text="น้อง"+AddmemberManager.nameOnTable[9];
+        //     nameTextQueue.text="น้อง"+AddmemberManager.nameOnTable[9];
+        //     nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[9];
+        //     nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[9];
+        //     nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[9];
            
-        }
+        // }
 
        Invoke("CheckImage",1);
    
