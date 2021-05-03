@@ -56,6 +56,10 @@ public class StarCollection : MonoBehaviour
     [Header("ObservationUI1")]
     public GameObject ImagesObservation1;
     public Text nameTextObservation1;
+    public Text scoreSpeakingBefore;
+    public Text scoreSpeakingAfter;
+    public Text scoreSQueueBefore;
+    public Text scoreQueueAfter;
 
     [Header("ObservationUI2")]
     public GameObject ImagesObservation2;
@@ -70,14 +74,15 @@ public class StarCollection : MonoBehaviour
     public static int sumKeepInOrder=0;
     public static int sumHelpOther=0;
 
-    string s;
-    string inToHis;
+    public static string s;
+    public static string inToHis;
+    public static string Before;
+    public static string After;
 
     void Start()
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
-           
     }
 
     // Update is called once per frame
@@ -85,7 +90,49 @@ public class StarCollection : MonoBehaviour
     {
         
     }
-    
+    public void Showscore()
+    {       sumSpeaking=0;
+            sumQueue=0; 
+            sumHelpOther=0; 
+            sumKeepInOrder=0; 
+            // print("reference :"+RemoveMember.keyList[buttonStarCount]);
+            // print("LoginManager.localId :"+LoginManager.localId);
+            s= ""+RemoveMember.keyList[buttonStarCount];
+            
+            //reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").SetValueAsync(c);
+           // Invoke("Data",2);
+           
+        FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
+    {  
+        DataSnapshot snapshot = task.Result;
+        string No = snapshot.Child(s).Child("ObservationHistory").Value.ToString();
+        print("No:"+No);
+        int history = Int32.Parse(No);
+        history +=1;
+        inToHis = "History"+history;
+        print("inToHis:"+inToHis);
+        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Speaking").SetValueAsync(0);
+        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Queue").SetValueAsync(0);
+        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("HelpOther").SetValueAsync(0);
+        reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("KeepInOrder").SetValueAsync(0);
+
+        if(history>1)
+        {
+            Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
+            print("Before play:"+Before);
+            Invoke("ObservationText",4);
+            
+        }
+        /*incorrectInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();*/
+
+    });
+
+    }
+    public void ObservationText()
+    { 
+        scoreSpeakingBefore.text = Before;
+        print("Before:"+Before);
+    }
     public void ObservationScore()
     {       sumSpeaking=0;
             sumQueue=0; 
@@ -112,13 +159,24 @@ public class StarCollection : MonoBehaviour
         history +=1;
         inToHis = "History"+history;
         print("inToHis:"+inToHis);
+
+        if(history>=1)
+        {
+            Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
+            print("Before play:"+Before);
+            scoreSpeakingBefore.text = Before;
+
+        }
+
         reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Speaking").SetValueAsync(sumSpeaking);
         reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Queue").SetValueAsync(sumQueue);
         reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("HelpOther").SetValueAsync(sumHelpOther);
         reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("KeepInOrder").SetValueAsync(sumKeepInOrder);
-
         reference.Child(LoginManager.localId).Child(s).Child("ObservationHistory").SetValueAsync(history);
 
+        After = snapshot.Child(s).Child("ObservationScore").Child("inToHis").Child("Speaking").Value.ToString();
+        print("After play:"+After);
+        scoreSpeakingAfter.text = After;
 
         /*incorrectInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();*/
 
