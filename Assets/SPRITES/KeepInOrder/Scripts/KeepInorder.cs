@@ -35,7 +35,7 @@ public class KeepInorder : MonoBehaviour
     public GameObject nostar1;
     public GameObject nostar2;
     public GameObject nostar3;
-
+    public GameObject apple;
      public static int fullScore,scoreInHis,his;
      public static double realScore;
      public static string memberurl,fullScoreInHis,correctInHis,No;
@@ -140,37 +140,13 @@ public class KeepInorder : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-
+    Showscore();
+    showStar();
     
-    
-    }
-        public void Showscore()
-    {       memberurl = AddmemberManager.memberURL1;
-           
-        FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
-    {  
-        DataSnapshot snapshot = task.Result;
-        No = snapshot.Child(memberurl).Child("keepInorderHistory").Value.ToString();
-        print("No:"+No);
-         history = Int32.Parse(No);
-
-        fullScoreInHis = snapshot.Child(memberurl).Child("keepInorderFullScore").Value.ToString();
-        fullScore = Int32.Parse(fullScoreInHis);
-        print("fullScore:"+fullScore);
-
-        //ก้อน score //
-        correctInHis = snapshot.Child(memberurl).Child("KeepInorder").Child("History"+No).Child("Correct").Value.ToString();
-        scoreInHis = Int32.Parse(correctInHis);
-        print("score:"+scoreInHis);
-        showStar();
-
-        
-
-
-        
-    });
     }
         public void showStar(){
+            apple.transform.position = new Vector3(2,0,0);
+       
         print("in His "+No);
         print("----------------Score in keep in order is "+scoreInHis);
         print("full score in keep in order is "+fullScore);
@@ -198,5 +174,30 @@ public class KeepInorder : MonoBehaviour
             nostar2.SetActive(true);
             nostar3.SetActive(true);
         }
+
+}
+      public void Showscore()
+    {       memberurl = AddmemberManager.memberURL1;
+           
+        FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
+    {  
+        DataSnapshot snapshot = task.Result;
+        No = snapshot.Child(memberurl).Child("keepInorderHistory").Value.ToString();
+        print("No:"+No);
+         history = Int32.Parse(No);
+
+        fullScoreInHis = snapshot.Child(memberurl).Child("keepInorderFullScore").Value.ToString();
+        fullScore = Int32.Parse(fullScoreInHis);
+        print("fullScore:"+fullScore);
+
+        //ก้อน score //
+        correctInHis = snapshot.Child(memberurl).Child("KeepInorder").Child("History"+No).Child("Correct").Value.ToString();
+        scoreInHis = Int32.Parse(correctInHis);
+        print("score:"+scoreInHis);
+        
+
+
+        
+    });
     }
 }
