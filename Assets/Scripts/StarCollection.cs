@@ -58,8 +58,14 @@ public class StarCollection : MonoBehaviour
     public Text nameTextObservation1;
     public Text scoreSpeakingBefore;
     public Text scoreSpeakingAfter;
-    public Text scoreSQueueBefore;
+    public Text scoreQueueBefore;
     public Text scoreQueueAfter;
+    
+    public Text scoreHelpOtherBefore;
+    public Text scoreHelpOtherAfter;
+    
+    public Text scoreKeepInOrderBefore;
+    public Text scoreKeepInOrderAfter;
     
 
 
@@ -68,7 +74,6 @@ public class StarCollection : MonoBehaviour
     public Text nameTextObservation2;
 
     
-    // Start is called before the first frame update
     public int c;
     public int c2;
     public static int sumSpeaking=0;
@@ -80,6 +85,12 @@ public class StarCollection : MonoBehaviour
     public static string inToHis;
     public static string Before;
     public static string After;
+    public static string Before2;
+    public static string After2;
+    public static string Before3;
+    public static string After3;
+    public static string Before4;
+    public static string After4;
 
 
 
@@ -124,10 +135,16 @@ public class StarCollection : MonoBehaviour
         // inToHis = "History"+history;
         // print("inToHis:"+inToHis);
         Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
+        Before2 = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Queue").Value.ToString();
+        Before3 = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("HelpOther").Value.ToString();
+        Before4 = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("KeepInOrder").Value.ToString();
         // print("Before play:"+Before);
         // scoreSpeakingBefore.text = Before;
 
         After = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("Speaking").Value.ToString();
+        After2 = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("Queue").Value.ToString();
+        After3 = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("HelpOther").Value.ToString();
+        After4 = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("KeepInOrder").Value.ToString();
         // print("After play:"+After);
         // scoreSpeakingAfter.text = After;
 
@@ -438,19 +455,35 @@ public class StarCollection : MonoBehaviour
         
         }
         print("c:"+c);
-        print("Before play:"+Before);
+        // print("Before play:"+Before);
         scoreSpeakingBefore.text = Before;
-        print("After play:"+After);
+        scoreQueueBefore.text = Before2;
+        scoreHelpOtherBefore.text = Before3;
+        scoreKeepInOrderBefore.text = Before4;
+        // print("After play:"+After);
         scoreSpeakingAfter.text = After;
+        scoreQueueAfter.text = After2;
+        scoreHelpOtherAfter.text = After3;
+        scoreKeepInOrderAfter.text = After4;
+
         if(history==0)
         {
             scoreSpeakingBefore.text = "";
+            scoreQueueBefore.text = "";
+            scoreHelpOtherBefore.text="";
+            scoreKeepInOrderBefore.text="";
             scoreSpeakingAfter.text = "";
+            scoreQueueAfter.text = "";
+            scoreHelpOtherAfter.text = "";
+            scoreKeepInOrderAfter.text = "";
             
         }
         if(history==1)
         {
             scoreSpeakingAfter.text = "";
+            scoreQueueAfter.text = "";
+            scoreHelpOtherAfter.text = "";
+            scoreKeepInOrderAfter.text = "";
         }
         if(c==1)
 
