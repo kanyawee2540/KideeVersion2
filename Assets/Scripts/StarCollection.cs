@@ -102,7 +102,8 @@ public class StarCollection : MonoBehaviour
         
     }
     public void Showscore()
-    {       sumSpeaking=0;
+    {       
+            sumSpeaking=0;
             sumQueue=0; 
             sumHelpOther=0; 
             sumKeepInOrder=0; 
@@ -118,49 +119,20 @@ public class StarCollection : MonoBehaviour
         DataSnapshot snapshot = task.Result;
         string No = snapshot.Child(s).Child("ObservationHistory").Value.ToString();
         print("No:"+No);
-        // int history = Int32.Parse(No);
+         history = Int32.Parse(No);
         // history +=1;
         // inToHis = "History"+history;
         // print("inToHis:"+inToHis);
         Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
-        print("Before play:"+Before);
-        scoreSpeakingBefore.text = Before;
+        // print("Before play:"+Before);
+        // scoreSpeakingBefore.text = Before;
 
         After = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("Speaking").Value.ToString();
-        print("After play:"+After);
-        scoreSpeakingAfter.text = After;
+        // print("After play:"+After);
+        // scoreSpeakingAfter.text = After;
 
-        // if(history>1)
-        // {
-        //     
-        //     reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Speaking").SetValueAsync(0);
-        //     reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("Queue").SetValueAsync(0);
-        //     reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("HelpOther").SetValueAsync(0);
-        //     reference.Child(LoginManager.localId).Child(s).Child("ObservationScore").Child(inToHis).Child("KeepInOrder").SetValueAsync(0);
-
-        //     
-            
-            
-        // }
-        // else
-        // {
-        //     scoreSpeakingBefore.text = "";
-        //     scoreSpeakingAfter.text = "";
-        // }
-
-        // if(history>2)
-        // {
-           
-       
-
-            
-            
-        // }
-        // else
-        // {
-        //     scoreSpeakingAfter.text = "";
-        // }
         
+
 
         
     });
@@ -193,7 +165,7 @@ public class StarCollection : MonoBehaviour
         DataSnapshot snapshot = task.Result;
         string No = snapshot.Child(s).Child("ObservationHistory").Value.ToString();
         print("No:"+No);
-        int history = Int32.Parse(No);
+         history = Int32.Parse(No);
         history +=1;
         inToHis = "History"+history;
         print("inToHis:"+inToHis);
@@ -363,87 +335,95 @@ public class StarCollection : MonoBehaviour
 
     public void OnClickedreport(Button button) //ดูว่ากดปุ่มดาวคนไหน 
     {
-        
-        if(button.name=="reportBTN0"){
-            buttonStarName=""+AddmemberManager.nameOnTable[0];
-            buttonStarCount=0;
+            string name = button.name;
+            int i= Int32.Parse(name); 
+            buttonStarName=""+AddmemberManager.nameOnTable[i];
+            buttonStarCount=i;
             print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[0];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[0];
+            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[i];
+            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[i];
+
+        
+        // if(button.name=="reportBTN0"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[0];
+        //     buttonStarCount=0;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[0];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[0];
 
 
            
-        }
-        else if(button.name=="reportBTN1"){
-            buttonStarName=""+AddmemberManager.nameOnTable[1];
-            buttonStarCount=1;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[1];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[1];
+        // }
+        // else if(button.name=="reportBTN1"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[1];
+        //     buttonStarCount=1;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[1];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[1];
            
 
-        }
-        else if(button.name=="reportBTN2"){
-            buttonStarName=""+AddmemberManager.nameOnTable[2];
-            buttonStarCount=2;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[2];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[2];
+        // }
+        // else if(button.name=="reportBTN2"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[2];
+        //     buttonStarCount=2;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[2];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[2];
 
-        }
-        else if(button.name=="reportBTN3"){
-            buttonStarName=""+AddmemberManager.nameOnTable[3];
-            buttonStarCount=3;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[3];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[3];
+        // }
+        // else if(button.name=="reportBTN3"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[3];
+        //     buttonStarCount=3;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[3];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[3];
            
         
-        }else if(button.name=="reportBTN4"){
-            buttonStarName=""+AddmemberManager.nameOnTable[4];
-            buttonStarCount=4;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[4];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[4];
+        // }else if(button.name=="reportBTN4"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[4];
+        //     buttonStarCount=4;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[4];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[4];
 
-        }
-        else if(button.name=="reportBTN5"){
-            buttonStarName=""+AddmemberManager.nameOnTable[5];
-            buttonStarCount=5;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[5];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[5];
+        // }
+        // else if(button.name=="reportBTN5"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[5];
+        //     buttonStarCount=5;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[5];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[5];
         
-        }
-        else if(button.name=="reportBTN6"){
-            buttonStarName=""+AddmemberManager.nameOnTable[6];
-            buttonStarCount=6;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[6];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[6];
-        }
-        else if(button.name=="reportBTN7"){
-            buttonStarName=""+AddmemberManager.nameOnTable[7];
-            buttonStarCount=7;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[7];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[7];
-        }
-        else if(button.name=="reportBTN8"){
-            buttonStarName=""+AddmemberManager.nameOnTable[8];
-            buttonStarCount=8;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[8];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[8];
+        // }
+        // else if(button.name=="reportBTN6"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[6];
+        //     buttonStarCount=6;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[6];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[6];
+        // }
+        // else if(button.name=="reportBTN7"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[7];
+        //     buttonStarCount=7;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[7];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[7];
+        // }
+        // else if(button.name=="reportBTN8"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[8];
+        //     buttonStarCount=8;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[8];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[8];
             
-        }
-        else if(button.name=="reportBTN9"){
-            buttonStarName=""+AddmemberManager.nameOnTable[9];
-            buttonStarCount=9;
-            print("buttonStarName "+buttonStarName);
-            nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[9];
-            nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[9];
-        }
+        // }
+        // else if(button.name=="reportBTN9"){
+        //     buttonStarName=""+AddmemberManager.nameOnTable[9];
+        //     buttonStarCount=9;
+        //     print("buttonStarName "+buttonStarName);
+        //     nameTextObservation1.text="น้อง"+AddmemberManager.nameOnTable[9];
+        //     nameTextObservation2.text="น้อง"+AddmemberManager.nameOnTable[9];
+        // }
 
        Invoke("CheckImage",1);
    
@@ -458,6 +438,20 @@ public class StarCollection : MonoBehaviour
         
         }
         print("c:"+c);
+        print("Before play:"+Before);
+        scoreSpeakingBefore.text = Before;
+        print("After play:"+After);
+        scoreSpeakingAfter.text = After;
+        if(history==0)
+        {
+            scoreSpeakingBefore.text = "";
+            scoreSpeakingAfter.text = "";
+            
+        }
+        if(history==1)
+        {
+            scoreSpeakingAfter.text = "";
+        }
         if(c==1)
 
         {
