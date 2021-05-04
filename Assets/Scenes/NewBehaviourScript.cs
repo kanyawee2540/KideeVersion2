@@ -19,9 +19,9 @@ public class NewBehaviourScript : MonoBehaviour
     private DatabaseReference reference;
      public static int countHis;
           public static int history,testHis;
-     public int fullScore,score,his;
+     public static int fullScore,score,his;
      public static double realScore;
-     public static string s,memberurl,fullScoreInHis,correctInHis;
+     public static string s,memberurl,fullScoreInHis,correctInHis,currentScore;
      public static int getControlHis;
      public static string member,inToHis,inToHis2;
      public static string day,time;
@@ -51,15 +51,10 @@ public class NewBehaviourScript : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
         DataSnapshot snapshot = task.Result;
-        s = snapshot.Child(memberurl).Child("keepInorderHistory").Value.ToString();
+        currentScore = snapshot.Child(memberurl).Child("KeepInorder").Child("CurrentScore").Value.ToString();
         history = Int32.Parse(s);
-        inToHis = "History"+history;
-        fullScoreInHis = snapshot.Child(memberurl).Child("keepInorderFullScore").Value.ToString();
-        fullScore = Int32.Parse(fullScoreInHis);
-        correctInHis = snapshot.Child(memberurl).Child("KeepInorder").Child(inToHis).Child("Correct").Value.ToString();
-        score = Int32.Parse(correctInHis); 
 
-    });  
+    });
     }
     
 
@@ -68,16 +63,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
     
     }
-        public void showStar(){
-        print("intiHissss "+inToHis);
-        print("----------------Score is "+correctInHis);
-        print("full score is "+fullScore);
-        realScore = ((double)score/(double)fullScore)*100;
-        print("real score is "+realScore);
-        m_score.text = "score is "+score;
-        m_fullScore.text = "full score is "+fullScore;
-        m_realScore.text = "realScore score is "+realScore;
-        m_history.text = "in history "+history;
+    public void showStar(){
+        print("current score "+currentScore);
         if(realScore>60){
             star1.SetActive(true);
             star2.SetActive(true);

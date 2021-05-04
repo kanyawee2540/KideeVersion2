@@ -27,24 +27,37 @@ public class KeepInorder : MonoBehaviour
     [SerializeField]
     public GameObject winText1;
     public GameObject winText2;
-    public GameObject room;
     public GameObject BeforePlay;
     public GameObject BeforePlay1;
+    public GameObject star1;
+    public GameObject star2;
+    public GameObject star3;
+    public GameObject nostar1;
+    public GameObject nostar2;
+    public GameObject nostar3;
 
-
-     public int fullScore,sscore,his;
+     public static int fullScore,scoreInHis,his;
      public static double realScore;
-     public static string memberurl,fullScoreInHis,correctInHis;
+     public static string memberurl,fullScoreInHis,correctInHis,No;
      public static int controlHis;
      public static string inToHis,inToHis2;
-         public Text m_score,m_fullScore,m_realScore,m_history;
+    public Text m_score,showScore,m_fullScore,m_realScore,m_history,showStarr;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+
         memberurl = AddmemberManager.memberURL1;
         winText1.SetActive(false);
         winText2.SetActive(false);
+        star1.SetActive(true);
+        star2.SetActive(true);
+        star3.SetActive(true);
+        nostar1.SetActive(true);
+        nostar2.SetActive(true);
+        nostar3.SetActive(true);
+
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
         
@@ -92,6 +105,7 @@ public class KeepInorder : MonoBehaviour
 
         }
         
+        
     }
     public void correct(){
         score += 1;
@@ -129,5 +143,60 @@ public class KeepInorder : MonoBehaviour
 
     
     
+    }
+        public void Showscore()
+    {       memberurl = AddmemberManager.memberURL1;
+           
+        FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
+    {  
+        DataSnapshot snapshot = task.Result;
+        No = snapshot.Child(memberurl).Child("keepInorderHistory").Value.ToString();
+        print("No:"+No);
+         history = Int32.Parse(No);
+
+        fullScoreInHis = snapshot.Child(memberurl).Child("keepInorderFullScore").Value.ToString();
+        fullScore = Int32.Parse(fullScoreInHis);
+        print("fullScore:"+fullScore);
+
+        //ก้อน score //
+        correctInHis = snapshot.Child(memberurl).Child("KeepInorder").Child("History"+No).Child("Correct").Value.ToString();
+        scoreInHis = Int32.Parse(correctInHis);
+        print("score:"+scoreInHis);
+        showStar();
+
+        
+
+
+        
+    });
+    }
+        public void showStar(){
+        print("in His "+No);
+        print("----------------Score in keep in order is "+scoreInHis);
+        print("full score in keep in order is "+fullScore);
+        realScore = Math.Round(((double)scoreInHis/(double)fullScore)*100, 2);
+        print("real score is "+realScore);
+
+        if(realScore>60){
+            print("incase >60");
+            star1.SetActive(true);
+            star2.SetActive(true);
+            star3.SetActive(true);
+        }else if(realScore<=60 && realScore>40){
+            print("incase <=60");
+            star1.SetActive(true);
+            star2.SetActive(true);
+            nostar3.SetActive(true);
+        }else if(realScore<=40 && realScore>=1){
+            print("incase <=40");
+            star1.SetActive(true);
+            nostar2.SetActive(true);
+            nostar3.SetActive(true);
+        }else{
+            print("incase other (mean 0)");
+            nostar1.SetActive(true);
+            nostar2.SetActive(true);
+            nostar3.SetActive(true);
+        }
     }
 }
