@@ -15371,8 +15371,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1663336603}
-        m_MethodName: CheckPasswordMemberbox
+      - m_Target: {fileID: 1650949649}
+        m_MethodName: Showscore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15381,7 +15381,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 0
+        m_CallState: 2
 --- !u!114 &689800965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36217,11 +36217,7 @@ MonoBehaviour:
   scoreKeepInOrderAfter: {fileID: 2073832730}
   ImagesObservation2: {fileID: 139054715}
   nameTextObservation2: {fileID: 1574421782}
-  c: 0
   c2: 0
-  score: 0
-  scoreIncorrect: 0
-  fullScore: 0
   realScore: 0
 --- !u!4 &1650949650
 Transform:

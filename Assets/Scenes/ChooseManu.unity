@@ -1109,7 +1109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &223817024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1780,6 +1780,39 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1164261479}
+        m_MethodName: CheckOlder
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1164261479}
+        m_MethodName: GetStar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6136,6 +6169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1164261478}
   - component: {fileID: 1164261477}
+  - component: {fileID: 1164261479}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -6169,6 +6203,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164261479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164261476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144de59426e68db458c7f1686dbf4413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseURL: https://project-75a5c-default-rtdb.firebaseio.com/
+  score: 0
+  scoreIncorrect: 0
+  fullScore: 0
+  realScore: 0
+  c: 0
+  star1: {fileID: 2026426363}
+  star2: {fileID: 662060403}
+  star3: {fileID: 1099689020}
+  nostar1: {fileID: 0}
+  nostar2: {fileID: 0}
+  nostar3: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: 66ebd1c54311ef7479c1324ff8a4801b, type: 3}
+  sprite2: {fileID: 21300000, guid: ed3d1d573aa84b040adb9b608a49389c, type: 3}
+  sprite3: {fileID: 21300000, guid: e9e8948bb3e6cba448e3dd0a48275030, type: 3}
+  sprite4: {fileID: 21300000, guid: e6ef5913ae3e2be4b9eea612d3a07d3f, type: 3}
+  sprite5: {fileID: 21300000, guid: df8f78d6d8e020241a4b8d319fe172de, type: 3}
+  sprite6: {fileID: 21300000, guid: ce70bf7c9e933574586d35263effc682, type: 3}
+  sprite7: {fileID: 21300000, guid: 9459317c62976514e947b4981af6d6b9, type: 3}
+  sprite8: {fileID: 21300000, guid: f936bcbb1bbeb1747b1ac833c2b5d89f, type: 3}
+  sprite9: {fileID: 21300000, guid: f7acb7a3803bbe8459565c766511241f, type: 3}
+  nameText: {fileID: 1271663914}
+  image: {fileID: 1861435743}
 --- !u!1 &1165475404
 GameObject:
   m_ObjectHideFlags: 0

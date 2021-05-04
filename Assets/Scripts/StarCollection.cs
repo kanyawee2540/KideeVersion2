@@ -74,7 +74,7 @@ public class StarCollection : MonoBehaviour
     public Text nameTextObservation2;
 
     
-    public int c;
+    public static int c;
     public int c2;
     public static int sumSpeaking=0;
     public static int sumQueue=0;
@@ -96,7 +96,7 @@ public class StarCollection : MonoBehaviour
 
 
     //กัน//
-    public int score,scoreIncorrect,fullScore;
+    public static int score,scoreIncorrect,fullScore;
      public double realScore;
      public static int history;
      public static string inHis,inToHiss,correctInHis,fullScoreInHis;
@@ -147,6 +147,15 @@ public class StarCollection : MonoBehaviour
         After4 = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("KeepInOrder").Value.ToString();
         // print("After play:"+After);
         // scoreSpeakingAfter.text = After;
+
+        fullScoreInHis = snapshot.Child(s).Child("keepInorderFullScore").Value.ToString();
+        fullScore = Int32.Parse(fullScoreInHis);
+        print("fullScore:"+fullScore);
+
+        //ก้อน score //
+        correctInHis = snapshot.Child(s).Child("KeepInorder").Child("History"+No).Child("Correct").Value.ToString();
+        score = Int32.Parse(correctInHis);
+        print("score:"+score);
 
         
 
