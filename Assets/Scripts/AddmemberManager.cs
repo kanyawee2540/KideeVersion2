@@ -697,11 +697,13 @@ public class AddmemberManager : MonoBehaviour
         // mData.m_name = Random.Range(0f, 5f);
         mData.m_password = passwordField1.text+""+passwordField2.text+""+passwordField3.text+""+passwordField4.text;
         mData.pic = ProfileMember.count;
+        mData.starKeepInorder =0;
         memberName = mData.m_name = nameField.text;
         nameList2.Add(nameField.text);
         picList2.Add(ProfileMember.count);
         keykListEditUI.Add(memberURL);
         passwordList.Add(passwordField1.text+""+passwordField2.text+""+passwordField3.text+""+passwordField4.text);
+
         
         string json = JsonUtility.ToJson(mData);
         print("json "+json);

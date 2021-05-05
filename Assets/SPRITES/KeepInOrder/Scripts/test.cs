@@ -11,7 +11,7 @@ using Firebase.Database;
 using Firebase.Extensions;
 using Object = UnityEngine.Object;
 
-public class GetStarForMember : MonoBehaviour
+public class test : MonoBehaviour
 {
     // Start is called before the first frame update
     private DatabaseReference reference;
@@ -25,11 +25,6 @@ public class GetStarForMember : MonoBehaviour
      public static string keepInorderinHis,keepInorderinToHis,keepInordercorrectInHis,keepInorderfullScoreInHis;
      public static string SpeakinginHis,SpeakinginToHis,SpeakingcorrectInHis,SpeakingfullScoreInHis;
      public static string helpOtherinHis,helpOtherToHis,helpOthercorrectInHis,helpOtherfullScoreInHis;
-
-
-     //star
-     public static string starkeepInorder;
-     public static int maxStarkeepInorder;
 
     void Start()
     {
@@ -59,62 +54,17 @@ public class GetStarForMember : MonoBehaviour
         //history +=1;
         // inToHis = "History"+history;
         // print("inToHis:"+inToHis);
-        starkeepInorder=snapshot.Child(s).Child("starKeepInorder").Value.ToString();
-        print("maxStar : "+starkeepInorder);
-        maxStarkeepInorder = Int32.Parse(starkeepInorder);
-
-
 
         keepInorderfullScoreInHis = snapshot.Child(s).Child("keepInorderFullScore").Value.ToString();
         keepInorderfullScore = Int32.Parse(keepInorderfullScoreInHis);
-        //print("history: "+keepInorderhistory+" fullScore: "+keepInorderfullScore);
+        print("Getscore: "+keepInorderhistory+" fullScore: "+keepInorderfullScore);
 
         //ก้อน score //
         keepInordercorrectInHis = snapshot.Child(s).Child("KeepInorder").Child("History"+keepInorderhistory).Child("Correct").Value.ToString();
         keepInorderscore = Int32.Parse(keepInordercorrectInHis);
-        //print("keepInorder history: "+keepInorderhistory+" score:"+keepInorderscore);
+        print("Getscore : "+keepInorderhistory+" score:"+keepInorderscore);
 
 
-
-
-
-        //----------------------keepInorderHistory---------------------------------
-        string No2 = snapshot.Child(s).Child("speakingHistory").Value.ToString();
-        //print("No:"+No1);
-        Speakinghistory = Int32.Parse(No2);
-        //history +=1;
-        // inToHis = "History"+history;
-        // print("inToHis:"+inToHis);
-
-        SpeakingfullScoreInHis = snapshot.Child(s).Child("speakingFullScore").Value.ToString();
-        SpeakingfullScore = Int32.Parse(SpeakingfullScoreInHis);
-       // print("Speaking history: "+Speakinghistory+" fullScore: "+SpeakingfullScore);
-
-        //ก้อน score //
-        // SpeakingcorrectInHis = snapshot.Child(s).Child("Speaking").Child("History"+Speakinghistory).Child("Correct").Value.ToString();
-        // Speakingscore = Int32.Parse(SpeakingcorrectInHis);
-        // print("history: "+Speakinghistory+" score:"+Speakingscore);
-        
-
-
-
-
-        //----------------------helpOtherHistory---------------------------------
-        string No3 = snapshot.Child(s).Child("helpOtherHistory").Value.ToString();
-        //print("No:"+No1);
-        helpOtherhistory = Int32.Parse(No3);
-        //history +=1;
-        // inToHis = "History"+history;
-        // print("inToHis:"+inToHis);
-    
-        helpOtherfullScoreInHis = snapshot.Child(s).Child("helpOtherFullScore").Value.ToString();
-        helpOtherfullScore = Int32.Parse(helpOtherfullScoreInHis);
-        //print("helpOther history: "+helpOtherhistory+" fullScore: "+helpOtherfullScore);
-
-        //ก้อน score //
-        // helpOthercorrectInHis = snapshot.Child(s).Child("HelpOther").Child("History"+helpOtherhistory).Child("Correct").Value.ToString();
-        // helpOtherscore = Int32.Parse(helpOthercorrectInHis);
-        // print("helpOther history: "+helpOtherhistory+" score:"+helpOtherscore);
         
 
 

@@ -110,32 +110,32 @@ public class ShowScoreForMember : MonoBehaviour
         
         // print("----------------Score is "+GetStarForMember.correctInHis);
         // print("full score is "+GetStarForMember.fullScore);
-        keepInorderRealScore = ((double)GetStarForMember.keepInorderscore/(double)GetStarForMember.keepInorderfullScore)*100;
+        int showkeepInorder = GetStarForMember.maxStarkeepInorder;
         //SpeakingRealScore = ((double)GetStarForMember.Speakingscore/(double)GetStarForMember.SpeakingfullScore)*100;
         // print("real score is "+realScore);
         
-        if(keepInorderRealScore>60){
-            starSpeaking1.SetActive(true);
-            starSpeaking2.SetActive(true);
-            starSpeaking3.SetActive(true);
+        if(showkeepInorder==3){
+            starKeepInOrder1.SetActive(true);
+            starKeepInOrder2.SetActive(true);
+            starKeepInOrder3.SetActive(true);
             print("star3");
-        }else if(keepInorderRealScore<=60 && keepInorderRealScore>40){
-            starSpeaking1.SetActive(true);
-            starSpeaking2.SetActive(true);
-            starSpeaking3.SetActive(false);
+        }else if(showkeepInorder==2){
+            starKeepInOrder1.SetActive(true);
+            starKeepInOrder2.SetActive(true);
+            starKeepInOrder3.SetActive(false);
              print("star2");
             //nostar3.SetActive(true);
-        }else if(keepInorderRealScore<=40 && keepInorderRealScore>=1){
-            starSpeaking1.SetActive(true);
-            starSpeaking2.SetActive(false);
-            starSpeaking3.SetActive(false);
+        }else if(showkeepInorder==1){
+            starKeepInOrder1.SetActive(true);
+            starKeepInOrder2.SetActive(false);
+            starKeepInOrder3.SetActive(false);
              print("star1");
             //nostar2.SetActive(true);
             //nostar3.SetActive(true);
         }else{
-            starSpeaking1.SetActive(false);
-            starSpeaking2.SetActive(false);
-            starSpeaking3.SetActive(false);
+            starKeepInOrder1.SetActive(false);
+            starKeepInOrder2.SetActive(false);
+            starKeepInOrder3.SetActive(false);
              print("star0");
             //nostar1.SetActive(true);
             //nostar2.SetActive(true);

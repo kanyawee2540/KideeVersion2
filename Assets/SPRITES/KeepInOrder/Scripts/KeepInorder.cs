@@ -32,9 +32,7 @@ public class KeepInorder : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
-    public GameObject nostar1;
-    public GameObject nostar2;
-    public GameObject nostar3;
+    
     public GameObject apple;
      public static int fullScore,scoreInHis,his;
      public static double realScore;
@@ -43,20 +41,27 @@ public class KeepInorder : MonoBehaviour
      public static string inToHis,inToHis2;
     public Text m_score,showScore,m_fullScore,m_realScore,m_history,showStarr;
 
+    public int SaveStar;
+    public int star;
+
     // Start is called before the first frame update
     void Start()
     {
         
 
         memberurl = AddmemberManager.memberURL1;
-        winText1.SetActive(false);
-        winText2.SetActive(false);
-        star1.SetActive(true);
-        star2.SetActive(true);
-        star3.SetActive(true);
-        nostar1.SetActive(true);
-        nostar2.SetActive(true);
-        nostar3.SetActive(true);
+        // winText1.SetActive(false);
+        // winText2.SetActive(false);
+        // star1.SetActive(true);
+        // star2.SetActive(true);
+        // star3.SetActive(true);
+        // nostar1.SetActive(true);
+        // nostar2.SetActive(true);
+        // nostar3.SetActive(true);
+
+        star1.SetActive(false);
+        star2.SetActive(false);
+        star3.SetActive(false);
 
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
@@ -110,6 +115,43 @@ public class KeepInorder : MonoBehaviour
     public void correct(){
         score += 1;
         print("score is "+score);
+
+        //test mo
+        int fullscore = GetStarForMember.keepInorderfullScore;
+        print("fullscore is "+fullscore);
+        double scoreStar= ((double)score/(double)fullscore)*100;
+        print("scoreStar is "+scoreStar);
+        
+        if(scoreStar>60){
+            star=3;
+            print("Star 3");
+            
+        }else if(scoreStar<=60 && scoreStar>40){
+            star=2;
+            print("Star 2");
+            
+        }else if(scoreStar<=40 && scoreStar>=1){
+            star=1;
+            print("Star 1");
+            
+        }else{
+            star=0;
+            print("Star 0");
+           
+        }
+
+        //Check star in Max
+          if(star>GetStarForMember.maxStarkeepInorder){
+            SaveStar=star;
+            print("SaveStar"+SaveStar+" GetStarForMember.maxStarkeepInorder "+GetStarForMember.maxStarkeepInorder);
+            
+        }else if(star<=GetStarForMember.maxStarkeepInorder){
+            SaveStar=GetStarForMember.maxStarkeepInorder;
+             print("SaveStar"+SaveStar+" GetStarForMember.maxStarkeepInorder "+GetStarForMember.maxStarkeepInorder);
+            
+        }
+
+
     }
     public void incorrect(){
         scoreIncorrect += 1;
@@ -125,6 +167,8 @@ public class KeepInorder : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+
+       
         goToMenu();
     }
     public void goToMenu(){
@@ -140,6 +184,9 @@ public class KeepInorder : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+
+        //push star in Max
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starKeepInorder").SetValueAsync(SaveStar);
     Showscore();
     showStar();
     
@@ -153,26 +200,26 @@ public class KeepInorder : MonoBehaviour
         realScore = Math.Round(((double)scoreInHis/(double)fullScore)*100, 2);
         print("real score is "+realScore);
 
-        if(realScore>60){
+        if(star==3){
             print("incase >60");
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
-        }else if(realScore<=60 && realScore>40){
+        }else if(star==2){
             print("incase <=60");
             star1.SetActive(true);
             star2.SetActive(true);
-            nostar3.SetActive(true);
-        }else if(realScore<=40 && realScore>=1){
+            star3.SetActive(false);
+        }else if(star==1){
             print("incase <=40");
             star1.SetActive(true);
-            nostar2.SetActive(true);
-            nostar3.SetActive(true);
+            star2.SetActive(false);
+            star3.SetActive(false);
         }else{
             print("incase other (mean 0)");
-            nostar1.SetActive(true);
-            nostar2.SetActive(true);
-            nostar3.SetActive(true);
+            star1.SetActive(false);
+            star2.SetActive(false);
+            star3.SetActive(false);
         }
 
 }
