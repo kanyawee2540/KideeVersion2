@@ -131,7 +131,7 @@ public class StarCollection : MonoBehaviour
         string No = snapshot.Child(s).Child("ObservationHistory").Value.ToString();
         print("No:"+No);
          history = Int32.Parse(No);
-        // history +=1;
+        history +=1;
         // inToHis = "History"+history;
         // print("inToHis:"+inToHis);
         Before = snapshot.Child(s).Child("ObservationScore").Child("History1").Child("Speaking").Value.ToString();
@@ -148,14 +148,14 @@ public class StarCollection : MonoBehaviour
         // print("After play:"+After);
         // scoreSpeakingAfter.text = After;
 
-        fullScoreInHis = snapshot.Child(s).Child("keepInorderFullScore").Value.ToString();
-        fullScore = Int32.Parse(fullScoreInHis);
-        print("fullScore:"+fullScore);
+        // fullScoreInHis = snapshot.Child(s).Child("keepInorderFullScore").Value.ToString();
+        // fullScore = Int32.Parse(fullScoreInHis);
+        // print("fullScore:"+fullScore);
 
-        //ก้อน score //
-        correctInHis = snapshot.Child(s).Child("KeepInorder").Child("History"+No).Child("Correct").Value.ToString();
-        score = Int32.Parse(correctInHis);
-        print("score:"+score);
+        // //ก้อน score //
+        // correctInHis = snapshot.Child(s).Child("KeepInorder").Child("History"+history).Child("Correct").Value.ToString();
+        // score = Int32.Parse(correctInHis);
+        // print("score:"+score);
 
         
 

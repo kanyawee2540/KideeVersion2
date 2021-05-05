@@ -946,7 +946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &33658204
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2757,13 +2757,14 @@ GameObject:
   m_Component:
   - component: {fileID: 190866841}
   - component: {fileID: 190866840}
+  - component: {fileID: 190866842}
   m_Layer: 0
   m_Name: showStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &190866840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2771,15 +2772,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190866839}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b75f7338312e0d4fa28b54d69112493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   databaseURL: https://project-75a5c-default-rtdb.firebaseio.com/
   star1: {fileID: 2010237168}
-  star2: {fileID: 209986087}
-  star3: {fileID: 1963996709}
+  star2: {fileID: 0}
+  star3: {fileID: 0}
   nostar1: {fileID: 285319223}
   nostar2: {fileID: 765401585}
   nostar3: {fileID: 413132657}
@@ -2801,6 +2802,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &190866842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190866839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f8d6e1095d7e0458017100ddf2ec4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseURL: https://project-75a5c-default-rtdb.firebaseio.com/
+  score: 0
+  scoreIncorrect: 0
+  winText1: {fileID: 0}
+  winText2: {fileID: 0}
+  BeforePlay: {fileID: 0}
+  BeforePlay1: {fileID: 0}
+  star1: {fileID: 2010237168}
+  star2: {fileID: 209986087}
+  star3: {fileID: 1963996709}
+  nostar1: {fileID: 285319223}
+  nostar2: {fileID: 765401585}
+  nostar3: {fileID: 413132657}
+  apple: {fileID: 0}
+  m_score: {fileID: 0}
+  showScore: {fileID: 0}
+  m_fullScore: {fileID: 0}
+  m_realScore: {fileID: 0}
+  m_history: {fileID: 0}
+  showStarr: {fileID: 0}
 --- !u!1 &200370265
 GameObject:
   m_ObjectHideFlags: 0
@@ -11467,6 +11500,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -20821,7 +20865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1227996398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21339,6 +21383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1272553736}
   - component: {fileID: 1272553735}
+  - component: {fileID: 1272553737}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -21392,6 +21437,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1272553737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272553734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e50c8278e3dd824a8a6d0e74e87e343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realScore: 0
 --- !u!1 &1286546064
 GameObject:
   m_ObjectHideFlags: 0

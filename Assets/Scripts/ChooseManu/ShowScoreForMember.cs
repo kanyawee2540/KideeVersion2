@@ -14,21 +14,29 @@ using UnityEngine.EventSystems;
 public class ShowScoreForMember : MonoBehaviour
 {public string databaseURL = "https://project-75a5c-default-rtdb.firebaseio.com/"; 
     private DatabaseReference reference;
-    public static int countHis;
-     public int score,scoreIncorrect,fullScore;
-     public double realScore;
-     public static int history;
-     public static string s,inToHis,correctInHis,fullScoreInHis;
-     public int c;
+    // public static int countHis;
+    //  public int score,scoreIncorrect,fullScore;
+    public double keepInorderRealScore;
+    public double SpeakingRealScore;
+    //  public static int history;
+    //  public static string s,inToHis,correctInHis,fullScoreInHis;
+      public int c;
 
 
 
-    public GameObject star1;
-    public GameObject star2;
-    public GameObject star3;
-    public GameObject nostar1;
-    public GameObject nostar2;
-    public GameObject nostar3;
+    public GameObject starSpeaking1;
+    public GameObject starSpeaking2;
+    public GameObject starSpeaking3;
+    public GameObject starQueue1;
+    public GameObject starQueue2;
+    public GameObject starQueue3;
+     public GameObject starHelpOther1;
+    public GameObject starHelpOther2;
+    public GameObject starHelpOther3;
+     public GameObject starKeepInOrder1;
+    public GameObject starKeepInOrder2;
+    public GameObject starKeepInOrder3;
+    
      [Header("UserData")]
     public Sprite sprite1;
     public Sprite sprite2;
@@ -48,13 +56,20 @@ public class ShowScoreForMember : MonoBehaviour
     void Start()
     {
             
-        star1.SetActive(false);
-        star2.SetActive(false);
-        star3.SetActive(false);
-        nostar1.SetActive(false);
-        nostar2.SetActive(false);
-        nostar3.SetActive(false);
-    //     reference = FirebaseDatabase.DefaultInstance.RootReference;
+        starSpeaking1.SetActive(false);
+        starSpeaking2.SetActive(false);
+        starSpeaking3.SetActive(false);
+        starQueue1.SetActive(false);
+        starQueue2.SetActive(false);
+        starQueue3.SetActive(false);
+        starHelpOther1.SetActive(false);
+        starHelpOther2.SetActive(false);
+        starHelpOther3.SetActive(false);
+        starKeepInOrder1.SetActive(false);
+        starKeepInOrder2.SetActive(false);
+        starKeepInOrder3.SetActive(false);
+
+            //     reference = FirebaseDatabase.DefaultInstance.RootReference;
     //     FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
         
     //     FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
@@ -82,37 +97,7 @@ public class ShowScoreForMember : MonoBehaviour
 
     public void CheckOlder() 
     {
-         print("----------------Score is "+StarCollection.correctInHis);
-        print("full score is "+StarCollection.fullScore);
-        realScore = ((double)StarCollection.score/(double)StarCollection.fullScore)*100;
-        print("real score is "+realScore);
-        // m_score.text = "score is "+correctInHis;
-        // m_fullScore.text = "full score is "+fullScore;
-        // m_realScore.text = "realScore score is "+realScore;
-        // m_history.text = "in history "+history;
-        if(realScore>60){
-            star1.SetActive(true);
-            star2.SetActive(true);
-            star3.SetActive(true);
-        }else if(realScore<=60 && realScore>40){
-            star1.SetActive(true);
-            star2.SetActive(true);
-            star3.SetActive(false);
-            //nostar3.SetActive(true);
-        }else if(realScore<=40 && realScore>=1){
-            star1.SetActive(true);
-            star2.SetActive(false);
-            star3.SetActive(false);
-            //nostar2.SetActive(true);
-            //nostar3.SetActive(true);
-        }else{
-            star1.SetActive(false);
-            star2.SetActive(false);
-            star3.SetActive(false);
-            //nostar1.SetActive(true);
-            //nostar2.SetActive(true);
-            //nostar3.SetActive(true);
-        }
+       
         c=Int32.Parse(""+AddmemberManager.picList[AddmemberManager.buttonNameMember]);
                 print("c:"+c);
 
@@ -122,6 +107,40 @@ public class ShowScoreForMember : MonoBehaviour
     }
     public void CheckImage() 
     {
+        
+        // print("----------------Score is "+GetStarForMember.correctInHis);
+        // print("full score is "+GetStarForMember.fullScore);
+        keepInorderRealScore = ((double)GetStarForMember.keepInorderscore/(double)GetStarForMember.keepInorderfullScore)*100;
+        //SpeakingRealScore = ((double)GetStarForMember.Speakingscore/(double)GetStarForMember.SpeakingfullScore)*100;
+        // print("real score is "+realScore);
+        
+        if(keepInorderRealScore>60){
+            starSpeaking1.SetActive(true);
+            starSpeaking2.SetActive(true);
+            starSpeaking3.SetActive(true);
+            print("star3");
+        }else if(keepInorderRealScore<=60 && keepInorderRealScore>40){
+            starSpeaking1.SetActive(true);
+            starSpeaking2.SetActive(true);
+            starSpeaking3.SetActive(false);
+             print("star2");
+            //nostar3.SetActive(true);
+        }else if(keepInorderRealScore<=40 && keepInorderRealScore>=1){
+            starSpeaking1.SetActive(true);
+            starSpeaking2.SetActive(false);
+            starSpeaking3.SetActive(false);
+             print("star1");
+            //nostar2.SetActive(true);
+            //nostar3.SetActive(true);
+        }else{
+            starSpeaking1.SetActive(false);
+            starSpeaking2.SetActive(false);
+            starSpeaking3.SetActive(false);
+             print("star0");
+            //nostar1.SetActive(true);
+            //nostar2.SetActive(true);
+            //nostar3.SetActive(true);
+        }
         if(c==1)
         {
             image.GetComponent<Image>().sprite=sprite1;
