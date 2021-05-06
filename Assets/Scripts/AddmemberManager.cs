@@ -465,7 +465,7 @@ public class AddmemberManager : MonoBehaviour
         //print("i "+i);
        }
            
-         Invoke("ChangeButtons", 2); 
+         Invoke("ChangeButtons", 1); 
               
      }
 
@@ -531,7 +531,7 @@ public class AddmemberManager : MonoBehaviour
              print("passwordList " +passwordList[i]); 
         }
        
-        Invoke("CheckPasswordImage", 2);
+        Invoke("CheckPasswordImage", 1);
     }
 
      public void CheckPasswordMember()
@@ -694,10 +694,17 @@ public class AddmemberManager : MonoBehaviour
         Dictionary<string, Object> childUpdates = new Dictionary<string, Object>();
         // เขียนข้อมูลลง Model
         Member mData = new Member();
-        // mData.m_name = Random.Range(0f, 5f);
         mData.m_password = passwordField1.text+""+passwordField2.text+""+passwordField3.text+""+passwordField4.text;
         mData.pic = ProfileMember.count;
+
+        //Star
+        mData.starSpeaking =0;
+        mData.starQueue =0;
+        mData.starHelpOther =0;
         mData.starKeepInorder =0;
+        
+
+        
         memberName = mData.m_name = nameField.text;
         nameList2.Add(nameField.text);
         picList2.Add(ProfileMember.count);
@@ -755,6 +762,9 @@ public class AddmemberManager : MonoBehaviour
        if(!nameOnTable.Contains(u.m_name)){
            nameOnTable.Add(u.m_name);
        }
+    
+        Reset();
+
        
     }
     // Update is called once per frame
@@ -871,6 +881,26 @@ public class AddmemberManager : MonoBehaviour
     public void RemoveSuccess()
     {
         RemoveSuccessUI.SetActive(false);
+    }
+
+    public void Reset()
+    {
+        checkPasswordField1.text="";
+        checkPasswordField2.text="";
+        checkPasswordField3.text="";
+        checkPasswordField4.text="";
+
+        passwordField1.text="";
+        passwordField2.text="";
+        passwordField3.text="";
+        passwordField4.text="";
+
+        passwordAddField.text="";
+        nameField.text="";
+        
+
+
+
     }
 
     

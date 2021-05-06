@@ -36,6 +36,11 @@ public class StarCollection : MonoBehaviour
     public GameObject Images;
     
     public Text nameText;
+
+    public Text starSpeaking;
+    public Text starQueue;
+    public Text starHelpOther;
+    public Text starKeepInOrder;
   
     [Header("SpeakingStarUI")]
     public GameObject ImagesSpeaking;
@@ -141,10 +146,12 @@ public class StarCollection : MonoBehaviour
         // print("Before play:"+Before);
         // scoreSpeakingBefore.text = Before;
 
+        
         After = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("Speaking").Value.ToString();
         After2 = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("Queue").Value.ToString();
         After3 = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("HelpOther").Value.ToString();
         After4 = snapshot.Child(s).Child("ObservationScore").Child("History"+No).Child("KeepInOrder").Value.ToString();
+        
         // print("After play:"+After);
         // scoreSpeakingAfter.text = After;
 
@@ -220,6 +227,10 @@ public class StarCollection : MonoBehaviour
     });
     }
 
+
+
+
+
   
  public void OnClickedStar(Button button) //ดูว่ากดปุ่มดาวคนไหน 
     {
@@ -233,6 +244,8 @@ public class StarCollection : MonoBehaviour
             nameTextSpeaking.text="น้อง"+AddmemberManager.nameOnTable[i];
             nameTextHelpOther.text="น้อง"+AddmemberManager.nameOnTable[i];
             nameTextKeepInOrder.text="น้อง"+AddmemberManager.nameOnTable[i];
+
+            
             
 
 
@@ -474,8 +487,9 @@ public class StarCollection : MonoBehaviour
         scoreQueueAfter.text = After2;
         scoreHelpOtherAfter.text = After3;
         scoreKeepInOrderAfter.text = After4;
+        print("After:"+After +" "+After2 +" "+After3 +" "+After4);
 
-        if(history==0)
+        if(history-1==0)
         {
             scoreSpeakingBefore.text = "";
             scoreQueueBefore.text = "";
@@ -487,13 +501,17 @@ public class StarCollection : MonoBehaviour
             scoreKeepInOrderAfter.text = "";
             
         }
-        if(history==1)
+        if(history-1==1)
         {
             scoreSpeakingAfter.text = "";
             scoreQueueAfter.text = "";
             scoreHelpOtherAfter.text = "";
             scoreKeepInOrderAfter.text = "";
         }
+
+        // Star
+        starSpeaking.text=GetStarForMember.starkeepInorder;
+
         if(c==1)
 
         {

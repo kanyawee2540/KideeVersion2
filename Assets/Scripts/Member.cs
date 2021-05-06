@@ -16,6 +16,9 @@ public class Member
     public int keepInorderHistory;
     public int keepInorderFullScore=3;
     public int starKeepInorder;
+    public int starSpeaking;
+    public int starHelpOther;
+    public int starQueue;
 
     // Start is called before the first frame update
 //    public Member()

@@ -29,7 +29,13 @@ public class GetStarForMember : MonoBehaviour
 
      //star
      public static string starkeepInorder;
+     public static string starSpeaking;
+     public static string starQueue;
+     public static string starHelpOther;
      public static int maxStarkeepInorder;
+     public static int maxStarSpeaking;
+     public static int maxStarQueue;
+     public static int maxStarHelpOther;
 
     void Start()
     {
@@ -59,12 +65,9 @@ public class GetStarForMember : MonoBehaviour
         //history +=1;
         // inToHis = "History"+history;
         // print("inToHis:"+inToHis);
-        starkeepInorder=snapshot.Child(s).Child("starKeepInorder").Value.ToString();
-        print("maxStar : "+starkeepInorder);
-        maxStarkeepInorder = Int32.Parse(starkeepInorder);
 
 
-
+        
         keepInorderfullScoreInHis = snapshot.Child(s).Child("keepInorderFullScore").Value.ToString();
         keepInorderfullScore = Int32.Parse(keepInorderfullScoreInHis);
         //print("history: "+keepInorderhistory+" fullScore: "+keepInorderfullScore);
@@ -116,6 +119,27 @@ public class GetStarForMember : MonoBehaviour
         // helpOtherscore = Int32.Parse(helpOthercorrectInHis);
         // print("helpOther history: "+helpOtherhistory+" score:"+helpOtherscore);
         
+
+
+
+        //----------------------Get max Star---------------------------------
+        starkeepInorder=snapshot.Child(s).Child("starKeepInorder").Value.ToString();
+        print("maxStar : "+starkeepInorder);
+        maxStarkeepInorder = Int32.Parse(starkeepInorder);
+
+        // starSpeaking=snapshot.Child(s).Child("").Value.ToString();
+        // print("maxStar : "+starSpeaking);
+        // maxStarSpeaking = Int32.Parse(starSpeaking);
+
+        // starQueue=snapshot.Child(s).Child("").Value.ToString();
+        // print("maxStar : "+starQueue);
+        // maxStarQueue = Int32.Parse(starQueue);
+
+        // starHelpOther=snapshot.Child(s).Child("").Value.ToString();
+        // print("maxStar : "+starHelpOther);
+        // maxStarHelpOther = Int32.Parse(starHelpOther);
+
+
 
 
         
