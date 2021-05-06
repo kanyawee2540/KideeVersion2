@@ -198,7 +198,7 @@ public class StarCollection : MonoBehaviour
         DataSnapshot snapshot = task.Result;
         string No = snapshot.Child(s).Child("ObservationHistory").Value.ToString();
         print("No:"+No);
-         history = Int32.Parse(No);
+        history = Int32.Parse(No);
         history +=1;
         inToHis = "History"+history;
         print("inToHis:"+inToHis);
@@ -510,7 +510,11 @@ public class StarCollection : MonoBehaviour
         }
 
         // Star
-        starSpeaking.text=GetStarForMember.starkeepInorder;
+        starSpeaking.text=""+GetMax.maxStarSpeaking;
+        starHelpOther.text=""+GetMax.maxStarHelpOther;
+        starKeepInOrder.text=""+GetMax.maxStarkeepInorder;
+        starQueue.text=""+GetMax.maxStarQueue;
+        //print("maxStarSpeaking "+GetMax.maxStarSpeaking);
 
         if(c==1)
 

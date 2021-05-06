@@ -113,12 +113,12 @@ public class Speaking : MonoBehaviour
         }
 
         //Check star in Max
-          if(star>GetStarForMember.maxStarSpeaking){
+          if(star>GetMax.maxStarSpeaking){
             SaveStar=star;
             print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking "+GetStarForMember.maxStarSpeaking);
             
-        }else if(star<=GetStarForMember.maxStarSpeaking){
-            SaveStar=GetStarForMember.maxStarSpeaking;
+        }else if(star<=GetMax.maxStarSpeaking){
+            SaveStar=GetMax.maxStarSpeaking;
              print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking "+GetStarForMember.maxStarSpeaking);
             
         }
@@ -139,6 +139,7 @@ public class Speaking : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
 
        
         goToMenu();
@@ -156,6 +157,8 @@ public class Speaking : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
+
 
         //push star in Max
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starSpeaking").SetValueAsync(SaveStar);
@@ -175,6 +178,8 @@ public class Speaking : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
+
         Showscore();
         showStar();
     
