@@ -34,7 +34,8 @@ public class Speaking : MonoBehaviour
     public GameObject star3;
     
     public GameObject apple;
-     public static int fullScore,scoreInHis,his;
+     public static int scoreInHis,his;
+     public static int fullScore=0;
      public static double realScore;
      public static string memberurl,fullScoreInHis,correctInHis,No;
      public static int controlHis;
@@ -87,12 +88,10 @@ public class Speaking : MonoBehaviour
         score += 1;
         print("score is "+score);
 
-        //test mo
-        print("-------------------------");
-        print("Score isssssss "+score);
-        int fullscore = GetStarForMember.SpeakingfullScore;
-        print("fullscore is "+fullscore);
-        double scoreStar= ((double)score/(double)fullscore)*100;
+
+        
+        //print("fullscore is "+fullscore);
+        double scoreStar= ((double)score/(double)4)*100;
         print("scoreStar is "+scoreStar);
         print("-------------------------");
         if(scoreStar>60){

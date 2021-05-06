@@ -110,10 +110,41 @@ public class ShowScoreForMember : MonoBehaviour
         
         // print("----------------Score is "+GetStarForMember.correctInHis);
         // print("full score is "+GetStarForMember.fullScore);
-        int showkeepInorder = GetStarForMember.maxStarkeepInorder;
+        int showkeepInorder = GetMax.maxStarkeepInorder;
+        int showSpeaking = GetMax.maxStarSpeaking;
+
+
         //SpeakingRealScore = ((double)GetStarForMember.Speakingscore/(double)GetStarForMember.SpeakingfullScore)*100;
         // print("real score is "+realScore);
         
+        if(showSpeaking==3){
+            starSpeaking1.SetActive(true);
+            starSpeaking2.SetActive(true);
+            starSpeaking3.SetActive(true);
+            print("star3");
+        }else if(showSpeaking==2){
+            starSpeaking1.SetActive(true);
+            starSpeaking2.SetActive(true);
+            starSpeaking3.SetActive(false);
+             print("star2");
+            //nostar3.SetActive(true);
+        }else if(showSpeaking==1){
+            starSpeaking1.SetActive(true);
+            starSpeaking2.SetActive(false);
+            starSpeaking3.SetActive(false);
+             print("star1");
+            //nostar2.SetActive(true);
+            //nostar3.SetActive(true);
+        }else{
+            starSpeaking1.SetActive(false);
+            starSpeaking2.SetActive(false);
+            starSpeaking3.SetActive(false);
+             print("star0");
+            //nostar1.SetActive(true);
+            //nostar2.SetActive(true);
+            //nostar3.SetActive(true);
+        }
+
         if(showkeepInorder==3){
             starKeepInOrder1.SetActive(true);
             starKeepInOrder2.SetActive(true);
@@ -141,6 +172,8 @@ public class ShowScoreForMember : MonoBehaviour
             //nostar2.SetActive(true);
             //nostar3.SetActive(true);
         }
+
+
         if(c==1)
         {
             image.GetComponent<Image>().sprite=sprite1;

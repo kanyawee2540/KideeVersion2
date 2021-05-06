@@ -117,9 +117,9 @@ public class KeepInorder : MonoBehaviour
         print("score is "+score);
 
         //test mo
-        int fullscore = GetStarForMember.keepInorderfullScore;
-        print("fullscore is "+fullscore);
-        double scoreStar= ((double)score/(double)fullscore)*100;
+        //int fullscore = GetStarForMember.keepInorderfullScore;
+       // print("fullscore is "+fullscore);
+        double scoreStar= ((double)score/(double)3)*100;
         print("scoreStar is "+scoreStar);
         
         if(scoreStar>60){
