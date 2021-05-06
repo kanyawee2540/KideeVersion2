@@ -191,6 +191,22 @@ public class KeepInorder : MonoBehaviour
     showStar();
     
     }
+
+    public void Exit(){     //ออกโดยยังไม่ได้เล่น
+    
+        day = System.DateTime.Now.ToString("yyyy/MM/dd"); 
+        DateTime now = DateTime.Now;
+        string time = now.ToString("T");
+        string His = "History"+history;
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("keepInorderHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        Showscore();
+        showStar();
+    
+    }
         public void showStar(){
             apple.transform.position = new Vector3(2,0,0);
        

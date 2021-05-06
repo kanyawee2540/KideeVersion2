@@ -45230,7 +45230,7 @@ GameObject:
   - component: {fileID: 2055108808}
   - component: {fileID: 2055108807}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: GetData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
