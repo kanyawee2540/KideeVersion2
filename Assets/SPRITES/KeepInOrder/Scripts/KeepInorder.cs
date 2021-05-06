@@ -208,7 +208,6 @@ public class KeepInorder : MonoBehaviour
     
     }
         public void showStar(){
-            apple.transform.position = new Vector3(2,0,0);
        
         print("in His "+No);
         print("----------------Score in keep in order is "+scoreInHis);
@@ -221,21 +220,25 @@ public class KeepInorder : MonoBehaviour
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
+            m_score.text = "3 ดาว";
         }else if(star==2){
             print("incase <=60");
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(false);
+            m_score.text = "2 ดาว";
         }else if(star==1){
             print("incase <=40");
             star1.SetActive(true);
             star2.SetActive(false);
             star3.SetActive(false);
+            m_score.text = "1 ดาว";
         }else{
             print("incase other (mean 0)");
             star1.SetActive(false);
             star2.SetActive(false);
             star3.SetActive(false);
+            m_score.text = "0 ดาว";
         }
 
 }
