@@ -53,7 +53,8 @@ public class tryQ1 : MonoBehaviour
             questionUIQ1.SetActive(false);
             correctUIQ1.SetActive(true);
             Q1DragS1.locked = false;
-            score += 1;
+            correct();
+            /*score += 1;*/
             saveinTheEnd();
         }
         if (Q1DragS2.locked || Q1DragS3.locked || Q1DragS4.locked)
@@ -61,7 +62,8 @@ public class tryQ1 : MonoBehaviour
             Q1DragS2.locked = false;
             Q1DragS3.locked = false;
             Q1DragS4.locked = false;
-            scoreIncorrect += 1;
+            incorrect();
+            /*scoreIncorrect += 1;*/
             saveinTheEnd();
             GotoinCorrectUI();
             /*GotoinCorrectUI();*/
