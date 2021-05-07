@@ -979,8 +979,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -2012,8 +2012,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -14625,8 +14625,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -16673,7 +16673,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -16694,7 +16694,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &689800965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19593,8 +19593,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -20211,8 +20211,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -20865,8 +20865,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -24389,8 +24389,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -26176,8 +26176,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -30537,8 +30537,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -45659,8 +45659,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2055108809}
+        m_CallState: 0
+      - m_Target: {fileID: 2055108813}
         m_MethodName: GetMaxscore
         m_Mode: 1
         m_Arguments:
@@ -47759,6 +47759,7 @@ GameObject:
   - component: {fileID: 2055108810}
   - component: {fileID: 2055108811}
   - component: {fileID: 2055108812}
+  - component: {fileID: 2055108813}
   m_Layer: 0
   m_Name: GetData
   m_TagString: Untagged
@@ -47850,10 +47851,22 @@ MonoBehaviour:
   starSpeakingText: {fileID: 1866888128}
   dateKeepInorderText: {fileID: 160313603}
   starKeepInorderText: {fileID: 207199591}
-  dateQueueText: {fileID: 0}
-  starQueueText: {fileID: 0}
-  dateHelpOtherText: {fileID: 0}
-  starHelpOtherText: {fileID: 0}
+  dateQueueText: {fileID: 160313603}
+  starQueueText: {fileID: 207199591}
+  dateHelpOtherText: {fileID: 372199152}
+  starHelpOtherText: {fileID: 171652181}
+--- !u!114 &2055108813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055108806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7996f28526bf86647b3f71a1b7b2f5fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060900868
 GameObject:
   m_ObjectHideFlags: 0

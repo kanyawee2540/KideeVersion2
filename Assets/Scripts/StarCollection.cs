@@ -629,7 +629,7 @@ public class StarCollection : MonoBehaviour
             ImagesObservation2.GetComponent<Image>().sprite=sprite9;
 
         }
-        string s = "มีดาวทั้งหมด "+(GetMax.maxStarkeepInorder+GetMax.maxStarSpeaking+GetMax.maxStarHelpOther+GetMax.maxStarSpeaking)+" ดวง";;
+        string s = "มีดาวทั้งหมด "+(GetMax.maxStarkeepInorder+GetMax.maxStarSpeaking+GetMax.maxStarHelpOther+GetMax.maxStarQueue)+" ดวง";
         sumStar1.text=s;
         sumStar2.text=s;
         sumStar3.text=s;

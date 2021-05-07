@@ -50,7 +50,7 @@ public class ShowInfo : MonoBehaviour
             for(int i=0;i<GetInfo.DateListSpeaking.Count;i++)
             {
                 dateSpeakingdisplay = dateSpeakingdisplay.ToString () + GetInfo.DateListSpeaking[i].ToString() + "\n";
-                print("DateList"+i+" "+GetInfo.DateListSpeaking[i]);
+               // print("DateList"+i+" "+GetInfo.DateListSpeaking[i]);
                 dateSpeakingText.text =dateSpeakingdisplay;
 
                 starSpeakingdisplay = starSpeakingdisplay.ToString () + GetInfo.StarListSpeaking[i].ToString() + "\n"; 
@@ -66,15 +66,46 @@ public class ShowInfo : MonoBehaviour
             for(int i=0;i<GetInfo.DateListKeepInorder.Count;i++)
             {
                 dateKeepInorderdisplay = dateKeepInorderdisplay.ToString () + GetInfo.DateListKeepInorder[i].ToString() + "\n";
-                print("DateList"+i+" "+GetInfo.DateListKeepInorder[i]);
+               // print("DateList"+i+" "+GetInfo.DateListKeepInorder[i]);
                 dateKeepInorderText.text =dateKeepInorderdisplay;
 
                 starKeepInorderdisplay = starKeepInorderdisplay.ToString () + GetInfo.StarListKeepInorder[i].ToString() + "\n"; 
                 starKeepInorderText.text =starKeepInorderdisplay;
 
 
-            }   
-            print("GetInfo.Speakinghistory"+GetInfo.Speakinghistory);
+            }  
+
+             dateHelpOtherdisplay ="";
+            starHelpOtherdisplay ="";
+
+            for(int i=0;i<GetInfo.DateListHelpOther.Count;i++)
+            {
+                dateHelpOtherdisplay = dateHelpOtherdisplay.ToString () + GetInfo.DateListHelpOther[i].ToString() + "\n";
+               // print("DateList"+i+" "+GetInfo.DateListKeepInorder[i]);
+                dateHelpOtherText.text =dateHelpOtherdisplay;
+
+                starHelpOtherdisplay = starHelpOtherdisplay.ToString () + GetInfo.StarListHelpOther[i].ToString() + "\n"; 
+                starHelpOtherText.text =starHelpOtherdisplay;
+
+
+            } 
+
+            //  dateQueuedisplay ="";
+            // starQueuedisplay ="";
+
+            // for(int i=0;i<GetInfo.DateListQueue.Count;i++)
+            // {
+            //     dateQueuedisplay = dateQueuedisplay.ToString () + GetInfo.DateListQueue[i].ToString() + "\n";
+            //     //print("DateList"+i+" "+GetInfo.DateListKeepInorder[i]);
+            //     dateQueueText.text =dateQueuedisplay;
+
+            //     starQueuedisplay = starQueuedisplay.ToString () + GetInfo.StarListQueue[i].ToString() + "\n"; 
+            //     starQueueText.text =starQueuedisplay;
+
+
+            // }  
+
+            //print("GetInfo.Speakinghistory"+GetInfo.Speakinghistory);
 
             if(GetInfo.Speakinghistory==0)
         {
@@ -92,14 +123,14 @@ public class ShowInfo : MonoBehaviour
             starKeepInorderText.text ="";
 
         }
-        // if(GetInfo.Speakinghistory==0)
-        // {
-        //     dateSpeakingdisplay ="";
-        //     starSpeakingdisplay ="";
-        //     dateSpeakingText.text ="";
-        //     starSpeakingText.text ="";
+        if(GetInfo.HelpOtherhistory==0)
+        {
+            dateHelpOtherdisplay ="";
+            starHelpOtherdisplay ="";
+            dateHelpOtherText.text ="";
+            starHelpOtherText.text ="";
 
-        // }
+        }
         // if(GetInfo.Speakinghistory==0)
         // {
         //     dateSpeakingdisplay ="";

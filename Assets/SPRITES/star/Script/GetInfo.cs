@@ -69,6 +69,10 @@ public class GetInfo : MonoBehaviour
         Speakinghistory = Int32.Parse(No);
         string No2 = snapshot.Child(s).Child("keepInorderHistory").Value.ToString();
         keepInorderHistory = Int32.Parse(No2);
+        string No3 = snapshot.Child(s).Child("helpOtherHistory").Value.ToString();
+        HelpOtherhistory = Int32.Parse(No3);
+        // string No4 = snapshot.Child(s).Child("keepInorderHistory").Value.ToString();
+        // keepInorderHistory = Int32.Parse(No2);
         
         
         //print("No:"+No1);
@@ -101,6 +105,21 @@ public class GetInfo : MonoBehaviour
             string star = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Star").Value.ToString();
             print(" KeepInorder history: "+count+" Star: "+star);
             StarListKeepInorder.Add(star);
+            
+
+           // keepInorderscore = Int32.Parse(keepInordercorrectInHis);
+        }
+
+         for(int i=0;i<HelpOtherhistory;i++)
+        {
+            int count = i+1;
+            string date = snapshot.Child(s).Child("HelpOther").Child("History"+count).Child("Date").Value.ToString();
+            print(" HelpOther history: "+count+" date: "+date);
+            DateListHelpOther.Add(date);
+
+            string star = snapshot.Child(s).Child("HelpOther").Child("History"+count).Child("Star").Value.ToString();
+            print(" HelpOther history: "+count+" Star: "+star);
+            StarListHelpOther.Add(star);
             
 
            // keepInorderscore = Int32.Parse(keepInordercorrectInHis);

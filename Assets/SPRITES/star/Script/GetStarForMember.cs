@@ -123,9 +123,9 @@ public class GetStarForMember : MonoBehaviour
 
 
         //----------------------Get max Star---------------------------------
-        starkeepInorder=snapshot.Child(s).Child("starKeepInorder").Value.ToString();
-        print("maxStar : "+starkeepInorder);
-        maxStarkeepInorder = Int32.Parse(starkeepInorder);
+        // starkeepInorder=snapshot.Child(s).Child("starKeepInorder").Value.ToString();
+        // print("maxStar : "+starkeepInorder);
+        // maxStarkeepInorder = Int32.Parse(starkeepInorder);
 
         // starSpeaking=snapshot.Child(s).Child("").Value.ToString();
         // print("maxStar : "+starSpeaking);

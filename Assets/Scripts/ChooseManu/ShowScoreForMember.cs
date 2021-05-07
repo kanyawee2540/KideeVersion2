@@ -49,6 +49,8 @@ public class ShowScoreForMember : MonoBehaviour
     public Sprite sprite9;
     public Text nameText;
     public GameObject image;
+    public Text sumStar;
+    public Text sumStar2;
 
 
     //public Text m_score,m_fullScore,m_realScore,m_history;
@@ -87,9 +89,10 @@ public class ShowScoreForMember : MonoBehaviour
     //     correctInHis = snapshot.Child(AddmemberManager.buttonKey).Child("KeepInorder").Child("ScoreForShowStarInTheEnd").Child("Correct").Value.ToString();
     //     score = Int32.Parse(correctInHis);
 
-
+         
         
-
+        sumStar.text="มีดาวทั้งหมด "+(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
+        sumStar2.text=(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
     // });
 
     }
@@ -110,14 +113,17 @@ public class ShowScoreForMember : MonoBehaviour
         
         // print("----------------Score is "+GetStarForMember.correctInHis);
         // print("full score is "+GetStarForMember.fullScore);
-        int showkeepInorder = GetMax.maxStarkeepInorder;
-        int showSpeaking = GetMax.maxStarSpeaking;
+        int showkeepInorder = GetMaxInchooseManu.maxStarkeepInorder;
+        int showSpeaking = GetMaxInchooseManu.maxStarSpeaking;
+        int showHelpOther = GetMaxInchooseManu.maxStarHelpOther;
+        int showQueue= GetMaxInchooseManu.maxStarQueue;
+
 
 
         //SpeakingRealScore = ((double)GetStarForMember.Speakingscore/(double)GetStarForMember.SpeakingfullScore)*100;
         // print("real score is "+realScore);
         
-        if(showSpeaking==3){
+        if(showSpeaking==3){                        //star Speaking
             starSpeaking1.SetActive(true);
             starSpeaking2.SetActive(true);
             starSpeaking3.SetActive(true);
@@ -145,7 +151,7 @@ public class ShowScoreForMember : MonoBehaviour
             //nostar3.SetActive(true);
         }
 
-        if(showkeepInorder==3){
+        if(showkeepInorder==3){                      //star KeepInOrder
             starKeepInOrder1.SetActive(true);
             starKeepInOrder2.SetActive(true);
             starKeepInOrder3.SetActive(true);
@@ -167,6 +173,62 @@ public class ShowScoreForMember : MonoBehaviour
             starKeepInOrder1.SetActive(false);
             starKeepInOrder2.SetActive(false);
             starKeepInOrder3.SetActive(false);
+             print("star0");
+            //nostar1.SetActive(true);
+            //nostar2.SetActive(true);
+            //nostar3.SetActive(true);
+        }
+
+        if(showHelpOther==3){                      //star HelpOther
+            starHelpOther1.SetActive(true);
+            starHelpOther2.SetActive(true);
+            starHelpOther3.SetActive(true);
+            print("star3");
+        }else if(showHelpOther==2){
+            starHelpOther1.SetActive(true);
+            starHelpOther2.SetActive(true);
+            starHelpOther3.SetActive(false);
+             print("star2");
+            //nostar3.SetActive(true);
+        }else if(showHelpOther==1){
+            starHelpOther1.SetActive(true);
+            starHelpOther2.SetActive(false);
+            starHelpOther3.SetActive(false);
+             print("star1");
+            //nostar2.SetActive(true);
+            //nostar3.SetActive(true);
+        }else{
+            starHelpOther1.SetActive(false);
+            starHelpOther2.SetActive(false);
+            starHelpOther3.SetActive(false);
+             print("star0");
+            //nostar1.SetActive(true);
+            //nostar2.SetActive(true);
+            //nostar3.SetActive(true);
+        }
+
+        if(showQueue==3){                     //star Queue
+            starQueue1.SetActive(true);
+            starQueue2.SetActive(true);
+            starQueue3.SetActive(true);
+            print("star3");
+        }else if(showQueue==2){
+            starQueue1.SetActive(true);
+            starQueue2.SetActive(true);
+            starQueue3.SetActive(false);
+             print("star2");
+            //nostar3.SetActive(true);
+        }else if(showQueue==1){
+            starQueue1.SetActive(true);
+            starQueue2.SetActive(false);
+            starQueue3.SetActive(false);
+             print("star1");
+            //nostar2.SetActive(true);
+            //nostar3.SetActive(true);
+        }else{
+            starQueue1.SetActive(false);
+            starQueue2.SetActive(false);
+            starQueue3.SetActive(false);
              print("star0");
             //nostar1.SetActive(true);
             //nostar2.SetActive(true);
@@ -210,6 +272,9 @@ public class ShowScoreForMember : MonoBehaviour
         {
             image.GetComponent<Image>().sprite=sprite9;
         }
+ sumStar.text="มีดาวทั้งหมด "+(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
+        sumStar2.text=(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
+         
         
      
     }
