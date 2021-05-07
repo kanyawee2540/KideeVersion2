@@ -41,22 +41,27 @@ public class StarCollection : MonoBehaviour
     public Text starQueue;
     public Text starHelpOther;
     public Text starKeepInOrder;
+    public Text sumStar1;
   
     [Header("SpeakingStarUI")]
     public GameObject ImagesSpeaking;
     public Text nameTextSpeaking;
+    public Text sumStar2;
 
     [Header("QueueStarUI")]
     public GameObject ImagesQueue;
     public Text nameTextQueue;
+    public Text sumStar3;
 
     [Header("HelpOtherStarUI")]
     public GameObject ImagesHelpOther;
     public Text nameTextHelpOther;
+    public Text sumStar4;
 
     [Header("KeepInOrderStarUI")]
     public GameObject ImagesKeepInOrder;
     public Text nameTextKeepInOrder;
+    public Text sumStar5;
 
     [Header("ObservationUI1")]
     public GameObject ImagesObservation1;
@@ -71,6 +76,7 @@ public class StarCollection : MonoBehaviour
     
     public Text scoreKeepInOrderBefore;
     public Text scoreKeepInOrderAfter;
+    public Text sumStar6;
     
 
 
@@ -96,6 +102,7 @@ public class StarCollection : MonoBehaviour
     public static string After3;
     public static string Before4;
     public static string After4;
+    public Text sumStar7;
 
 
 
@@ -110,6 +117,8 @@ public class StarCollection : MonoBehaviour
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
+
+
     }
 
     // Update is called once per frame
@@ -472,10 +481,10 @@ public class StarCollection : MonoBehaviour
     {
         
         c=Int32.Parse(""+AddmemberManager.picList[buttonStarCount]);
-        for(int i=0;i<AddmemberManager.picList.Count;i++){
-        print("picList "+i+" "+AddmemberManager.picList[i]);
+        // for(int i=0;i<AddmemberManager.picList.Count;i++){
+        // print("picList "+i+" "+AddmemberManager.picList[i]);
         
-        }
+        // }
         print("c:"+c);
         // print("Before play:"+Before);
         scoreSpeakingBefore.text = Before;
@@ -488,8 +497,8 @@ public class StarCollection : MonoBehaviour
         scoreHelpOtherAfter.text = After3;
         scoreKeepInOrderAfter.text = After4;
         print("After:"+After +" "+After2 +" "+After3 +" "+After4);
-
-        if(history-1==0)
+        print("history:"+history);
+        if(history-1<=0)
         {
             scoreSpeakingBefore.text = "";
             scoreQueueBefore.text = "";
@@ -501,7 +510,7 @@ public class StarCollection : MonoBehaviour
             scoreKeepInOrderAfter.text = "";
             
         }
-        if(history-1==1)
+        else if(history-1==1)
         {
             scoreSpeakingAfter.text = "";
             scoreQueueAfter.text = "";
@@ -620,7 +629,15 @@ public class StarCollection : MonoBehaviour
             ImagesObservation2.GetComponent<Image>().sprite=sprite9;
 
         }
-        
+        string s = "มีดาวทั้งหมด "+(GetMax.maxStarkeepInorder+GetMax.maxStarSpeaking+GetMax.maxStarHelpOther+GetMax.maxStarSpeaking)+" ดวง";;
+        sumStar1.text=s;
+        sumStar2.text=s;
+        sumStar3.text=s;
+        sumStar4.text=s;
+        sumStar5.text=s;
+        sumStar6.text=s;
+        sumStar7.text=s;
+        //sumStar8.text=""+GetMax.sumStar;
      
     }
     

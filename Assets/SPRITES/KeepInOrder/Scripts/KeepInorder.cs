@@ -167,6 +167,7 @@ public class KeepInorder : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Star").SetValueAsync(star);
 
        
         goToMenu();
@@ -184,6 +185,8 @@ public class KeepInorder : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Star").SetValueAsync(star);
+
 
         //push star in Max
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starKeepInorder").SetValueAsync(SaveStar);
@@ -203,6 +206,8 @@ public class KeepInorder : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("KeepInorder").Child(His).Child("Star").SetValueAsync(star);
+
         Showscore();
         showStar();
     

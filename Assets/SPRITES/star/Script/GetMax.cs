@@ -40,7 +40,7 @@ public class GetMax : MonoBehaviour
 
         public void GetMaxscore()
         {
-            string s= ""+RemoveMember.keyList[AddmemberManager.buttonNameMember];
+            string s= ""+RemoveMember.keyList[StarCollection.buttonStarCount];
            
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
@@ -48,21 +48,22 @@ public class GetMax : MonoBehaviour
 
               //----------------------Get max Star---------------------------------
         starkeepInorder=snapshot.Child(s).Child("starKeepInorder").Value.ToString();
-        print("maxStar : "+starkeepInorder);
+        print("maxStarkeepInorder : "+starkeepInorder);
         maxStarkeepInorder = Int32.Parse(starkeepInorder);
 
         starSpeaking=snapshot.Child(s).Child("starSpeaking").Value.ToString();
-        print("maxStar : "+starSpeaking);
+        print("maxStarSpeaking : "+starSpeaking);
         maxStarSpeaking = Int32.Parse(starSpeaking);
 
         starQueue=snapshot.Child(s).Child("starQueue").Value.ToString();
-        print("maxStar : "+starQueue);
+        print("maxStarQueue : "+starQueue);
         maxStarQueue = Int32.Parse(starQueue);
 
         starHelpOther=snapshot.Child(s).Child("starHelpOther").Value.ToString();
-        print("maxStar : "+starHelpOther);
+        print("maxStarHelpOther : "+starHelpOther);
         maxStarHelpOther = Int32.Parse(starHelpOther);
 
+       
           });
         }
 }

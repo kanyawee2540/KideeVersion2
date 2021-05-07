@@ -54,11 +54,11 @@ public class profileUser : MonoBehaviour
         gender=AddmemberManager.gender;
         name1=AddmemberManager.name;
         if(gender==0){
-            print("gender 0");
+            //print("gender 0");
         image2.GetComponent<Image>().sprite=sprite0;
         }else if(gender==1){
            image2.GetComponent<Image>().sprite=sprite1;
-            print("gender 1");
+            //print("gender 1");
         }
         nametext2.text ="ครู"+ name1;
 
@@ -69,11 +69,11 @@ public class profileUser : MonoBehaviour
         name1=AddmemberManager.name;
         gender=AddmemberManager.gender;
         if(gender==0){
-            print("gender 0");
+            //print("gender 0");
         image3.GetComponent<Image>().sprite=sprite0;
         }else if(gender==1){
            image3.GetComponent<Image>().sprite=sprite1;
-            print("gender 1");
+            //print("gender 1");
         }
         nametext3.text ="ครู"+ name1;
        // image.GetComponent<Image>().sprite=sprite1;
@@ -83,11 +83,11 @@ public class profileUser : MonoBehaviour
         name1=AddmemberManager.name;
         gender=AddmemberManager.gender;
         if(gender==0){
-            print("gender 0");
+            //print("gender 0");
         image4.GetComponent<Image>().sprite=sprite0;
         }else if(gender==1){
            image4.GetComponent<Image>().sprite=sprite1;
-            print("gender 1");
+           // print("gender 1");
         }
         nametext4.text ="ครู"+ name1;
        // image.GetComponent<Image>().sprite=sprite1;

@@ -15,11 +15,21 @@ public class GetInfo : MonoBehaviour
 {
     // Start is called before the first frame update
     private DatabaseReference reference;
-    public static ArrayList DateList = new ArrayList();
-    public static ArrayList StarList = new ArrayList();
+    public static ArrayList DateListSpeaking = new ArrayList();
+    public static ArrayList StarListSpeaking = new ArrayList();
+    
+    public static ArrayList DateListKeepInorder = new ArrayList();
+    public static ArrayList StarListKeepInorder = new ArrayList();
+
+    public static ArrayList DateListHelpOther = new ArrayList();
+    public static ArrayList StarListHelpOther = new ArrayList();
+
+     public static ArrayList DateListQueue = new ArrayList();
+    public static ArrayList StarListQueue = new ArrayList();
 
 
-    public static int keepInorderhistory,Speakinghistory,helpOtherhistory;
+
+    public static int keepInorderHistory,Speakinghistory,HelpOtherhistory;
    
 
 
@@ -37,8 +47,16 @@ public class GetInfo : MonoBehaviour
     }
     public void GetInfoMember()
         {
-            DateList.Clear();
-            StarList.Clear();
+            DateListSpeaking.Clear();
+            StarListSpeaking.Clear();
+            DateListKeepInorder.Clear();
+            StarListKeepInorder.Clear();
+            DateListHelpOther.Clear();
+            StarListHelpOther.Clear();
+            DateListQueue.Clear();
+            StarListQueue.Clear();
+
+
             string s= ""+RemoveMember.keyList[StarCollection.buttonStarCount];
 ;
            
@@ -48,21 +66,41 @@ public class GetInfo : MonoBehaviour
 
 
         string No = snapshot.Child(s).Child("speakingHistory").Value.ToString();
-        //print("No:"+No1);
         Speakinghistory = Int32.Parse(No);
+        string No2 = snapshot.Child(s).Child("keepInorderHistory").Value.ToString();
+        keepInorderHistory = Int32.Parse(No2);
+        
+        
+        //print("No:"+No1);
         //history +=1;
         // inToHis = "History"+history;
         // print("inToHis:"+inToHis);
         for(int i=0;i<Speakinghistory;i++)
         {
             int count = i+1;
-            string date = snapshot.Child(s).Child("Speaking").Child("History"+count).Child("Date").Value.ToString();
-            print(" history: "+count+" date: "+date);
-            DateList.Add(date);
+            string date = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Date").Value.ToString();
+            print("KeepInorder history: "+count+" date: "+date);
+            DateListSpeaking.Add(date);
 
             string star = snapshot.Child(s).Child("Speaking").Child("History"+count).Child("Star").Value.ToString();
-            print(" history: "+count+" Star: "+star);
-            StarList.Add(star);
+            print("KeepInorder history: "+count+" Star: "+star);
+            StarListSpeaking.Add(star);
+            
+
+           // keepInorderscore = Int32.Parse(keepInordercorrectInHis);
+        }
+
+
+         for(int i=0;i<keepInorderHistory;i++)
+        {
+            int count = i+1;
+            string date = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Date").Value.ToString();
+            print(" KeepInorder history: "+count+" date: "+date);
+            DateListKeepInorder.Add(date);
+
+            string star = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Star").Value.ToString();
+            print(" KeepInorder history: "+count+" Star: "+star);
+            StarListKeepInorder.Add(star);
             
 
            // keepInorderscore = Int32.Parse(keepInordercorrectInHis);
