@@ -33,11 +33,28 @@ public class GameControl : MonoBehaviour
     public GameObject winText3;
 
 
+    public GameObject star1;
+    public GameObject star2;
+    public GameObject star3;
+    
+     public static int scoreInHis;
+     public static int fullScore=0;
+     public static double realScore;
+     public static string memberurl,fullScoreInHis,correctInHis,No;
+    public Text m_score;
+
+    public int SaveStar;
+    public int star;
+
+
     // Start is called before the first frame update
     void Start()
     {
          winText1.SetActive(false);
          winText2.SetActive(false);
+        star1.SetActive(false);
+        star2.SetActive(false);
+        star3.SetActive(false);
 
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
@@ -92,8 +109,44 @@ public class GameControl : MonoBehaviour
         
     }
     public void correct(){
+        print("-------------in correct------------");
         score += 1;
         print("score is "+score);
+
+        //print("fullscore is "+fullscore);
+        double scoreStar= ((double)score/(double)6)*100;
+        print("scoreStar is "+scoreStar);
+        
+        if(scoreStar>60){
+            star=3;
+            print("Star 3");
+            
+        }else if(scoreStar<=60 && scoreStar>40){
+            star=2;
+            print("Star 2");
+            
+        }else if(scoreStar<=40 && scoreStar>=1){
+            star=1;
+            print("Star 1");
+            
+        }else{
+            star=0;
+            print("Star 0");
+           
+        }
+
+        //Check star in Max
+          if(star>GetMax.maxStarHelpOther){
+            SaveStar=star;
+            print("SaveStar"+SaveStar+" GetStarForMember.maxStarHelpOther "+GetStarForMember.maxStarHelpOther);
+            
+        }else if(star<=GetMax.maxStarHelpOther){
+            SaveStar=GetMax.maxStarHelpOther;
+             print("SaveStar"+SaveStar+" GetStarForMember.maxStarHelpOther "+GetStarForMember.maxStarHelpOther);
+            
+        }
+
+
     }
     public void incorrect(){
         scoreIncorrect += 1;
@@ -109,6 +162,7 @@ public class GameControl : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
         goToMenu();
     }
         public void saveinEnd(){
@@ -121,8 +175,90 @@ public class GameControl : MonoBehaviour
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
         reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
+            //push star in Max
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starHelpOther").SetValueAsync(SaveStar);
+    Showscore();
+    showStar();
     }
     public void goToMenu(){
         SceneManager.LoadScene("ChooseManu");
+    }
+    public void Exit(){     //ออกโดยยังไม่ได้เล่น
+    
+        day = System.DateTime.Now.ToString("yyyy/MM/dd"); 
+        DateTime now = DateTime.Now;
+        string time = now.ToString("T");
+        string His = "History"+history;
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("helpOtherHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
+        Showscore();
+        showStar();
+    
+    }
+        public void showStar(){
+        print("----------in showStar---------");
+        print("in His "+No);
+        print("----------------Score in helpOther is "+scoreInHis);
+        print("full score in helpOther is "+fullScore);
+        realScore = Math.Round(((double)scoreInHis/(double)fullScore)*100, 2);
+        print("real score is "+realScore);
+        if(star==3){
+            print("incase >60");
+            star1.SetActive(true);
+            star2.SetActive(true);
+            star3.SetActive(true);
+            m_score.text = "3 ดาว";
+        }else if(star==2){
+            print("incase <=60");
+            star1.SetActive(true);
+            star2.SetActive(true);
+            star3.SetActive(false);
+            m_score.text = "2 ดาว";
+        }else if(star==1){
+            print("incase <=40");
+            star1.SetActive(true);
+            star2.SetActive(false);
+            star3.SetActive(false);
+            m_score.text = "1 ดาว";
+        }else{
+            print("incase other (mean 0)");
+            star1.SetActive(false);
+            star2.SetActive(false);
+            star3.SetActive(false);
+            m_score.text = "0 ดาว";
+        }
+
+}
+      public void Showscore()
+      
+    {   
+                print("----------in showscore---------");  
+          memberurl = AddmemberManager.memberURL1;
+           
+        FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
+    {  
+        DataSnapshot snapshot = task.Result;
+        No = snapshot.Child(memberurl).Child("helpOtherHistory").Value.ToString();
+        print("No:"+No);
+         history = Int32.Parse(No);
+
+        fullScoreInHis = snapshot.Child(memberurl).Child("helpOtherFullScore").Value.ToString();
+        fullScore = Int32.Parse(fullScoreInHis);
+        print("fullScore:"+fullScore);
+
+        //ก้อน score //
+        correctInHis = snapshot.Child(memberurl).Child("HelpOther").Child("History"+No).Child("Correct").Value.ToString();
+        scoreInHis = Int32.Parse(correctInHis);
+        print("score:"+scoreInHis);
+        
+
+
+        
+    });
     }
 }

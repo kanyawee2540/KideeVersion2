@@ -33,14 +33,11 @@ public class Speaking : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
     
-    public GameObject apple;
-     public static int scoreInHis,his;
+     public static int scoreInHis;
      public static int fullScore=0;
      public static double realScore;
      public static string memberurl,fullScoreInHis,correctInHis,No;
-     public static int controlHis;
-     public static string inToHis,inToHis2;
-    public Text m_score,showScore,m_fullScore,m_realScore,m_history,showStarr;
+    public Text m_score;
 
     public int SaveStar;
     public int star;
