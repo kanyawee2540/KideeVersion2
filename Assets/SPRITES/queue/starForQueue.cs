@@ -129,7 +129,7 @@ public class starForQueue : MonoBehaviour
         print("fullScore:"+fullScore);
 
         //ก้อน score //
-        correctInHis = snapshot.Child(memberurl).Child("Queue").Child("History"+No).Child("Correct").Value.ToString();
+        correctInHis = snapshot.Child(memberurl).Child("Queue").Child("History"+history).Child("Correct").Value.ToString();
         scoreInHis = Int32.Parse(correctInHis);
         print("score:"+scoreInHis);
 
@@ -166,9 +166,7 @@ public class starForQueue : MonoBehaviour
         fullScore_text.text = "full score is "+fullScore;
         realScore_text.text = "real score is "+realScore;
         starInShowScore.text = "star is "+star;        
-        if(star>starInHis){
-            reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starQueue").SetValueAsync(star);
-        }
+
                 if(star==3){
             print("incase >60");
             star1.SetActive(true);
@@ -193,9 +191,14 @@ public class starForQueue : MonoBehaviour
             star2.SetActive(false);
             star3.SetActive(false);
             star_text.text = "0 ดาว";
+        }                
+        if(star>starInHis){
+            reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starQueue").SetValueAsync(star);
         }
-
     });
+
+
+
     }
     
 
