@@ -3294,17 +3294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b75f7338312e0d4fa28b54d69112493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseURL: https://project-75a5c-default-rtdb.firebaseio.com/
-  star1: {fileID: 0}
-  star2: {fileID: 0}
-  star3: {fileID: 0}
-  nostar1: {fileID: 285319223}
-  nostar2: {fileID: 765401585}
-  nostar3: {fileID: 413132657}
-  m_score: {fileID: 1736695497}
-  m_fullScore: {fileID: 920423517}
-  m_realScore: {fileID: 1563639209}
-  m_history: {fileID: 205143231}
 --- !u!4 &190866841
 Transform:
   m_ObjectHideFlags: 0
@@ -9334,7 +9323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463203986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -153, y: 0, z: -4185}
+  m_LocalPosition: {x: -193.2, y: 2.9, z: -4185}
   m_LocalScale: {x: 30.829294, y: 30.829294, z: 30.829294}
   m_Children: []
   m_Father: {fileID: 33658204}
@@ -21836,7 +21825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.2, y: 117.2}
+  m_AnchoredPosition: {x: 10.3, y: 122.1}
   m_SizeDelta: {x: 624.4641, y: 97.22506}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236276660
@@ -23180,8 +23169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.39900002}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.6, y: -16.6}
-  m_SizeDelta: {x: 715.8537, y: 428.66962}
+  m_AnchoredPosition: {x: 4.4, y: -29.2}
+  m_SizeDelta: {x: 863.4084, y: 428.66962}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371407125
 MonoBehaviour:
@@ -23221,7 +23210,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 396bc5d0badad7c47b5b253cbecc0a42, type: 3}
-    m_FontSize: 55
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -23232,7 +23221,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E40\u0E14\u0E47\u0E01\u0E46\u0E17\u0E38\u0E01\u0E04\u0E19
+    \u0E40\u0E23\u0E32\u0E08\u0E30\u0E21\u0E32\u0E40\u0E23\u0E35\u0E22\u0E19\u0E23\u0E39\u0E49\u0E40\u0E01\u0E35\u0E48\u0E22\u0E27\u0E01\u0E31\u0E1A\u0E40\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E40\u0E01\u0E47\u0E1A\u0E02\u0E2D\u0E07\u0E15\u0E32\u0E21\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48
+    \u0E40\u0E14\u0E47\u0E01\u0E46\u0E23\u0E39\u0E49\u0E44\u0E2B\u0E21\u0E27\u0E48\u0E32\u0E40\u0E25\u0E48\u0E19\u0E02\u0E2D\u0E07\u0E40\u0E25\u0E48\u0E19\u0E41\u0E25\u0E49\u0E27\u0E15\u0E49\u0E2D\u0E07\u0E40\u0E01\u0E47\u0E1A\u0E43\u0E2B\u0E49\u0E40\u0E02\u0E49\u0E32\u0E17\u0E35\u0E48
+    \u0E44\u0E21\u0E48\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E07\u0E31\u0E49\u0E19\u0E02\u0E2D\u0E07\u0E40\u0E25\u0E48\u0E19\u0E08\u0E30\u0E2B\u0E32\u0E22\u0E44\u0E1B\u0E44\u0E14\u0E49\u0E19\u0E30"
 --- !u!222 &1371407127
 CanvasRenderer:
   m_ObjectHideFlags: 0

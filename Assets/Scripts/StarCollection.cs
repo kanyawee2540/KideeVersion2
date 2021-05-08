@@ -83,7 +83,7 @@ public class StarCollection : MonoBehaviour
     [Header("ObservationUI2")]
     public GameObject ImagesObservation2;
     public Text nameTextObservation2;
-
+    public GameObject SuccessUI;
     
     public static int c;
     public int c2;
@@ -103,6 +103,7 @@ public class StarCollection : MonoBehaviour
     public static string Before4;
     public static string After4;
     public Text sumStar7;
+    
 
 
 
@@ -234,8 +235,14 @@ public class StarCollection : MonoBehaviour
         /*incorrectInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();*/
 
     });
-    }
 
+            SuccessUI.SetActive(true);
+            Invoke("Success", 3); 
+    }
+    public void Success()
+    {
+        SuccessUI.SetActive(false);
+    }
 
 
 

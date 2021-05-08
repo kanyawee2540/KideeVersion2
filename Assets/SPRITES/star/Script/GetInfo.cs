@@ -15,21 +15,37 @@ public class GetInfo : MonoBehaviour
 {
     // Start is called before the first frame update
     private DatabaseReference reference;
+
+    //Speaking
     public static ArrayList DateListSpeaking = new ArrayList();
-    public static ArrayList StarListSpeaking = new ArrayList();
+    public static ArrayList TimeListSpeaking = new ArrayList();
+    public static ArrayList CorrectListSpeaking = new ArrayList();
+    public static ArrayList IncorrectListSpeaking = new ArrayList();
     
-    public static ArrayList DateListKeepInorder = new ArrayList();
-    public static ArrayList StarListKeepInorder = new ArrayList();
-
-    public static ArrayList DateListHelpOther = new ArrayList();
-    public static ArrayList StarListHelpOther = new ArrayList();
-
+    
+    //Queue
      public static ArrayList DateListQueue = new ArrayList();
-    public static ArrayList StarListQueue = new ArrayList();
+    public static ArrayList TimeListQueue = new ArrayList();
+    public static ArrayList CorrectListQueue = new ArrayList();
+    public static ArrayList IncorrectListQueue = new ArrayList();
 
 
+    //KeepInorder
+    public static ArrayList DateListKeepInorder = new ArrayList();
+    public static ArrayList TimeListKeepInorder = new ArrayList();
+    public static ArrayList CorrectListKeepInorder = new ArrayList();
+    public static ArrayList IncorrectListKeepInorder = new ArrayList();
 
-    public static int keepInorderHistory,Speakinghistory,HelpOtherhistory;
+    //HelpOther
+    public static ArrayList DateListHelpOther = new ArrayList();
+    public static ArrayList TimeListHelpOther = new ArrayList();
+     public static ArrayList CorrectListHelpOther = new ArrayList();
+    public static ArrayList IncorrectListHelpOther = new ArrayList();
+
+    
+
+
+    public static int keepInorderHistory,Speakinghistory,HelpOtherhistory,Queuehistory;
    
 
 
@@ -48,13 +64,27 @@ public class GetInfo : MonoBehaviour
     public void GetInfoMember()
         {
             DateListSpeaking.Clear();
-            StarListSpeaking.Clear();
-            DateListKeepInorder.Clear();
-            StarListKeepInorder.Clear();
-            DateListHelpOther.Clear();
-            StarListHelpOther.Clear();
+            TimeListSpeaking.Clear();
+            CorrectListSpeaking.Clear();
+            IncorrectListSpeaking.Clear();
+            
             DateListQueue.Clear();
-            StarListQueue.Clear();
+            TimeListQueue.Clear();
+            CorrectListQueue.Clear();
+            IncorrectListQueue.Clear();
+
+
+            DateListKeepInorder.Clear();
+            TimeListKeepInorder.Clear();
+            CorrectListKeepInorder.Clear();
+            IncorrectListKeepInorder.Clear();
+
+            DateListHelpOther.Clear();
+            TimeListHelpOther.Clear();
+            CorrectListHelpOther.Clear();
+            IncorrectListHelpOther.Clear();
+
+            
 
 
             string s= ""+RemoveMember.keyList[StarCollection.buttonStarCount];
@@ -71,55 +101,108 @@ public class GetInfo : MonoBehaviour
         keepInorderHistory = Int32.Parse(No2);
         string No3 = snapshot.Child(s).Child("helpOtherHistory").Value.ToString();
         HelpOtherhistory = Int32.Parse(No3);
-        // string No4 = snapshot.Child(s).Child("keepInorderHistory").Value.ToString();
-        // keepInorderHistory = Int32.Parse(No2);
+        string No4 = snapshot.Child(s).Child("queueHistory").Value.ToString();
+        keepInorderHistory = Int32.Parse(No4);
         
         
         //print("No:"+No1);
         //history +=1;
         // inToHis = "History"+history;
         // print("inToHis:"+inToHis);
+
+        //Speaking
         for(int i=0;i<Speakinghistory;i++)
         {
             int count = i+1;
-            string date = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Date").Value.ToString();
-            print("KeepInorder history: "+count+" date: "+date);
+            string date = snapshot.Child(s).Child("Speaking").Child("History"+count).Child("Date").Value.ToString();
+            //print("Speaking history: "+count+" date: "+date);
             DateListSpeaking.Add(date);
 
-            string star = snapshot.Child(s).Child("Speaking").Child("History"+count).Child("Star").Value.ToString();
-            print("KeepInorder history: "+count+" Star: "+star);
-            StarListSpeaking.Add(star);
+            string time = snapshot.Child(s).Child("Speaking").Child("History"+count).Child("Time").Value.ToString();
+            //print("Speaking history: "+count+" Time: "+time);
+            TimeListSpeaking.Add(time);
+
+             
+            string Correct = snapshot.Child(s).Child("Speaking").Child("History"+count).Child("Correct").Value.ToString();
+            //print("Speaking history: "+count+" Correct: "+Correct);
+            CorrectListSpeaking.Add(Correct);
+
+            string Incorrect = snapshot.Child(s).Child("Speaking").Child("History"+count).Child("Incorrect").Value.ToString();
+            //print("Speaking history: "+count+" Incorrect: "+Incorrect);
+            IncorrectListSpeaking.Add(Incorrect);
             
 
            // keepInorderscore = Int32.Parse(keepInordercorrectInHis);
         }
 
 
+        //KeepInorder
          for(int i=0;i<keepInorderHistory;i++)
         {
             int count = i+1;
             string date = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Date").Value.ToString();
-            print(" KeepInorder history: "+count+" date: "+date);
+            //print(" KeepInorder history: "+count+" date: "+date);
             DateListKeepInorder.Add(date);
 
-            string star = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Star").Value.ToString();
-            print(" KeepInorder history: "+count+" Star: "+star);
-            StarListKeepInorder.Add(star);
+            string time = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Time").Value.ToString();
+            //print(" KeepInorder history: "+count+" Time: "+time);
+            TimeListKeepInorder.Add(time);
+
+            string Correct = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Correct").Value.ToString();
+            //print("KeepInorder history: "+count+" Correct: "+Correct);
+            CorrectListKeepInorder.Add(Correct);
+
+            string Incorrect = snapshot.Child(s).Child("KeepInorder").Child("History"+count).Child("Incorrect").Value.ToString();
+            //print("KeepInorder history: "+count+" Incorrect: "+Incorrect);
+            IncorrectListKeepInorder.Add(Incorrect);
             
 
            // keepInorderscore = Int32.Parse(keepInordercorrectInHis);
         }
 
+         //HelpOther
          for(int i=0;i<HelpOtherhistory;i++)
         {
             int count = i+1;
             string date = snapshot.Child(s).Child("HelpOther").Child("History"+count).Child("Date").Value.ToString();
-            print(" HelpOther history: "+count+" date: "+date);
+            //print(" HelpOther history: "+count+" date: "+date);
             DateListHelpOther.Add(date);
 
-            string star = snapshot.Child(s).Child("HelpOther").Child("History"+count).Child("Star").Value.ToString();
-            print(" HelpOther history: "+count+" Star: "+star);
-            StarListHelpOther.Add(star);
+            string time = snapshot.Child(s).Child("HelpOther").Child("History"+count).Child("Time").Value.ToString();
+            //print(" HelpOther history: "+count+" time: "+time);
+            TimeListHelpOther.Add(time);
+
+            string Correct = snapshot.Child(s).Child("HelpOther").Child("History"+count).Child("Correct").Value.ToString();
+            //print("HelpOther history: "+count+" Correct: "+Correct);
+            CorrectListHelpOther.Add(Correct);
+
+            string Incorrect = snapshot.Child(s).Child("HelpOther").Child("History"+count).Child("Incorrect").Value.ToString();
+            //print("HelpOther history: "+count+" Incorrect: "+Incorrect);
+            IncorrectListHelpOther.Add(Incorrect);
+            
+
+           // keepInorderscore = Int32.Parse(keepInordercorrectInHis);
+        }
+
+
+        for(int i=0;i<Queuehistory;i++)
+        {
+            int count = i+1;
+            string date = snapshot.Child(s).Child("Queue").Child("History"+count).Child("Date").Value.ToString();
+            //print("Queue: "+count+" date: "+date);
+            DateListQueue.Add(date);
+
+            string time = snapshot.Child(s).Child("Queue").Child("History"+count).Child("Time").Value.ToString();
+            //print(" Queue history: "+count+" time: "+time);
+            TimeListQueue.Add(time);
+
+            string Correct = snapshot.Child(s).Child("Queue").Child("History"+count).Child("Correct").Value.ToString();
+            //print("Queue history: "+count+" Correct: "+Correct);
+            CorrectListQueue.Add(Correct);
+
+            string Incorrect = snapshot.Child(s).Child("Queue").Child("History"+count).Child("Incorrect").Value.ToString();
+            //print("Queue history: "+count+" Incorrect: "+Incorrect);
+            IncorrectListQueue.Add(Incorrect);
             
 
            // keepInorderscore = Int32.Parse(keepInordercorrectInHis);
