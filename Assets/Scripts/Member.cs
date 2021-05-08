@@ -15,6 +15,8 @@ public class Member
     public int helpOtherFullScore=6;
     public int keepInorderHistory;
     public int keepInorderFullScore=3;
+    public int queueHistory;
+    public int queueFullScore=8;
     public int starKeepInorder;
     public int starSpeaking;
     public int starHelpOther;
