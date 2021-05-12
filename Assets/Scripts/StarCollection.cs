@@ -21,6 +21,7 @@ public class StarCollection : MonoBehaviour
     private DatabaseReference reference;
     public string buttonStarName;
     public static int buttonStarCount;
+    public Text sumStar8;
 
     [Header("UserData")]
     public Sprite sprite1;
@@ -644,6 +645,7 @@ public class StarCollection : MonoBehaviour
         sumStar5.text=s;
         sumStar6.text=s;
         sumStar7.text=s;
+        sumStar8.text=s;
         //sumStar8.text=""+GetMax.sumStar;
      
     }

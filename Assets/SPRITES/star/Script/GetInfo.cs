@@ -102,7 +102,7 @@ public class GetInfo : MonoBehaviour
         string No3 = snapshot.Child(s).Child("helpOtherHistory").Value.ToString();
         HelpOtherhistory = Int32.Parse(No3);
         string No4 = snapshot.Child(s).Child("queueHistory").Value.ToString();
-        keepInorderHistory = Int32.Parse(No4);
+        Queuehistory = Int32.Parse(No4);
         
         
         //print("No:"+No1);
