@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class HelpMom : MonoBehaviour
 {
     [SerializeField]
-    private float delayBeforeLoadingmomtalkUI = 8f;
+    private float delayBeforeLoadingmomtalkUI ;
     [SerializeField]
-    private float delayBeforeLoadingmomtalk2UI = 12f;
+    private float delayBeforeLoadingmomtalk2UI ;
     [SerializeField]
-    private float delayBeforeLoadingmomtalk3UI = 20f;
+    private float delayBeforeLoadingmomtalk3UI ;
    
     private float timeElapsed;
     private bool gamePaused = false;
