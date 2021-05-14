@@ -720,6 +720,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -733,10 +734,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: c6cc1e07-f9e3-46b9-a134-2b75ed28e226
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: KIDDEE
+  organizationId: unity_0a9a73b4462aaa1cceb6
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

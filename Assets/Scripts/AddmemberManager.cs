@@ -17,6 +17,8 @@ using Firebase.Auth;
 // using UnityEngine.object;
 public class AddmemberManager : MonoBehaviour
 {
+    public GameObject invoke;
+    public GameObject user;
 
       [Header("Remove Button")] //ลบเเล้วเอาปุ่มซ่อน
     public GameObject remove0;
@@ -136,6 +138,9 @@ public class AddmemberManager : MonoBehaviour
     }
     void Start()
     {
+        invoke.SetActive(true);
+        user.SetActive(false);
+        Invoke("Loading",6);
         auth = FirebaseAuth.DefaultInstance;
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
@@ -166,6 +171,10 @@ public class AddmemberManager : MonoBehaviour
          print("nameList "+i+" "+nameList[i]);
 
     }
+    }
+    public void Loading(){
+        invoke.SetActive(false);
+        user.SetActive(true);
     }
  void Update()
     {
