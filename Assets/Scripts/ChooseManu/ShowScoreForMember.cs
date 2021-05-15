@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -272,7 +272,7 @@ public class ShowScoreForMember : MonoBehaviour
         {
             image.GetComponent<Image>().sprite=sprite9;
         }
- sumStar.text="มีดาวทั้งหมด "+(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
+        sumStar.text="มีดาวทั้งหมด "+(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
         sumStar2.text=(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
          
         
