@@ -20,18 +20,19 @@ public class AddmemberManager : MonoBehaviour
     public GameObject invoke;
     public GameObject user;
 
-      [Header("Remove Button")] //ลบเเล้วเอาปุ่มซ่อน
-    public GameObject remove0;
-     public GameObject remove1;  
-     public GameObject remove2;
-     public GameObject remove3;
-     public GameObject remove4;  
-     public GameObject remove5;
-     public GameObject remove6;
-     public GameObject remove7;  
-     public GameObject remove8;
-     public GameObject remove9;  
-     public GameObject remove10;
+    [Header("Remove Button")] //ลบเเล้วเอาปุ่มซ่อน
+    public GameObject[] removebtn ;
+    // public GameObject remove0;
+    //  public GameObject remove1;  
+    //  public GameObject remove2;
+    //  public GameObject remove3;
+    //  public GameObject remove4;  
+    //  public GameObject remove5;
+    //  public GameObject remove6;
+    //  public GameObject remove7;  
+    //  public GameObject remove8;
+    //  public GameObject remove9;  
+    //  public GameObject remove10;
      
 
     
@@ -48,12 +49,14 @@ public class AddmemberManager : MonoBehaviour
     public InputField passwordField3;
     public InputField passwordField4;
     public Text test;
+    public Text checkHaveText;
      [Header("check password member")]
     public InputField checkPasswordField1;
     public InputField checkPasswordField2;
     public InputField checkPasswordField3;
     public InputField checkPasswordField4;
     public string p;
+    public Text checkTextPassMem;
 
     [Header("check password user")]
     public InputField passwordAddField;
@@ -62,6 +65,9 @@ public class AddmemberManager : MonoBehaviour
 
     public static string nameMember;
     public static string passwordMember;
+    public Text checkTextPassUserAdd;
+    public Text checkTextPassUserRemove;
+    public Text checkTextPassUserLogout;
     
     public static ArrayList nameList = new ArrayList();
     public static ArrayList nameList2 = new ArrayList();
@@ -176,7 +182,7 @@ public class AddmemberManager : MonoBehaviour
         invoke.SetActive(false);
         user.SetActive(true);
     }
- void Update()
+    void Update()
     {
         GetCount();
        // mainInputField2.Select();
@@ -485,54 +491,56 @@ public class AddmemberManager : MonoBehaviour
         keykListEditUI.Clear();
         passwordList.Clear();
         RaadAllData();
+        buttonNameMember=Int32.Parse(button.name);
+            
 
-
-        if(button.name=="0"){
-             buttonNameMember=0; 
-           // print("buttonNameMember "+button.name)  ;
+        
+    //     if(button.name=="0"){
+    //          buttonNameMember=0; 
+    //        // print("buttonNameMember "+button.name)  ;
             
            
-        }else if(button.name=="1"){
-             buttonNameMember=1;   
-           //print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="1"){
+    //          buttonNameMember=1;   
+    //        //print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="2"){
-             buttonNameMember=2;   
-      //print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="2"){
+    //          buttonNameMember=2;   
+    //   //print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="3"){
-             buttonNameMember=3;   
-           //print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="3"){
+    //          buttonNameMember=3;   
+    //        //print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="4"){
-             buttonNameMember=4;   
-           // print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="4"){
+    //          buttonNameMember=4;   
+    //        // print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="5"){
-             buttonNameMember=5;   
-            // print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="5"){
+    //          buttonNameMember=5;   
+    //         // print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="6"){
-             buttonNameMember=6;   
-            // print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="6"){
+    //          buttonNameMember=6;   
+    //         // print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="7"){
-             buttonNameMember=7;   
-            // print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="7"){
+    //          buttonNameMember=7;   
+    //         // print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="8"){
-             buttonNameMember=8;   
-            // print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="8"){
+    //          buttonNameMember=8;   
+    //         // print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="9"){
-             buttonNameMember=9;   
-            // print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="9"){
+    //          buttonNameMember=9;   
+    //         // print("buttonNameMember "+button.name)  ;
            
-        }else if(button.name=="10"){
-             buttonNameMember=10;   
-            // print("buttonNameMember "+button.name)  ;
+    //     }else if(button.name=="10"){
+    //          buttonNameMember=10;   
+    //         // print("buttonNameMember "+button.name)  ;
            
-        }
+    //     }
                   memberURL1= ""+RemoveMember.keyList[buttonNameMember];
             print("sssssssssssssssssssssss on click member"+memberURL1);
        
@@ -545,6 +553,7 @@ public class AddmemberManager : MonoBehaviour
 
      public void CheckPasswordMember()
      {
+
         p =""+passwordList[buttonNameMember];
         print("buttonNameMember "+buttonNameMember) ;
         print("P " +passwordList[buttonNameMember]);
@@ -554,6 +563,8 @@ public class AddmemberManager : MonoBehaviour
               SceneManager.LoadScene("ChooseManu");
 
          }else{
+              checkTextPassMem.text = "รหัสผ่านผิด";
+               Invoke("ClearErrorMessage", 3);
               print("not pass");
          }
         
@@ -609,6 +620,26 @@ public class AddmemberManager : MonoBehaviour
         
      
     }
+
+     public void CheckHavePasswordAddmember()
+     {
+        string p1=passwordField1.text;
+        string p2=passwordField2.text;
+        string p3=passwordField3.text;
+        string p4=passwordField4.text;
+        string n =nameField.text;
+
+
+        if(p1.Equals("")||p2.Equals("")||p3.Equals("")||p4.Equals("")||n.Equals("")){
+                checkHaveText.text= "โปรดกรอกข้อมูลให้ครบ";
+                Invoke("ClearErrorMessage", 3);
+                print("password and name");
+        } 
+        else
+        { 
+            passwordAddmemberbox.SetActive(true);
+        }
+     }
        public void CheckPasswordAddmember()
     {
         //ลอง-------------------------------------------------------------------------------
@@ -632,7 +663,7 @@ public class AddmemberManager : MonoBehaviour
        // });
         //ลอง-------------------------------------------------------------------------------
 
-           
+        
          //string p =""+passwordList[buttonName];
          string pf =passwordAddField.text;
          // print("passwordUser " +passwordUser);
@@ -646,8 +677,11 @@ public class AddmemberManager : MonoBehaviour
 
             
          }else{
+             checkTextPassUserAdd.text = "รหัสผ่านผิด";
+             Invoke("ClearErrorMessage", 3);
               print("not pass");
          } 
+        
     }
 
      
@@ -660,22 +694,20 @@ public class AddmemberManager : MonoBehaviour
          if(String.Equals(passwordUser,pf)){
             print("pass");
             Remove();
-            remove0.SetActive(false);
-            remove1.SetActive(false);
-            remove2.SetActive(false);
-            remove3.SetActive(false);
-            remove4.SetActive(false);
-            remove5.SetActive(false);
-            remove6.SetActive(false);
-            remove7.SetActive(false);
-            remove8.SetActive(false);
-            remove9.SetActive(false);
-            remove10.SetActive(false);
+           
+            for(int i=0;i<removebtn.Count();i++)
+            {
+                removebtn[i].SetActive(false);
+            }
+            
+          
             passwordRemovememberbox.SetActive(false);
             RemoveSuccessUI.SetActive(true);
             Invoke("RemoveSuccess", 3); 
             
          }else{
+              checkTextPassUserRemove.text = "รหัสผ่านผิด";
+               Invoke("ClearErrorMessage", 3);
               print("not pass");
          } 
     }
@@ -691,8 +723,20 @@ public class AddmemberManager : MonoBehaviour
             SceneManager.LoadScene("Login");
 
          }else{
+              checkTextPassUserLogout.text = "รหัสผ่านผิด";
+              Invoke("ClearErrorMessage", 3);
               print("not pass");
          } 
+    }
+
+    void ClearErrorMessage()
+    {
+        checkTextPassUserAdd.text = "";
+        checkTextPassUserLogout.text = "";
+        checkTextPassMem.text = "";
+        checkTextPassUserRemove.text = "";
+        checkHaveText.text= "";
+
     }
   
     public void WriteAllData()
@@ -703,30 +747,35 @@ public class AddmemberManager : MonoBehaviour
         Dictionary<string, Object> childUpdates = new Dictionary<string, Object>();
         // เขียนข้อมูลลง Model
         Member mData = new Member();
-        mData.m_password = passwordField1.text+""+passwordField2.text+""+passwordField3.text+""+passwordField4.text;
-        mData.pic = ProfileMember.count;
-
-        //Star
-        mData.starSpeaking =0;
-        mData.starQueue =0;
-        mData.starHelpOther =0;
-        mData.starKeepInorder =0;
-        
 
         
-        memberName = mData.m_name = nameField.text;
-        nameList2.Add(nameField.text);
-        picList2.Add(ProfileMember.count);
-        keykListEditUI.Add(memberURL);
-        passwordList.Add(passwordField1.text+""+passwordField2.text+""+passwordField3.text+""+passwordField4.text);
+    
+                mData.m_password = passwordField1.text+""+passwordField2.text+""+passwordField3.text+""+passwordField4.text;
+                mData.pic = ProfileMember.count;
 
+                //Star
+                mData.starSpeaking =0;
+                mData.starQueue =0;
+                mData.starHelpOther =0;
+                mData.starKeepInorder =0;
+                
+
+                
+                memberName = mData.m_name = nameField.text;
+                nameList2.Add(nameField.text);
+                picList2.Add(ProfileMember.count);
+                keykListEditUI.Add(memberURL);
+                passwordList.Add(passwordField1.text+""+passwordField2.text+""+passwordField3.text+""+passwordField4.text);
+
+                
+                string json = JsonUtility.ToJson(mData);
+                print("json "+json);
+                string s = LoginManager.localId;
+                // เขียนข้อมูลลง Firebase
+                reference.Child(LoginManager.localId).Child(memberURL).SetRawJsonValueAsync(json);
+                reference.Child(LoginManager.localId).Child(memberURL).Child("ObservationHistory").SetValueAsync(0);    
         
-        string json = JsonUtility.ToJson(mData);
-        print("json "+json);
-        string s = LoginManager.localId;
-        // เขียนข้อมูลลง Firebase
-        reference.Child(LoginManager.localId).Child(memberURL).SetRawJsonValueAsync(json);
-        reference.Child(LoginManager.localId).Child(memberURL).Child("ObservationHistory").SetValueAsync(0);    
+        
     
 }
   
@@ -832,51 +881,55 @@ public class AddmemberManager : MonoBehaviour
         nameList3.Clear();
         picList.Clear();
         RaadAllData();
-        if(button.name=="0"){
-             buttonName=0;   
-             buttonKey =""+keyList[0];
+
+        buttonName=Int32.Parse(button.name);   
+        buttonKey =""+keyList[buttonName];
+
+
+        // if(button.name=="0"){
+             
            
-        }else if(button.name=="1"){
-             buttonName=1;   
-            buttonKey =""+keyList[1];
+        // }else if(button.name=="1"){
+        //      buttonName=1;   
+        //     buttonKey =""+keyList[1];
            
-        }else if(button.name=="2"){
-             buttonName=2;   
-            buttonKey =""+keyList[2];
+        // }else if(button.name=="2"){
+        //      buttonName=2;   
+        //     buttonKey =""+keyList[2];
            
-        }else if(button.name=="3"){
-             buttonName=3;   
-             buttonKey =""+keyList[3];
+        // }else if(button.name=="3"){
+        //      buttonName=3;   
+        //      buttonKey =""+keyList[3];
            
-        }else if(button.name=="4"){
-             buttonName=4;   
-             buttonKey =""+keyList[4];
+        // }else if(button.name=="4"){
+        //      buttonName=4;   
+        //      buttonKey =""+keyList[4];
            
-        }else if(button.name=="5"){
-             buttonName=4;   
-             buttonKey =""+keyList[5];
+        // }else if(button.name=="5"){
+        //      buttonName=4;   
+        //      buttonKey =""+keyList[5];
            
-        }else if(button.name=="6"){
-             buttonName=4;   
-             buttonKey =""+keyList[6];
+        // }else if(button.name=="6"){
+        //      buttonName=4;   
+        //      buttonKey =""+keyList[6];
            
-        }else if(button.name=="7"){
-             buttonName=4;   
-             buttonKey =""+keyList[7];
+        // }else if(button.name=="7"){
+        //      buttonName=4;   
+        //      buttonKey =""+keyList[7];
            
-        }else if(button.name=="8"){
-             buttonName=4;   
-             buttonKey =""+keyList[8];
+        // }else if(button.name=="8"){
+        //      buttonName=4;   
+        //      buttonKey =""+keyList[8];
            
-        }else if(button.name=="9"){
-             buttonName=4;   
-             buttonKey =""+keyList[9];
+        // }else if(button.name=="9"){
+        //      buttonName=4;   
+        //      buttonKey =""+keyList[9];
            
-        }else if(button.name=="10"){
-             buttonName=4;   
-             buttonKey =""+keyList[10];
+        // }else if(button.name=="10"){
+        //      buttonName=4;   
+        //      buttonKey =""+keyList[10];
            
-        }
+        // }
             memberURL2= ""+RemoveMember.keyList[buttonName];
             print("sssssssssssssssssssssss on click member"+memberURL2);
         
