@@ -964,6 +964,13 @@ public class AddmemberManager : MonoBehaviour
 
 
     }
+    public void DontRemove()
+    {
+             for(int i=0;i<removebtn.Count();i++)
+            {
+                removebtn[i].SetActive(false);
+            }
+    }
 
     
 
