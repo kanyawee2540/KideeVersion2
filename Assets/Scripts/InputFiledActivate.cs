@@ -30,7 +30,6 @@ public class InputFiledActivate : MonoBehaviour
     void Start()
     {
         //mainInputField.ActivateInputField();
-             
 
         
     }
@@ -47,7 +46,7 @@ public class InputFiledActivate : MonoBehaviour
     // }
     public void AddmemberBox()
     {
-                mainInputField.ActivateInputField();
+               /* mainInputField.ActivateInputField();*/
 
     }
 
