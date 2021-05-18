@@ -251,6 +251,9 @@ public class StarCollection : MonoBehaviour
   
  public void OnClickedStar(Button button) //ดูว่ากดปุ่มดาวคนไหน 
     {
+        for(int a=0;a<AddmemberManager.nameOnTable.Count;a++){
+            print("nameOnTable "+AddmemberManager.nameOnTable[a]);
+        }
             string name = button.name;
             int i= Int32.Parse(name);
             buttonStarName=""+AddmemberManager.nameOnTable[i];

@@ -39,9 +39,9 @@ public class CilckProfile : MonoBehaviour
     public Button button9;
     
     [Header("Count")]
-    public int Count;
+    public static int Count;
     public string KeyClick;
-    public string nameField;
+    public static string nameField;
     private DatabaseReference reference;
 
     public int c;
@@ -63,6 +63,7 @@ public class CilckProfile : MonoBehaviour
         button9.onClick.AddListener(delegate{Profile9();});
         CheckOlder();
 
+        Count=0;
 
 
     }
@@ -199,18 +200,24 @@ public class CilckProfile : MonoBehaviour
         {
             reference.Child(LoginManager.localId).Child(KeyClick).Child("pic").SetValueAsync(Count);
             print("pic");
+            //AddmemberManager.nameOnTable.RemoveAt(AddmemberManager.buttonNameMember);
         }
          else if(Count==0)
         {
             reference.Child(LoginManager.localId).Child(""+RemoveMember.keyList[AddmemberManager.buttonNameMember]).Child("m_name").SetValueAsync(nameField);
             print("m_name");
+            AddmemberManager.nameOnTable.RemoveAt(AddmemberManager.buttonNameMember);
+
         }
         else 
         {
             reference.Child(LoginManager.localId).Child(KeyClick).Child("pic").SetValueAsync(Count);
             reference.Child(LoginManager.localId).Child(KeyClick).Child("m_name").SetValueAsync(nameField);
+            AddmemberManager.nameOnTable.RemoveAt(AddmemberManager.buttonNameMember);
+
         }
 
+        
         Field.text="";
 
     }

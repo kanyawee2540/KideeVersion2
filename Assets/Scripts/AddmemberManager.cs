@@ -167,6 +167,7 @@ public class AddmemberManager : MonoBehaviour
         Invoke("AddButtons", 3); 
         nameList.Clear();
         picList.Clear();
+        nameOnTable.Clear();
 
          // AddButtons();
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId) 

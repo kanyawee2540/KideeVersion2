@@ -70,6 +70,11 @@ public class ShowScoreForMember : MonoBehaviour
         starKeepInOrder1.SetActive(false);
         starKeepInOrder2.SetActive(false);
         starKeepInOrder3.SetActive(false);
+        c=Int32.Parse(""+AddmemberManager.picList[AddmemberManager.buttonNameMember]);
+        print("c:"+c);
+        nameText.text="น้อง"+AddmemberManager.nameIncheckList[AddmemberManager.buttonNameMember];
+        print("nameText.text:"+AddmemberManager.nameIncheckList[AddmemberManager.buttonNameMember]);
+        Invoke("CheckImage",1);
 
             //     reference = FirebaseDatabase.DefaultInstance.RootReference;
     //     FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
@@ -108,12 +113,28 @@ public class ShowScoreForMember : MonoBehaviour
 
     public void CheckOlder() 
     {
-       
         c=Int32.Parse(""+AddmemberManager.picList[AddmemberManager.buttonNameMember]);
-                print("c:"+c);
+       if(CilckProfile.Count!=c&&CilckProfile.Count!=0)
+       {
+            Check(); 
+       }else if(CilckProfile.Count==0){
 
-        nameText.text="น้อง"+AddmemberManager.nameIncheckList[AddmemberManager.buttonNameMember];
-                print("nameText.text:"+AddmemberManager.nameIncheckList[AddmemberManager.buttonNameMember]);
+        // print("c:"+c);
+         nameText.text="น้อง"+AddmemberManager.nameIncheckList[AddmemberManager.buttonNameMember];
+         print("nameText.text:"+AddmemberManager.nameIncheckList[AddmemberManager.buttonNameMember]);
+        // Invoke("CheckImage",1);
+       }
+       
+                
+    }
+
+    public void Check() 
+    {
+       
+        c=CilckProfile.Count;
+
+        nameText.text="น้อง"+CilckProfile.nameField;
+        print("Check :"+CilckProfile.nameField);
         Invoke("CheckImage",1);
     }
     public void CheckImage() 

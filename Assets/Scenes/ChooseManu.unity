@@ -1187,6 +1187,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1164261479}
+        m_MethodName: Check
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &139086723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3607,9 +3618,7 @@ MonoBehaviour:
   button7: {fileID: 1340586397}
   button8: {fileID: 1926286544}
   button9: {fileID: 1865568670}
-  Count: 0
   KeyClick: 
-  nameField: 
   c: 0
 --- !u!4 &706947566
 Transform:
@@ -7205,6 +7214,7 @@ GameObject:
   - component: {fileID: 1164261481}
   - component: {fileID: 1164261482}
   - component: {fileID: 1164261483}
+  - component: {fileID: 1164261484}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -7339,6 +7349,18 @@ MonoBehaviour:
   backgroundAudio: {fileID: 1069659562}
   soundEffectsAudio: []
   clickAudio: []
+--- !u!114 &1164261484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164261476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16cfb7941d106f4aab4132fde81ed3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1165475404
 GameObject:
   m_ObjectHideFlags: 0
@@ -10074,6 +10096,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1164261476}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 0
 --- !u!114 &1642829649
 MonoBehaviour:
   m_ObjectHideFlags: 0
