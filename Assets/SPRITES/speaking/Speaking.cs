@@ -112,11 +112,11 @@ public class Speaking : MonoBehaviour
         //Check star in Max
           if(star>GetMax.maxStarSpeaking){
             SaveStar=star;
-            print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking "+GetStarForMember.maxStarSpeaking);
+            print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking ได้ดาวมากกว่าประวัติ "+GetStarForMember.maxStarSpeaking);
             
         }else if(star<=GetMax.maxStarSpeaking){
             SaveStar=GetMax.maxStarSpeaking;
-             print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking "+GetStarForMember.maxStarSpeaking);
+             print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking ได้ดาวน้อยกว่าประวัติ "+GetStarForMember.maxStarSpeaking);
             
         }
 
