@@ -42,6 +42,9 @@ public class GetMaxInchooseManu : MonoBehaviour
         public void GetMaxscore()
         {
             string s= ""+RemoveMember.keyList[AddmemberManager.buttonNameMember];
+            print("key of member "+s);
+            //กันลองแก้
+            /*string s = AddmemberManager.memberURL1;*/
            
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
@@ -53,7 +56,7 @@ public class GetMaxInchooseManu : MonoBehaviour
         maxStarkeepInorder = Int32.Parse(starkeepInorder);
 
         starSpeaking=snapshot.Child(s).Child("starSpeaking").Value.ToString();
-        print("maxStarSpeaking : "+starSpeaking);
+        print("maxStarSpeakingInThis : "+starSpeaking);
         maxStarSpeaking = Int32.Parse(starSpeaking);
 
         starQueue=snapshot.Child(s).Child("starQueue").Value.ToString();

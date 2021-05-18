@@ -33,10 +33,10 @@ public class Speaking : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
     
-     public static int scoreInHis;
+     public static int scoreInHis,starInHis;
      public static int fullScore=0;
      public static double realScore;
-     public static string memberurl,fullScoreInHis,correctInHis,No;
+     public static string memberurl,fullScoreInHis,correctInHis,No,hisStar;
     public Text m_score;
 
     public int SaveStar;
@@ -48,6 +48,7 @@ public class Speaking : MonoBehaviour
         
 
         memberurl = AddmemberManager.memberURL1;
+        print("member url is "+memberurl);
         // winText1.SetActive(false);
         // winText2.SetActive(false);
         // star1.SetActive(true);
@@ -108,18 +109,34 @@ public class Speaking : MonoBehaviour
             print("Star 0");
            
         }
+                FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
+    {  
+        DataSnapshot snapshot = task.Result;
+        hisStar = snapshot.Child(memberurl).Child("starSpeaking").Value.ToString();
+        starInHis = Int32.Parse(hisStar);
+        print("Check key "+memberurl);
+        print("Star in present "+star);
+        print("starInHis is "+starInHis);
+        if(star>starInHis){
+            SaveStar = star;
+            print("SaveStar is "+SaveStar);
+            reference.Child(LoginManager.localId).Child(memberurl).Child("starSpeaking").SetValueAsync(SaveStar);
+        }
+        
+    });
+    /*
 
         //Check star in Max
-          if(star>GetMax.maxStarSpeaking){
+          if(star>GetStarForMember.maxStarSpeaking){
             SaveStar=star;
-            print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking ได้ดาวมากกว่าประวัติ "+GetStarForMember.maxStarSpeaking);
+            print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking"+GetStarForMember.maxStarSpeaking);
             
-        }else if(star<=GetMax.maxStarSpeaking){
-            SaveStar=GetMax.maxStarSpeaking;
-             print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking ได้ดาวน้อยกว่าประวัติ "+GetStarForMember.maxStarSpeaking);
+        }else if(star<=GetStarForMember.maxStarSpeaking){
+            SaveStar=GetStarForMember.maxStarSpeaking;
+             print("SaveStar"+SaveStar+" GetStarForMember.maxStarSpeaking"+GetStarForMember.maxStarSpeaking);
             
         }
-
+*/
 
     }
     public void incorrect(){
@@ -149,16 +166,15 @@ public class Speaking : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("speakingHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
-
+        reference.Child(LoginManager.localId).Child(memberurl).Child("speakingHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
 
         //push star in Max
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starSpeaking").SetValueAsync(SaveStar);
+
     Showscore();
     showStar();
     
@@ -170,12 +186,12 @@ public class Speaking : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("speakingHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("speakingHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
 
         Showscore();
         showStar();
@@ -217,7 +233,7 @@ public class Speaking : MonoBehaviour
 
 }
       public void Showscore()
-    {       memberurl = AddmemberManager.memberURL1;
+    {   
            
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
