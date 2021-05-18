@@ -195,8 +195,23 @@ public class CilckProfile : MonoBehaviour
     public void ConfirmButton()
     {
         nameField=Field.text;
-        reference.Child(LoginManager.localId).Child(KeyClick).Child("pic").SetValueAsync(Count);
-        reference.Child(LoginManager.localId).Child(KeyClick).Child("m_name").SetValueAsync(nameField);
+        if(nameField=="")
+        {
+            reference.Child(LoginManager.localId).Child(KeyClick).Child("pic").SetValueAsync(Count);
+            print("pic");
+        }
+         else if(Count==0)
+        {
+            reference.Child(LoginManager.localId).Child(""+RemoveMember.keyList[AddmemberManager.buttonNameMember]).Child("m_name").SetValueAsync(nameField);
+            print("m_name");
+        }
+        else 
+        {
+            reference.Child(LoginManager.localId).Child(KeyClick).Child("pic").SetValueAsync(Count);
+            reference.Child(LoginManager.localId).Child(KeyClick).Child("m_name").SetValueAsync(nameField);
+        }
+
+        Field.text="";
 
     }
 }

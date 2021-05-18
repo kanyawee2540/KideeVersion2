@@ -69,6 +69,7 @@ void Start()
         var dropdown = transform.GetComponent<Dropdown>();
         //dropdown.options.Clear();
         List<string> items = new List<string>();
+        items.Add("-");
         items.Add("หญิง");
         items.Add("ชาย");
         foreach(var item in items)
@@ -81,11 +82,11 @@ void Start()
 void DropdownItemSelected(Dropdown dropdown)
 {
     int index = dropdown.value;
-     if(index==0)
+     if(index==1)
         {
             u_gender=0;
         }
-        if(index==1)
+        if(index==2)
         {
              u_gender=1;
         }

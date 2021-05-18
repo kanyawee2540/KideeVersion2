@@ -92,11 +92,19 @@ public class ShowScoreForMember : MonoBehaviour
          
         
         sumStar.text="มีดาวทั้งหมด "+(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
-        sumStar2.text=(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
+        Invoke("Star",2);
     // });
 
     }
-    
+    void Update()
+    {
+       // 
+       //Star();
+    }
+    public void Star() 
+    {
+        sumStar2.text=(GetMaxInchooseManu.maxStarkeepInorder+GetMaxInchooseManu.maxStarSpeaking+GetMaxInchooseManu.maxStarHelpOther+GetMaxInchooseManu.maxStarQueue)+" ดวง";
+    }
 
     public void CheckOlder() 
     {
