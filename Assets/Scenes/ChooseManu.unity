@@ -8408,7 +8408,7 @@ MonoBehaviour:
   nameText: {fileID: 1271663914}
   image: {fileID: 1861435743}
   sumStar: {fileID: 2022837186}
-  sumStar2: {fileID: 0}
+  sumStar2: {fileID: 241277990}
 --- !u!114 &1164261480
 MonoBehaviour:
   m_ObjectHideFlags: 0

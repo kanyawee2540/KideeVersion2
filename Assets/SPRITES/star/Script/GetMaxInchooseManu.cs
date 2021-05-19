@@ -30,7 +30,7 @@ public class GetMaxInchooseManu : MonoBehaviour
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
-        GetMaxscore();
+        //GetMaxscore();
     }
 
     // Update is called once per frame

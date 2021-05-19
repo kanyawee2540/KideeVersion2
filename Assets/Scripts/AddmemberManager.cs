@@ -472,6 +472,7 @@ public class AddmemberManager : MonoBehaviour
         // }
         nameIncheckList.RemoveAt(buttonName);
         nameOnTable.RemoveAt(buttonName);
+        nameList.RemoveAt(buttonName);
         
        
         for(int i=0;i<GetCount();i++){
@@ -630,12 +631,17 @@ public class AddmemberManager : MonoBehaviour
         string p4=passwordField4.text;
         string n =nameField.text;
 
-
+        
+       
         if(p1.Equals("")||p2.Equals("")||p3.Equals("")||p4.Equals("")||n.Equals("")){
                 checkHaveText.text= "โปรดกรอกข้อมูลให้ครบ";
                 Invoke("ClearErrorMessage", 3);
                 print("password and name");
-        } 
+        }else if(nameList.Contains(n)){
+                checkHaveText.text= "ชื่อนี้มีในระะบบแล้ว";
+                Invoke("ClearErrorMessage", 3);
+                print("nameซ้ำ");
+       }
         else
         { 
             passwordAddmemberbox.SetActive(true);
@@ -685,8 +691,7 @@ public class AddmemberManager : MonoBehaviour
         
     }
 
-     
-
+       
        public void CheckPasswordRemovemember()
     {
          //string p =""+passwordList[buttonName];
@@ -815,11 +820,16 @@ public class AddmemberManager : MonoBehaviour
             getPicMember(u.pic);
        if(!keyList.Contains(key)&&!key.Contains("User")){
             getKeyMember(key);
-        
+             
        
        }
        if(!nameOnTable.Contains(u.m_name)){
-           nameOnTable.Add(u.m_name);
+            nameOnTable.Add(u.m_name);
+            
+       }
+       if(!nameList.Contains(u.m_name)){
+            
+            nameList.Add(u.m_name);
        }
     
         Reset();
@@ -828,16 +838,16 @@ public class AddmemberManager : MonoBehaviour
     }
     // Update is called once per frame
    
-    public void dddddd(){
-    for(int i = 0 ; i < passwordList.Count; i++){
-         print("passwordList "+passwordList[i]);
+    public void tests(){
+    for(int i = 0 ;i < nameList.Count; i++){
+         print("nameList for add "+nameList[i]);
 
     }
      }
      void getNameMember(string name)
     {
 
-        nameList.Add(name);
+       
         nameList3.Add(name);
         
         //if(!name.Equals("")){

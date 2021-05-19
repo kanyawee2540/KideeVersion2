@@ -146,6 +146,7 @@ public class ShowScoreForMember : MonoBehaviour
         int showSpeaking = GetMaxInchooseManu.maxStarSpeaking;
         int showHelpOther = GetMaxInchooseManu.maxStarHelpOther;
         int showQueue= GetMaxInchooseManu.maxStarQueue;
+        print("score is "+showSpeaking);
 
 
 
