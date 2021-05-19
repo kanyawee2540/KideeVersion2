@@ -36,8 +36,22 @@ public class ShowScoreForMember : MonoBehaviour
      public GameObject starKeepInOrder1;
     public GameObject starKeepInOrder2;
     public GameObject starKeepInOrder3;
+
+    [Header("Menu")]
+    public GameObject Speaking1;
+    public GameObject Speaking2;
+    public GameObject Speaking3;
+    public GameObject Queue1;
+    public GameObject Queue2;
+    public GameObject Queue3;
+     public GameObject HelpOther1;
+    public GameObject HelpOther2;
+    public GameObject HelpOther3;
+     public GameObject KeepInOrder1;
+    public GameObject KeepInOrder2;
+    public GameObject KeepInOrder3;
     
-     [Header("UserData")]
+    [Header("UserData")]
     public Sprite sprite1;
     public Sprite sprite2;
     public Sprite sprite3;
@@ -70,6 +84,20 @@ public class ShowScoreForMember : MonoBehaviour
         starKeepInOrder1.SetActive(false);
         starKeepInOrder2.SetActive(false);
         starKeepInOrder3.SetActive(false);
+
+        //Menu
+        Speaking1.SetActive(false);
+        Speaking2.SetActive(false);
+        Speaking3.SetActive(false);
+        Queue1.SetActive(false);
+        Queue2.SetActive(false);
+        Queue3.SetActive(false);
+        HelpOther1.SetActive(false);
+        HelpOther2.SetActive(false);
+        HelpOther3.SetActive(false);
+        KeepInOrder1.SetActive(false);
+        KeepInOrder2.SetActive(false);
+        KeepInOrder3.SetActive(false);
         c=Int32.Parse(""+AddmemberManager.picList[AddmemberManager.buttonNameMember]);
         print("c:"+c);
         nameText.text="น้อง"+AddmemberManager.nameIncheckList[AddmemberManager.buttonNameMember];
@@ -157,17 +185,29 @@ public class ShowScoreForMember : MonoBehaviour
             starSpeaking1.SetActive(true);
             starSpeaking2.SetActive(true);
             starSpeaking3.SetActive(true);
+
+            Speaking1.SetActive(true);
+            Speaking2.SetActive(true);
+            Speaking3.SetActive(true);
             print("star3");
         }else if(showSpeaking==2){
             starSpeaking1.SetActive(true);
             starSpeaking2.SetActive(true);
             starSpeaking3.SetActive(false);
+
+            Speaking1.SetActive(true);
+            Speaking2.SetActive(true);
+            Speaking3.SetActive(false);
              print("star2");
             //nostar3.SetActive(true);
         }else if(showSpeaking==1){
             starSpeaking1.SetActive(true);
             starSpeaking2.SetActive(false);
             starSpeaking3.SetActive(false);
+
+            Speaking1.SetActive(true);
+            Speaking2.SetActive(false);
+            Speaking3.SetActive(false);
              print("star1");
             //nostar2.SetActive(true);
             //nostar3.SetActive(true);
@@ -175,6 +215,10 @@ public class ShowScoreForMember : MonoBehaviour
             starSpeaking1.SetActive(false);
             starSpeaking2.SetActive(false);
             starSpeaking3.SetActive(false);
+
+            Speaking1.SetActive(false);
+            Speaking2.SetActive(false);
+            Speaking3.SetActive(false);
              print("star0");
             //nostar1.SetActive(true);
             //nostar2.SetActive(true);
@@ -185,17 +229,29 @@ public class ShowScoreForMember : MonoBehaviour
             starKeepInOrder1.SetActive(true);
             starKeepInOrder2.SetActive(true);
             starKeepInOrder3.SetActive(true);
+
+            KeepInOrder1.SetActive(true);
+            KeepInOrder2.SetActive(true);
+            KeepInOrder3.SetActive(true);
             print("star3");
         }else if(showkeepInorder==2){
             starKeepInOrder1.SetActive(true);
             starKeepInOrder2.SetActive(true);
             starKeepInOrder3.SetActive(false);
+
+            KeepInOrder1.SetActive(true);
+            KeepInOrder2.SetActive(true);
+            KeepInOrder3.SetActive(false);
              print("star2");
             //nostar3.SetActive(true);
         }else if(showkeepInorder==1){
             starKeepInOrder1.SetActive(true);
             starKeepInOrder2.SetActive(false);
             starKeepInOrder3.SetActive(false);
+
+            KeepInOrder1.SetActive(true);
+            KeepInOrder2.SetActive(false);
+            KeepInOrder3.SetActive(false);
              print("star1");
             //nostar2.SetActive(true);
             //nostar3.SetActive(true);
@@ -203,6 +259,10 @@ public class ShowScoreForMember : MonoBehaviour
             starKeepInOrder1.SetActive(false);
             starKeepInOrder2.SetActive(false);
             starKeepInOrder3.SetActive(false);
+
+            KeepInOrder1.SetActive(false);
+            KeepInOrder2.SetActive(false);
+            KeepInOrder3.SetActive(false);
              print("star0");
             //nostar1.SetActive(true);
             //nostar2.SetActive(true);
@@ -213,17 +273,29 @@ public class ShowScoreForMember : MonoBehaviour
             starHelpOther1.SetActive(true);
             starHelpOther2.SetActive(true);
             starHelpOther3.SetActive(true);
+
+            HelpOther1.SetActive(true);
+            HelpOther2.SetActive(true);
+            HelpOther3.SetActive(true);
             print("star3");
         }else if(showHelpOther==2){
             starHelpOther1.SetActive(true);
             starHelpOther2.SetActive(true);
             starHelpOther3.SetActive(false);
+
+            HelpOther1.SetActive(true);
+            HelpOther2.SetActive(true);
+            HelpOther3.SetActive(false);
              print("star2");
             //nostar3.SetActive(true);
         }else if(showHelpOther==1){
             starHelpOther1.SetActive(true);
             starHelpOther2.SetActive(false);
             starHelpOther3.SetActive(false);
+
+            HelpOther1.SetActive(true);
+            HelpOther2.SetActive(false);
+            HelpOther3.SetActive(false);
              print("star1");
             //nostar2.SetActive(true);
             //nostar3.SetActive(true);
@@ -231,6 +303,10 @@ public class ShowScoreForMember : MonoBehaviour
             starHelpOther1.SetActive(false);
             starHelpOther2.SetActive(false);
             starHelpOther3.SetActive(false);
+
+            HelpOther1.SetActive(false);
+            HelpOther2.SetActive(false);
+            HelpOther3.SetActive(false);
              print("star0");
             //nostar1.SetActive(true);
             //nostar2.SetActive(true);
@@ -241,17 +317,29 @@ public class ShowScoreForMember : MonoBehaviour
             starQueue1.SetActive(true);
             starQueue2.SetActive(true);
             starQueue3.SetActive(true);
+
+            Queue1.SetActive(true);
+            Queue2.SetActive(true);
+            Queue3.SetActive(true);
             print("star3");
         }else if(showQueue==2){
             starQueue1.SetActive(true);
             starQueue2.SetActive(true);
             starQueue3.SetActive(false);
+
+             Queue1.SetActive(true);
+            Queue2.SetActive(true);
+            Queue3.SetActive(false);
              print("star2");
             //nostar3.SetActive(true);
         }else if(showQueue==1){
             starQueue1.SetActive(true);
             starQueue2.SetActive(false);
             starQueue3.SetActive(false);
+
+             Queue1.SetActive(true);
+            Queue2.SetActive(false);
+            Queue3.SetActive(false);
              print("star1");
             //nostar2.SetActive(true);
             //nostar3.SetActive(true);
@@ -259,6 +347,10 @@ public class ShowScoreForMember : MonoBehaviour
             starQueue1.SetActive(false);
             starQueue2.SetActive(false);
             starQueue3.SetActive(false);
+
+             Queue1.SetActive(false);
+            Queue2.SetActive(false);
+            Queue3.SetActive(false);
              print("star0");
             //nostar1.SetActive(true);
             //nostar2.SetActive(true);
