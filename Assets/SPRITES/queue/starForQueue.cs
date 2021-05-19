@@ -41,6 +41,8 @@ public class starForQueue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        memberurl = ""+RemoveMember.keyList[AddmemberManager.buttonNameMember];
+        print("member url is "+memberurl);
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
@@ -50,7 +52,7 @@ public class starForQueue : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
         DataSnapshot snapshot = task.Result;
-        s = snapshot.Child(AddmemberManager.buttonKey).Child("queueHistory").Value.ToString();
+        s = snapshot.Child(memberurl).Child("queueHistory").Value.ToString();
         history = Int32.Parse(s);
         history +=1;
 
@@ -67,12 +69,12 @@ public class starForQueue : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("queueHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
-        /*reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);*/
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Star").SetValueAsync(star);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("queueHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
+        /*reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);*/
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Star").SetValueAsync(star);
         goToMenu();
     }
     public void goToMenu(){
@@ -83,14 +85,14 @@ public class starForQueue : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("queueHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Star").SetValueAsync(star);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("queueHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Star").SetValueAsync(star);
             //push star in Max
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starQueue").SetValueAsync(SaveStar);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("starQueue").SetValueAsync(SaveStar);
     }
        public void Exit(){     //ออกโดยยังไม่ได้เล่น
     
@@ -98,12 +100,12 @@ public class starForQueue : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("queueHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Star").SetValueAsync(star);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("queueHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Star").SetValueAsync(star);
         Showscore();
     
     }
@@ -193,7 +195,7 @@ public class starForQueue : MonoBehaviour
             star_text.text = "0 ดาว";
         }                
         if(star>starInHis){
-            reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starQueue").SetValueAsync(star);
+            reference.Child(LoginManager.localId).Child(memberurl).Child("starQueue").SetValueAsync(star);
         }
     });
 

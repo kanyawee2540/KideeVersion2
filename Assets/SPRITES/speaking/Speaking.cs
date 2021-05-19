@@ -47,7 +47,7 @@ public class Speaking : MonoBehaviour
     {
         
 
-        memberurl = AddmemberManager.buttonKey;
+        memberurl = ""+RemoveMember.keyList[AddmemberManager.buttonNameMember];
         print("member url is "+memberurl);
         // winText1.SetActive(false);
         // winText2.SetActive(false);
@@ -148,12 +148,12 @@ public class Speaking : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("speakingHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("speakingHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Speaking").Child(His).Child("Star").SetValueAsync(star);
 
        
         goToMenu();

@@ -31,8 +31,11 @@ public class starForKeepInOrder : MonoBehaviour
     public GameObject nostar2;
     public GameObject nostar3;
     public Text m_score,m_fullScore,m_realScore,m_history;
+    public static string memberurl;
     void Start()
     {
+        memberurl = ""+RemoveMember.keyList[AddmemberManager.buttonNameMember];
+        print("member url is "+memberurl);
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
@@ -45,16 +48,16 @@ public class starForKeepInOrder : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
         DataSnapshot snapshot = task.Result;
-        s = snapshot.Child(AddmemberManager.buttonKey).Child("keepInorderHistory").Value.ToString();
+        s = snapshot.Child(memberurl).Child("keepInorderHistory").Value.ToString();
         history = Int32.Parse(s);
         history +=1;
         inToHis = "History"+history;
         //ก้อน full score//
-        fullScoreInHis = snapshot.Child(AddmemberManager.buttonKey).Child("keepInorderFullScore").Value.ToString();
+        fullScoreInHis = snapshot.Child(memberurl).Child("keepInorderFullScore").Value.ToString();
         fullScore = Int32.Parse(fullScoreInHis);
 
         //ก้อน score //
-        correctInHis = snapshot.Child(AddmemberManager.buttonKey).Child("KeepInorder").Child("ScoreForShowStarInTheEnd").Child("Correct").Value.ToString();
+        correctInHis = snapshot.Child(memberurl).Child("KeepInorder").Child("ScoreForShowStarInTheEnd").Child("Correct").Value.ToString();
         score = Int32.Parse(correctInHis);
 
 

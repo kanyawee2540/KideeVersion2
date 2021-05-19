@@ -26,10 +26,13 @@ public class tryQ2_2nd : MonoBehaviour
     public GameObject correctUIQ1;
 
         public Text m_MyText3;
+        public static string memberurl;
     //public GameObject inCorrectUI;
     // Start is called before the first frame update
     void Start()
     {
+        memberurl = ""+RemoveMember.keyList[AddmemberManager.buttonNameMember];
+        print("member url is "+memberurl);
         questionUIQ1.SetActive(true);
         correctUIQ1.SetActive(false);
         reference = FirebaseDatabase.DefaultInstance.RootReference;
@@ -38,10 +41,10 @@ public class tryQ2_2nd : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
         DataSnapshot snapshot = task.Result;
-        s = snapshot.Child(AddmemberManager.buttonKey).Child("queueHistory").Value.ToString();
+        s = snapshot.Child(memberurl).Child("queueHistory").Value.ToString();
         inToHis = "History"+s;
-        correctInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Correct").Value.ToString();
-        incorrectInHis = snapshot.Child(AddmemberManager.buttonKey).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();
+        correctInHis = snapshot.Child(memberurl).Child("Queue").Child(inToHis).Child("Correct").Value.ToString();
+        incorrectInHis = snapshot.Child(memberurl).Child("Queue").Child(inToHis).Child("Incorrect").Value.ToString();
         score = Int32.Parse(correctInHis);
         scoreIncorrect = Int32.Parse(incorrectInHis);
         history = Int32.Parse(s);
@@ -99,11 +102,11 @@ public class tryQ2_2nd : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("queueHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("queueHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
         goToMenu();
     }
     public void goToMenu(){
@@ -114,10 +117,10 @@ public class tryQ2_2nd : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("queueHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("queueHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("Queue").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
     }
 }
