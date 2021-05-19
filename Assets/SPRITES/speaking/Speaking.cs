@@ -47,7 +47,7 @@ public class Speaking : MonoBehaviour
     {
         
 
-        memberurl = AddmemberManager.memberURL1;
+        memberurl = AddmemberManager.buttonKey;
         print("member url is "+memberurl);
         // winText1.SetActive(false);
         // winText2.SetActive(false);

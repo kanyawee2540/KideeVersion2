@@ -46,7 +46,7 @@ public class profileUser : MonoBehaviour
            image1.GetComponent<Image>().sprite=sprite1;
             print("gender 1");
         }
-        nametext.text ="ครู"+ name1;
+        nametext.text = name1;
        // image.GetComponent<Image>().sprite=sprite1;
     }
       public void ChangeImg2()
@@ -60,7 +60,7 @@ public class profileUser : MonoBehaviour
            image2.GetComponent<Image>().sprite=sprite1;
             //print("gender 1");
         }
-        nametext2.text ="ครู"+ name1;
+        nametext2.text = name1;
 
        // image.GetComponent<Image>().sprite=sprite1;
     }
@@ -75,7 +75,7 @@ public class profileUser : MonoBehaviour
            image3.GetComponent<Image>().sprite=sprite1;
             //print("gender 1");
         }
-        nametext3.text ="ครู"+ name1;
+        nametext3.text = name1;
        // image.GetComponent<Image>().sprite=sprite1;
     }
      public void Profilemanu()
@@ -89,7 +89,7 @@ public class profileUser : MonoBehaviour
            image4.GetComponent<Image>().sprite=sprite1;
            // print("gender 1");
         }
-        nametext4.text ="ครู"+ name1;
+        nametext4.text = name1;
        // image.GetComponent<Image>().sprite=sprite1;
     }
 }
