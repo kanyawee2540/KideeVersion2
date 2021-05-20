@@ -40,7 +40,9 @@ public class AddmemberManager : MonoBehaviour
     public GameObject passwordAddmemberbox;
     public GameObject passwordRemovememberbox;
     public GameObject passwordLogoutbox;
+    public GameObject checkMemberPassword;
     public GameObject Addmemberbox;
+    public GameObject showPassword;
 
     [Header("Addmember")]
     public InputField nameField;
@@ -62,12 +64,14 @@ public class AddmemberManager : MonoBehaviour
     public InputField passwordAddField;
     public InputField passwordRemoveField;
     public InputField passwordLogoutField;
+    public InputField passwordCheckPasswordMember;
 
     public static string nameMember;
     public static string passwordMember;
     public Text checkTextPassUserAdd;
     public Text checkTextPassUserRemove;
     public Text checkTextPassUserLogout;
+    public Text checkTextToSeePasswordMember;
     
     public static ArrayList nameList = new ArrayList();
     public static ArrayList nameList2 = new ArrayList();
@@ -86,7 +90,7 @@ public class AddmemberManager : MonoBehaviour
     ArrayList keyList = new ArrayList();
 
     public static int count;
-    public string passwordUser;
+    public string passwordUser,pass;
     public static string buttonKey;
     public int buttonName; //ดูว่ากดปุ๋มลบไหน
     public static int buttonNameMember; //ดูว่ากดปุ๋มไหน
@@ -113,7 +117,10 @@ public class AddmemberManager : MonoBehaviour
     public Sprite sprite8;
      public Sprite sprite9;
     public GameObject checkPasswordImage; 
+    public GameObject seePasswordImage; 
     public Text checkPasswordName;
+    public Text showName;
+    public Text showPass;
 
     [Header("Add Remove Success")]
     public GameObject AddSuccessUI; 
@@ -578,46 +585,56 @@ public class AddmemberManager : MonoBehaviour
          int c=Int32.Parse(""+picList[buttonNameMember]);
            
          checkPasswordName.text=""+nameIncheckList[buttonNameMember];
+         showName.text=""+nameIncheckList[buttonNameMember];
     
         if(c==1)
 
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite1;
+            seePasswordImage.GetComponent<Image>().sprite=sprite1;
            // print("CheckPasswordImage "+c);
         }
         else  if(c==2)
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite2;
+             seePasswordImage.GetComponent<Image>().sprite=sprite2;
             //("CheckPasswordImage "+c);
         }
         else  if(c==3)
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite3;
+             seePasswordImage.GetComponent<Image>().sprite=sprite3;
             //print("CheckPasswordImage "+c);
         }
          else  if(c==4)
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite4;
+             seePasswordImage.GetComponent<Image>().sprite=sprite4;
         }
         else  if(c==5)
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite5;
+             seePasswordImage.GetComponent<Image>().sprite=sprite5;
         }
         else  if(c==6)
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite6;
+             seePasswordImage.GetComponent<Image>().sprite=sprite6;
         }
         else  if(c==7)
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite7;
+             seePasswordImage.GetComponent<Image>().sprite=sprite7;
         }
         else  if(c==8)
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite8;
+             seePasswordImage.GetComponent<Image>().sprite=sprite8;
         }
         else  if(c==9)
         {
             checkPasswordImage.GetComponent<Image>().sprite=sprite9;
+             seePasswordImage.GetComponent<Image>().sprite=sprite9;
         }
         
      
@@ -726,10 +743,25 @@ public class AddmemberManager : MonoBehaviour
          if(String.Equals(passwordUser,pf)){
             print("pass");
             passwordLogoutbox.SetActive(false);
-            SceneManager.LoadScene("Login");
 
          }else{
               checkTextPassUserLogout.text = "รหัสผ่านผิด";
+              Invoke("ClearErrorMessage", 3);
+              print("not pass");
+         } 
+    }
+            public void CheckPasswordForSeeMemberPass()
+    {
+         //string p =""+passwordList[buttonName];
+         string pf =passwordCheckPasswordMember.text;
+           // print("passwordUser " +passwordUser);
+         if(String.Equals(passwordUser,pf)){
+            print("pass");
+            passwordLogoutbox.SetActive(false);
+            showPassword.SetActive(true);
+
+         }else{
+              checkTextToSeePasswordMember.text = "รหัสผ่านผิด";
               Invoke("ClearErrorMessage", 3);
               print("not pass");
          } 
@@ -875,9 +907,14 @@ public class AddmemberManager : MonoBehaviour
     }
    void getpassswordMember(string password)
     {
+        pass = password;
 
         passwordList.Add(password);
+
            
+    }
+    public void getPassword(){
+        showPass.text = " "+pass;
     }
     void getPicMember(int pic)
     {

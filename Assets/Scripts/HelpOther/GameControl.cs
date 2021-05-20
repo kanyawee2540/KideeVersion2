@@ -55,14 +55,14 @@ public class GameControl : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
-
+        memberurl = ""+RemoveMember.keyList[AddmemberManager.buttonNameMember];
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         FirebaseApp.GetInstance("https://project-75a5c-default-rtdb.firebaseio.com/");
         
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
         DataSnapshot snapshot = task.Result;
-        s = snapshot.Child(AddmemberManager.buttonKey).Child("helpOtherHistory").Value.ToString();
+        s = snapshot.Child(memberurl).Child("helpOtherHistory").Value.ToString();
         history = Int32.Parse(s);
         history +=1;
 
@@ -157,12 +157,12 @@ public class GameControl : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("helpOtherHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("helpOtherHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
         goToMenu();
     }
         public void saveinEnd(){
@@ -170,14 +170,14 @@ public class GameControl : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("helpOtherHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("helpOtherHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
             //push star in Max
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starHelpOther").SetValueAsync(SaveStar);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("starHelpOther").SetValueAsync(SaveStar);
     Showscore();
     showStar();
     }
@@ -190,12 +190,12 @@ public class GameControl : MonoBehaviour
         DateTime now = DateTime.Now;
         string time = now.ToString("T");
         string His = "History"+history;
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("helpOtherHistory").SetValueAsync(history);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Date").SetValueAsync(day);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("helpOtherHistory").SetValueAsync(history);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Date").SetValueAsync(day);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Time").SetValueAsync(time);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Correct").SetValueAsync(score);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Incorrect").SetValueAsync(scoreIncorrect);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("HelpOther").Child(His).Child("Star").SetValueAsync(star);
         Showscore();
         showStar();
     
@@ -238,7 +238,6 @@ public class GameControl : MonoBehaviour
       
     {   
                 print("----------in showscore---------");  
-          memberurl = AddmemberManager.memberURL1;
            
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  

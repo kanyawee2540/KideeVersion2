@@ -20,6 +20,7 @@ public class profileUser : MonoBehaviour
     public GameObject image2;
     public GameObject image3;
     public GameObject image4;
+    public GameObject image5;
 
 
     public Button button;
@@ -29,6 +30,7 @@ public class profileUser : MonoBehaviour
     public Text nametext2;
     public Text nametext3;
     public Text nametext4;
+    public Text nametext5;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +92,20 @@ public class profileUser : MonoBehaviour
            // print("gender 1");
         }
         nametext4.text = name1;
+       // image.GetComponent<Image>().sprite=sprite1;
+    }
+         public void ChangeImg4()
+    {
+        name1=AddmemberManager.name;
+        gender=AddmemberManager.gender;
+        if(gender==0){
+            //print("gender 0");
+        image5.GetComponent<Image>().sprite=sprite0;
+        }else if(gender==1){
+           image5.GetComponent<Image>().sprite=sprite1;
+           // print("gender 1");
+        }
+        nametext5.text = name1;
        // image.GetComponent<Image>().sprite=sprite1;
     }
 }
