@@ -164,7 +164,7 @@ public class AddmemberManager : MonoBehaviour
         passwordUser = snapshot.Child("User").Child("password").Value.ToString();
         string s = snapshot.Child("User").Child("gender").Value.ToString();
         gender=Int32.Parse(s);
-        string s2 = snapshot.Child("User").Child("userName").Value.ToString();
+        string s2 = snapshot.Child("User").Child("username").Value.ToString();
         userEmail = snapshot.Child("User").Child("userEmail").Value.ToString();
         name=s2;
     });  
