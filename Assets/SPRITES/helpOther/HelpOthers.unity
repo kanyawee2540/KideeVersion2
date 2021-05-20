@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &32940796
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6974,8 +6974,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346323992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 308, y: -89, z: -4320}
-  m_LocalScale: {x: 22.6542, y: 22.6542, z: 22.6542}
+  m_LocalPosition: {x: 309.2, y: -69, z: -4320}
+  m_LocalScale: {x: 30.470514, y: 30.470514, z: 30.470514}
   m_Children: []
   m_Father: {fileID: 46886112}
   m_RootOrder: 2
@@ -7038,9 +7038,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346323992}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a88007876b5b5046b657dbf7f9bb7e7, type: 2}
+  m_Controller: {fileID: 9100000, guid: a9ada4b67b8f30647bf47aea6e7d32a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -30218,7 +30218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258.33002, y: 83.99999}
+  m_AnchoredPosition: {x: -254.33002, y: 108}
   m_SizeDelta: {x: 874.0336, y: 341.0182}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1653740779
@@ -34037,8 +34037,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837209366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -270, y: -60, z: -4320}
-  m_LocalScale: {x: 28.490831, y: 30.307255, z: 20.806637}
+  m_LocalPosition: {x: -248.2, y: -40.9, z: -4320}
+  m_LocalScale: {x: 42.811413, y: 45.540844, z: 31.264849}
   m_Children: []
   m_Father: {fileID: 1179928421}
   m_RootOrder: 1
@@ -34103,7 +34103,7 @@ Animator:
   m_GameObject: {fileID: 1837209366}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fffe027da0612d044ac08c3577d5d92e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 073e2a89a9fe5a04c9287a7e16536673, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -35922,7 +35922,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: 135}
+  m_AnchoredPosition: {x: -254, y: 159}
   m_SizeDelta: {x: 181.78586, y: 213.1673}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1929633483
