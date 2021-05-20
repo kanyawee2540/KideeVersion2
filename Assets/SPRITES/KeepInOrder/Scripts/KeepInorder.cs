@@ -190,7 +190,7 @@ public class KeepInorder : MonoBehaviour
 
 
         //push star in Max
-        reference.Child(LoginManager.localId).Child(AddmemberManager.buttonKey).Child("starKeepInorder").SetValueAsync(SaveStar);
+        reference.Child(LoginManager.localId).Child(memberurl).Child("starKeepInorder").SetValueAsync(SaveStar);
     Showscore();
     showStar();
     
@@ -249,7 +249,7 @@ public class KeepInorder : MonoBehaviour
 
 }
       public void Showscore()
-    {       memberurl = AddmemberManager.memberURL1;
+    {      
            
         FirebaseDatabase.DefaultInstance.GetReference(LoginManager.localId).GetValueAsync().ContinueWith(task => 
     {  
