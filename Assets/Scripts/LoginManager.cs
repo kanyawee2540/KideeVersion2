@@ -10,6 +10,7 @@ using Firebase;
 using Firebase.Auth;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
 
 public class LoginManager : MonoBehaviour
 {
@@ -102,8 +103,28 @@ void Start()
     
        public void SignInUserButton()
     {
-        SignInUser(emailLoginField.text, passwordLoginField.text);
+        string mail = emailLoginField.text;
+        if (EmailIsValid(mail))
+        {
+            SignInUser(emailLoginField.text, passwordLoginField.text);
+        }else{
+            //sign in with username
+        }
+        
          
+    }
+    public bool EmailIsValid(string email)
+    {
+        string expression = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+
+        if (Regex.IsMatch(email, expression))
+        {
+            if (Regex.Replace(email, expression, string.Empty).Length == 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     
     private void SignInUser(string email, string password)
