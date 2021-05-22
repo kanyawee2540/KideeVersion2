@@ -103,29 +103,10 @@ void Start()
     
        public void SignInUserButton()
     {
-        string mail = emailLoginField.text;
-        if (EmailIsValid(mail))
-        {
             SignInUser(emailLoginField.text, passwordLoginField.text);
-        }else{
-            //sign in with username
-        }
+    }
         
          
-    }
-    public bool EmailIsValid(string email)
-    {
-        string expression = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-
-        if (Regex.IsMatch(email, expression))
-        {
-            if (Regex.Replace(email, expression, string.Empty).Length == 0)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
     
     private void SignInUser(string email, string password)
     {   
