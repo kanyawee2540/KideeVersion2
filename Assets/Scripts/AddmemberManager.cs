@@ -743,6 +743,7 @@ public class AddmemberManager : MonoBehaviour
          if(String.Equals(passwordUser,pf)){
             print("pass");
             passwordLogoutbox.SetActive(false);
+             SceneManager.LoadScene("Login");
 
          }else{
               checkTextPassUserLogout.text = "รหัสผ่านผิด";
