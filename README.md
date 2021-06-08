@@ -9,4 +9,29 @@ A few simple resource that you can view
 * [Unity Documentation](https://docs.unity3d.com/560/Documentation/ScriptReference/index.html)
 * [Unity Firebase Tutorial](https://firebase.google.com/docs/database/unity/start)
 ## Directories tree
-├── build
+    
+    ├── .vscode                  
+    ├── Assets
+          ├── Animation
+          ├── CasualGameSounds
+          ├── Font
+          ├── Plugins
+          ├── SPRITES
+          ├── Scenes
+          ├── Scripts
+                 ├── KeepInOrder
+                 ├── Profilepic
+                 ├── helpOther
+                 ├── invoke
+                 ├── queue
+                 ├── speaking
+                 ├── star
+          ├── Source
+    ├── New folder (2)                 
+    ├── New folder            
+    ├── Packages              
+    ├── ProjectSettings                
+    └── README.md
+    
+## Installation
+
