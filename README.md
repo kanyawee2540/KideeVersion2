@@ -38,10 +38,10 @@ A few simple resource that you can view
 * [Install - Unity Hub](https://unity3d.com/get-unity/download)
 * [Install - BlueStacks (to install apk and simulate playing on a tablet)](https://www.bluestacks.com/th/index.html)
 ## Installation
-### Open in Unity
+#### Open in Unity
 1.Clone repository
 ``` bash
-
+git clone https://github.com/kanyawee2540/KideeVersion2.git
 ```
 2.
 
