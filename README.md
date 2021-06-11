@@ -36,8 +36,9 @@ A few simple resource that you can view
 ## Prerequisite
 * [Install - Uniny version 2019.4.20f1 (64-bit)for Windows](https://unity3d.com/get-unity/download/archive)
 * [Install - Unity Hub](https://unity3d.com/get-unity/download)
-* [Install - BlueStacks(to install apk and simulate playing on a tablet](https://www.bluestacks.com/th/index.html)
+* [Install - BlueStacks (to install apk and simulate playing on a tablet)](https://www.bluestacks.com/th/index.html)
 ## Installation
+### Open in Unity
 1.Clone repository
 ``` bash
 
